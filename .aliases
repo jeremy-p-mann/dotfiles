@@ -1,0 +1,30 @@
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias la="ls -a"
+
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gpom="git push origin master"
+alias gg="git graph"
+
+alias v="vim"
+
+alias jl="jupyter lab"
+
+alias python='python3'
+alias pip='pip3'
+
+alias cdd='cd ~/Documents'
+alias cdp='cd ~/Documents/programs'
+alias cdjob='cd ~/Documents/job_applications'
+alias cdds='cd ~/Documents/data-science-projects'
+alias cdph='cd ~/Documents/programs/homcv'
+alias cdpj='cd ~/Documents/programs/jers_ml_tools'
+alias cdw='cd ~/Documents/writing'
+
+alias firefox="open -a 'firefox'"
