@@ -13,7 +13,7 @@ alias gpom="git push origin master"
 alias gg="git graph"
 
 alias v="vim"
-
+alias vtd="vim to-do.md"
 alias jl="jupyter lab"
 
 alias python='python3'
@@ -26,5 +26,6 @@ alias cdds='cd ~/Documents/data-science-projects'
 alias cdph='cd ~/Documents/programs/homcv'
 alias cdpj='cd ~/Documents/programs/jers_ml_tools'
 alias cdw='cd ~/Documents/writing'
+alias cddd='cd ~/Documents/dotfiles'
 
 alias firefox="open -a 'firefox'"
