@@ -1,0 +1,6 @@
+[user]
+	name = Jeremy Mann
+	email = jmann277@gmail.com
+[alias]
+    s = status
+    graph = "log --all --graph --decorate --oneline"
