@@ -19,6 +19,8 @@ alias jl="jupyter lab"
 alias python='python3'
 alias pip='pip3'
 
+alias pr='pipenv run'
+
 alias cdd='cd ~/Documents'
 alias cdp='cd ~/Documents/programs'
 alias cdjob='cd ~/Documents/job_applications'
