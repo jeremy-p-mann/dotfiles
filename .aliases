@@ -25,7 +25,7 @@ alias cdjob='cd ~/Documents/job_applications'
 alias cdds='cd ~/Documents/data-science-projects'
 alias cdph='cd ~/Documents/programs/homcv'
 alias cdpj='cd ~/Documents/programs/jers_ml_tools'
-alias cdw='cd ~/Documents/writing'
+alias cdw='cd ~/Documents/writing/docs'
 alias cddd='cd ~/Documents/dotfiles'
 
 alias firefox="open -a 'firefox'"
