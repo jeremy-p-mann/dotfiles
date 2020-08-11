@@ -13,6 +13,7 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gpob='git push origin $(git branch --show-current)'
 alias gg="git graph"
+alias gr="git restore"
 
 alias v="vim"
 alias vtd="vim to-do.md"
