@@ -70,6 +70,8 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>	
 
+" Make html with sphinx--must be in docs folder
+nnoremap <silent> <leader>m :! make html<CR>
 
 call plug#begin('~/.vim/plugged')
 
