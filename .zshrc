@@ -9,8 +9,8 @@ NEWLINE=$'\n'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='${PWD/#$HOME/~} ${NEWLINE}> '
-RPROMPT=\$vcs_info_msg_0_
+PROMPT='%F{10}%~${NEWLINE}> %f' 
+RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.aliases ] && source ~/.aliases
