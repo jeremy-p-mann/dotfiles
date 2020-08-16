@@ -12,6 +12,8 @@ setopt PROMPT_SUBST
 PROMPT='%F{10}%~${NEWLINE}> %f' 
 RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
+autoload -Uz compinit && compinit
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 
