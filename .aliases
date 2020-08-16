@@ -6,7 +6,7 @@ alias la="ls -a"
 
 alias sb="source ~/.bash_profile"
 alias sbrc="source ~/.bashrc"
-alias sfzf="source ~/.fzf.bash"
+alias szrc="source ~/.zshrc"
 
 alias g="git"
 alias gs="git status"
@@ -45,4 +45,7 @@ alias firefox="open -a 'firefox'"
 alias t1="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
+alias t1a="tree -L 1 -a"
+alias t2a="tree -L 2 -a"
+alias t3a="tree -L 3 -a"
 
