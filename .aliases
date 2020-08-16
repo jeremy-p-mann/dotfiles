@@ -2,7 +2,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-alias la="ls -a"
+alias la="ls -A"
 
 alias sb="source ~/.bash_profile"
 alias sbrc="source ~/.bashrc"
