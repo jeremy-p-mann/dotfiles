@@ -1,8 +1,10 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias back="cd $OLDPWD"
 
 alias la="ls -A"
+alias ld="ls -d */"
 
 alias sb="source ~/.bash_profile"
 alias sbrc="source ~/.bashrc"
@@ -41,6 +43,7 @@ alias cddd='cd ~/Documents/dotfiles'
 alias cdPc='cd ~/Documents/Programming_Notes/cpp/'
 
 alias firefox="open -a 'firefox'"
+alias showdocs="open -a 'firefox' build/html/index.html"
 
 alias t1="tree -L 1"
 alias t2="tree -L 2"
@@ -48,4 +51,9 @@ alias t3="tree -L 3"
 alias t1a="tree -L 1 -a"
 alias t2a="tree -L 2 -a"
 alias t3a="tree -L 3 -a"
+alias t1d="tree -L 1 -d"
+alias t2d="tree -L 2 -d"
+alias t3d="tree -L 3 -d"
+
+
 
