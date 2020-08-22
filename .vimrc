@@ -78,6 +78,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
+
+let g:airline#extensions#branch#enabled=1
+let g:airline_theme='deus'
+let g:airline_section_z = ''
+let g:airline_section_y = ''
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
 
