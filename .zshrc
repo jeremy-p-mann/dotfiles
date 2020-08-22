@@ -14,9 +14,7 @@ RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
 autoload -Uz compinit && compinit
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.aliases ] && source ~/.aliases
-
 bindkey -v
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
