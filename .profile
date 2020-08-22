@@ -1,13 +1,14 @@
 
-if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
+if [ -n "$BASH" ] && [ -r ~/.bashrc ] && [ -r ~/.fzf.bash ]; then
     . ~/.bashrc
+    . ~/.fzf.bash
 fi
 
-if [ -n "$ZSH_VERSION" ] && [ -r ~/.zshrc ]; then
+if [ -n "$ZSH_VERSION" ] && [ -r ~/.zshrc ] && [ -r ~/.fzf.zsh ]; then
     . ~/.zshrc
+    . ~/.fzf.zsh
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 
 export CLICOLOR=1
