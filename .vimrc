@@ -76,14 +76,22 @@ nnoremap <silent> <leader>m :w<CR> :! make html<CR> <CR>
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+Plug 'gruvbox-community/gruvbox'
+
 call plug#end()
 
+" AIRLINE
 let g:airline#extensions#branch#enabled=1
 let g:airline_theme='deus'
 let g:airline_section_z = ''
@@ -91,3 +99,16 @@ let g:airline_section_y = ''
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
 
+" LIMELIGHT/Goyo
+
+let g:limelight_conceal_ctermfg = 'DarkGray'
+let g:limelight_default_coefficient = 0.1
+
+nnoremap <Leader>l :Limelight <CR>
+nnoremap <Leader>g :Goyo <CR>
+
+
+
+" Gruvbox 
+colorscheme gruvbox
+set background=dark
