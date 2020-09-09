@@ -1,3 +1,4 @@
+" Jeremy Mann's .vimrc
 set number
 set ai " autoindent
 set relativenumber
@@ -88,6 +89,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
@@ -107,8 +109,9 @@ let g:limelight_default_coefficient = 0.1
 nnoremap <Leader>l :Limelight <CR>
 nnoremap <Leader>g :Goyo <CR>
 
-
-
 " Gruvbox 
+let g:gruvbox_italicize_comments = 0
+let g:gruvbox_contrast_dark = 'hard'
+
 colorscheme gruvbox
 set background=dark

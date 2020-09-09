@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/jeremymann/Documents/concertai/judith_meetings'
+let g:netrw_dirhist_8='/Users/jeremymann/.task/hooks'
 let g:netrw_dirhist_7='/Users/jeremymann/.matplotlib'
 let g:netrw_dirhist_6='/Users/jeremymann/Documents/dotfiles/.config'
 let g:netrw_dirhist_5='/Users/jeremymann/Documents/dotfiles/.config/alacritty'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_3='/Users/jeremymann/.config'
 let g:netrw_dirhist_2='/Users/jeremymann/Documents/programs/jers_ml_tools/tests'
 let g:netrw_dirhist_1='/Applications'
 let g:netrw_dirhist_0='/Users/jeremymann/Documents/Programming_Notes/sample_libraries/pymc3/notebooks'
-let g:netrw_dirhist_9='/Users/jeremymann/Documents/programs/homcv/docs/source/tutorials'
-let g:netrw_dirhist_8='/Users/jeremymann/Documents/writing/docs/source/math/information_theory'
