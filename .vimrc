@@ -34,6 +34,9 @@ nnoremap : ;
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+" dturn on spell check
+nnoremap <silent> <leader>s :set spell!<CR>
+
 " make moving windows easier
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -89,7 +92,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
