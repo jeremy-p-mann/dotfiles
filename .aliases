@@ -1,6 +1,6 @@
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias 2.="cd ../.."
+alias 3.="cd ../../.."
 alias back="cd $OLDPWD"
 
 alias la="ls -A"
@@ -39,8 +39,10 @@ alias cdcrc='cd ~/Documents/data-science-projects/colorectal_cancer_project'
 alias cdph='cd ~/Documents/programs/homcv'
 alias cdpj='cd ~/Documents/programs/jers_ml_tools'
 alias cdw='cd ~/Documents/writing/docs'
-alias cddd='cd ~/Documents/dotfiles'
+alias cddot='cd ~/Documents/dotfiles'
 alias cdPc='cd ~/Documents/Programming_Notes/cpp/'
+alias cdt='cd ~/Documents/travel/docs'
+alias cdc='cd ~/Documents/concertai'
 
 alias firefox="open -a 'firefox'"
 alias showdocs="open -a 'firefox' build/html/index.html"
@@ -55,5 +57,11 @@ alias t1d="tree -L 1 -d"
 alias t2d="tree -L 2 -d"
 alias t3d="tree -L 3 -d"
 
-
-
+# TaskWarrior
+alias t="task"
+alias ta="task add"
+alias td="task done"
+alias te="task edit"
+alias tl="task list"
+alias tm="task modify"
+alias tb="task burndown"

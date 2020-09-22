@@ -1,3 +1,6 @@
+# Zsh to use the same colors as ls
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
