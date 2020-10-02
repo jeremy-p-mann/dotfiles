@@ -20,7 +20,7 @@ alias gg="git graph"
 alias gr="git restore"
 alias gb="git branch"
 
-alias v="vim"
+alias v="nvim"
 alias vtd="vim to-do.md"
 
 alias jl="jupyter lab"
@@ -31,7 +31,8 @@ alias pip='pip3'
 alias pr='pipenv run'
 
 alias cdd='cd ~/Documents'
-alias cdp='cd ~/Documents/programs'
+alias cdp='cd ~/Documents/personal_health'
+alias cdpr='cd ~/Documents/programs'
 alias cdP='cd ~/Documents/Programming_notes'
 alias cdj='cd ~/Documents/job_applications'
 alias cdds='cd ~/Documents/data-science-projects'
@@ -45,6 +46,9 @@ alias cdt='cd ~/Documents/travel/docs'
 alias cdc='cd ~/Documents/concertai'
 
 alias firefox="open -a 'firefox'"
+alias obs="open -a 'obs'"
+alias weather="curl wttr.in -s | head -n 37"
+
 alias showdocs="open -a 'firefox' build/html/index.html"
 
 alias t1="tree -L 1"
