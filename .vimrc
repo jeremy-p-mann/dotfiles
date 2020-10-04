@@ -109,6 +109,7 @@ let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_default_coefficient = 0.1
 
 nnoremap <Leader>l :Limelight <CR>
+nnoremap <Leader>L :Limelight! <CR>
 nnoremap <Leader>g :Goyo <CR>
 
 " Gruvbox 
