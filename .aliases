@@ -14,6 +14,7 @@ alias g="git"
 alias gs="git status"
 alias ga="git add"
 alias gc="git checkout"
+alias gd='git diff'
 alias gcm="git commit -m"
 alias gpob='git push origin $(git branch --show-current)'
 alias gg="git graph"
@@ -31,7 +32,6 @@ alias pip='pip3'
 alias pr='pipenv run'
 
 alias cdd='cd ~/Documents'
-alias cdp='cd ~/Documents/personal_health'
 alias cdpr='cd ~/Documents/programs'
 alias cdP='cd ~/Documents/Programming_notes'
 alias cdj='cd ~/Documents/job_applications'
@@ -44,6 +44,9 @@ alias cddot='cd ~/Documents/dotfiles'
 alias cdPc='cd ~/Documents/Programming_Notes/cpp/'
 alias cdt='cd ~/Documents/travel/docs'
 alias cdc='cd ~/Documents/concertai'
+alias cddbt='cd ~/Documents/dbt/'
+
+alias cdp='cd ~/Documents/personal_health'
 
 alias firefox="open -a 'firefox'"
 alias obs="open -a 'obs'"
@@ -69,3 +72,6 @@ alias te="task edit"
 alias tl="task list"
 alias tm="task modify"
 alias tb="task burndown"
+
+# Date stuff
+alias datetime='date +%Y-%m-%dT%H:%M:%S%Z'
