@@ -5,9 +5,9 @@ set relativenumber
 set title
 set noswapfile
 syntax enable
-set tabstop=4 softtabstop=4
-set expandtab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set smartindent
+set nohlsearch
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
@@ -75,7 +75,9 @@ vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>	
 
 " Make html with sphinx--must be in docs folder
-nnoremap <silent> <leader>c :w<CR> :silent ! make html<CR> <CR>
+nnoremap <silent> <leader>c :w<CR> :silent ! make html<CR> 
+
+nnoremap <silent> <leader>t :w<CR> :! pytest
 
 call plug#begin('~/.vim/plugged')
 
