@@ -48,7 +48,7 @@ map H ^
 map L $
 
 " Control F for fuzzy file finder
-nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-t> :Files<CR>
 
 " Remove crutches in Command Mode
 cnoremap <Down> <Nop>
