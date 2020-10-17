@@ -86,8 +86,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/goyo.vim'
