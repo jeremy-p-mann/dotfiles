@@ -10,6 +10,8 @@ alias sb="source ~/.bash_profile"
 alias sbrc="source ~/.bashrc"
 alias szrc="source ~/.zshrc"
 
+alias lam="lookatme"
+alias asc="asciiquarium"
 alias g="git"
 alias gs="git status"
 alias ga="git add"
@@ -23,6 +25,11 @@ alias gb="git branch"
 
 alias v="nvim"
 alias vtd="vim to-do.md"
+
+alias tmas="tmux attach-session -t"
+alias tmns="tmux new-session -s"
+alias tmls="tmux list-sessions"
+alias tmks="tmux kill-session -t"
 
 alias jl="jupyter lab"
 
@@ -41,12 +48,12 @@ alias cdph='cd ~/Documents/programs/homcv'
 alias cdpj='cd ~/Documents/programs/jers_ml_tools'
 alias cdw='cd ~/Documents/writing/docs'
 alias cddot='cd ~/Documents/dotfiles'
-alias cdPc='cd ~/Documents/Programming_Notes/cpp/'
 alias cdt='cd ~/Documents/travel/docs'
 alias cdc='cd ~/Documents/concertai'
 alias cddbt='cd ~/Documents/dbt/'
-
 alias cdp='cd ~/Documents/personal_health'
+
+
 
 alias firefox="open -a 'firefox'"
 alias obs="open -a 'obs'"
