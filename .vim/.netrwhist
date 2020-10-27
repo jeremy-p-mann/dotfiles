@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/jeremymann/Documents/finances'
 let g:netrw_dirhist_1='/Users/jeremymann/.ipython/profile_default'
 let g:netrw_dirhist_0='/Users/jeremymann/.ipython'
 let g:netrw_dirhist_9='/Users/jeremymann/Documents/dbt/data/diary_cards'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_6='/Users/jeremymann/Documents/personal_health/data/orthosta
 let g:netrw_dirhist_5='/Users/jeremymann/Documents/personal_health/data'
 let g:netrw_dirhist_4='/Users/jeremymann/Documents/dbt/data/diary_cards'
 let g:netrw_dirhist_3='/Users/jeremymann/Documents/dotfiles/sample_dotfiles/awesome-streamerrc'
-let g:netrw_dirhist_2='/Users/jeremymann/Documents/dotfiles/sample_dotfiles/voidrice/.config/zsh'
