@@ -35,7 +35,11 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 " dturn on spell check
-nnoremap <silent> <leader>s :set spell!<CR>
+nnoremap <silent> <leader>sp :set spell!<CR>
+
+" resize windows
+nnoremap <silent> <leader>k :resize +5<CR>
+nnoremap <silent> <leader>j :resize -5<CR>
 
 " make moving windows easier
 nnoremap <C-h> <C-w>h
@@ -47,7 +51,7 @@ nnoremap <C-l> <C-w>l
 map H ^
 map L $
 
-" Control F for fuzzy file finder
+" Control t for fuzzy file finder
 nnoremap <silent> <C-t> :Files<CR>
 
 " Remove crutches in Command Mode
@@ -76,8 +80,14 @@ vnoremap <Up> <Nop>
 
 " Make html with sphinx--must be in docs folder
 nnoremap <silent> <leader>c :w<CR> :silent ! make html<CR> 
+nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.html<CR> 
 
-nnoremap <silent> <leader>t :w<CR> :! pytest
+" Typing and testing
+nnoremap <silent> <leader>mp :w<CR> :! mypy %
+nnoremap <silent> <leader>pt :w<CR> :! pytest
+
+nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
+nnoremap <silent> <leader>dc :w <CR> :YcmCompleter GoToDeclaration<CR>
 
 call plug#begin('~/.vim/plugged')
 
@@ -85,6 +95,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+Plug 'SirVer/ultisnips'
 
 Plug 'tpope/vim-fugitive'
 
@@ -95,16 +107,14 @@ Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
-" AIRLINE
-let g:airline#extensions#branch#enabled=1
-let g:airline_theme='deus'
-let g:airline_section_z = ''
-let g:airline_section_y = ''
-let g:airline_section_error = ''
-let g:airline_section_warning = ''
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " LIMELIGHT/Goyo
-
 let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_default_coefficient = 0.1
 
