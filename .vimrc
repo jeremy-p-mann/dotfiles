@@ -89,6 +89,9 @@ nnoremap <silent> <leader>pt :w<CR> :! pytest
 nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
 nnoremap <silent> <leader>dc :w <CR> :YcmCompleter GoToDeclaration<CR>
 
+" Snippets
+nnoremap <silent> <leader>sn :Snippets<CR>
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -108,11 +111,9 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " LIMELIGHT/Goyo
 let g:limelight_conceal_ctermfg = 'DarkGray'
