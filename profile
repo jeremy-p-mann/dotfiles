@@ -2,7 +2,8 @@
 
 
 export CLICOLOR=1
-export EDITOR="vim"
+export EDITOR="nvim"
 
 
+[ -r ~/.config/bash/bashrc ] && source ~/.config/bash/bashrc
 
