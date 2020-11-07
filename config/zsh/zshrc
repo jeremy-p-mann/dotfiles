@@ -15,6 +15,8 @@ setopt PROMPT_SUBST
 PROMPT='%F{10}%~${NEWLINE}> %f' 
 RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
+source ~/.config/aliases
+
 autoload -Uz compinit && compinit
 
 bindkey -v
