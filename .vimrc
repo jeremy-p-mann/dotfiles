@@ -1,4 +1,4 @@
-" Jeremy Mann's .vimrc
+"  Jeremy Mann's .vimrc
 set number
 set ai " autoindent
 set relativenumber
@@ -83,8 +83,8 @@ nnoremap <silent> <leader>c :w<CR> :silent ! make html<CR>
 nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.html<CR> 
 
 " Typing and testing
-nnoremap <silent> <leader>mp :w<CR> :! mypy %
-nnoremap <silent> <leader>pt :w<CR> :! pytest
+nnoremap <silent> <leader>mp :w<CR> :! mypy %<CR>
+nnoremap <silent> <leader>pt :w<CR> :!pytest<CR>
 
 nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
 nnoremap <silent> <leader>dc :w <CR> :YcmCompleter GoToDeclaration<CR>
@@ -94,18 +94,24 @@ nnoremap <silent> <leader>sn :Snippets<CR>
 
 call plug#begin('~/.vim/plugged')
 
+" File Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Completions/Snippets
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
 Plug 'SirVer/ultisnips'
+
+" Linters/Fixers
+Plug 'dense-analysis/ale'
 
 Plug 'tpope/vim-fugitive'
 
+" Nice Viewing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+" Color Schemes
 Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
@@ -119,13 +125,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_default_coefficient = 0.1
 
-nnoremap <Leader>l :Limelight <CR>
-nnoremap <Leader>L :Limelight! <CR>
-nnoremap <Leader>g :Goyo <CR>
+nnoremap <silent> <leader>l :Limelight <CR>
+nnoremap <silent> <leader>L :Limelight! <CR>
+nnoremap <silent> <leader>g :Goyo <CR>
 
 " Gruvbox 
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_contrast_dark = 'hard'
-
 colorscheme gruvbox
 set background=dark
+
+" Ale
+let g:ale_linters = {'python': ['flake8', 'mypy']}
