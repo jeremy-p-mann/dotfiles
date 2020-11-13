@@ -89,6 +89,9 @@ nnoremap <silent> <leader>pt :w<CR> :!pytest<CR>
 nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
 nnoremap <silent> <leader>dc :w <CR> :YcmCompleter GoToDeclaration<CR>
 
+" Linting
+nnoremap <silent> <leader>lt :ALEToggle <CR>
+
 " Snippets
 nnoremap <silent> <leader>sn :Snippets<CR>
 
