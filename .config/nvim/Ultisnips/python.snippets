@@ -1,0 +1,82 @@
+snippet shebang "shebang #!"
+#!/usr/local/bin/python3
+endsnippet
+
+
+snippet importds "Import pd np plt"
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+endsnippet
+
+snippet fixture "pytest fixture"
+@pytest.fixture
+def $1($2):
+    # TODO make $1 fixture
+    return $1
+endsnippet
+
+snippet test "pytest test function"
+def test_$1(fixture):
+    #TODO write test
+    assert 0 == 1
+endsnippet
+
+snippet loadyaml "load yaml"
+with open("$1", 'r') as stream:
+    try:
+        yaml.safe_load(stream)
+    except yaml.YAMLError as exc:
+        print(exc)
+endsnippet
+
+snippet function "def .. return function"
+def $1($2):
+    # TODO write $1
+    pass
+endsnippet
+
+# Data Science Stuff
+
+# Matplotlib
+
+snippet figure "matplotlib figure"
+fig = plt.figure(figsize=(10, 10))
+ax = plt.axes()
+
+$7
+
+ax.set(
+    xlim=${2:None},
+    ylim=${3:None},
+    xlabel='$4',
+    ylabel='$5',
+    title='$6'
+)
+
+fig.savefig('${1:figure_name}.png')
+endsnippet
+
+snippet subplots "matplotlib subplots"
+fig, ax = plt.subplots(${1:n_rows}, ${2:n_columns})
+endsnippet
+
+snippet plot "matplotlib plot"
+${1:ax}.plot(
+    ${2:x_axis},
+    ${3:y_axis},
+)
+endsnippet
+
+snippet scatter "matplotlib scatter"
+${1:ax}.scatter(
+    ${2:x_axis},
+    ${3:y_axis},
+    marker='${4:o}',
+    c=${5:None}, # color values of each dot
+    s=${6:None}, # sizes of each dot
+    alpha=${7:1}, # opacity of dots
+    cmap=${8:'BrBG'} # color map
+)
+endsnippet

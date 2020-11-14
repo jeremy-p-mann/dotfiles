@@ -1,0 +1,51 @@
+snippet shebang "shebang"
+#!/bin/sh
+endsnippet
+
+# Conditionals
+snippet ifthenconditional "bash conditional"
+if [ -f ${1:condional} ] 
+then
+    ${2:command}
+else
+    ${3:command}
+fi
+endsnippet
+
+# for loops
+snippet forloop "bash for loop"
+for ${1:variable} in ${2:list}
+do
+    ${3:command}
+done
+endsnippet
+
+# TMUX 
+
+snippet tmnewsession "tmux new session"
+tmux new-session -s ${1:SESSION} -d -n ${2:WINDOW} 
+endsnippet
+
+snippet tmnewwindow "tmux new window"
+tmux new-window -t ${1:SESSION} -d -n ${2:WINDOW}
+endsnippet
+
+snippet tmsendcommand "tmux send command"
+tmux send-keys -t ${1:SESSION}:${2:WINDOW} "${3:COMMAND}" Enter
+endsnippet
+
+snippet tmworkstation "tmux workstation script"
+tmux has-session -t ${1:SESSION}
+
+if [$? = 1]
+then 
+    tmux new-session -s $1 -d -n ${2:WINDOW} 
+    tmux new-window -t $2 -d -n ${3:WINDOW2} 
+
+    tmux send-keys -t $1:$2 "${4:COMMAND}" Enter
+
+    tmux -u attach -t $1
+else
+    tmux -u attach -t $1
+fi
+endsnippet
