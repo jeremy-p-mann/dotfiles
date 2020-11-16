@@ -86,8 +86,9 @@ nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.h
 nnoremap <silent> <leader>mp :w<CR> :! mypy %<CR>
 nnoremap <silent> <leader>pt :w<CR> :!pytest<CR>
 
+" AutoComplete
 nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
-nnoremap <silent> <leader>dc :w <CR> :YcmCompleter GoToDeclaration<CR>
+nnoremap <silent> <leader><tab> :YcmCompleter GetDoc<CR> 
 
 " Linting
 nnoremap <silent> <leader>lt :ALEToggle <CR>
@@ -120,7 +121,7 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -128,9 +129,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_default_coefficient = 0.1
 
-nnoremap <silent> <leader>l :Limelight <CR>
-nnoremap <silent> <leader>L :Limelight! <CR>
+nnoremap <silent> <leader>li :Limelight <CR>
+nnoremap <silent> <leader>LI :Limelight! <CR>
 nnoremap <silent> <leader>g :Goyo <CR>
+
+" YCM
+
 
 " Gruvbox 
 let g:gruvbox_italicize_comments = 0
