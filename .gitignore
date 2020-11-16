@@ -131,4 +131,5 @@ dmypy.json
 to-do.md
 sample_dotfiles/
 .config/zsh/.zcompdump
+.config/zsh/zsh_history
 
