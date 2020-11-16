@@ -1,12 +1,12 @@
 
 if [ -n "$BASH" ] && [ -r ~/.bashrc ] && [ -r ~/.fzf.bash ]; then
     . ~/.bashrc
-    . ~/.fzf.bash
+    . ~/.config/fzf/fzf.bash
 fi
 
 if [ -n "$ZSH_VERSION" ] && [ -r ~/.zshrc ] && [ -r ~/.fzf.zsh ]; then
     . ~/.zshrc
-    . ~/.fzf.zsh
+    . ~/.config/fzf/fzf.zsh
 fi
 
 [ -f ~/.aliases ] && source ~/.aliases
