@@ -1,0 +1,140 @@
+task
+td 45
+task pro:dot
+cd .config
+mkdir zsh
+touch zsh/zsh_history
+source .profile
+rm .zsh_history
+la
+echo $HISTFILE
+brew search docker
+brew install docker
+cddot
+v .zshrc
+source .zprofile
+cd
+history
+cat .config/zsh/zsh_history
+ls
+tree
+cat Pipfile
+jl
+v workstation_oura.sh
+w
+python3 ouranal/wrangle.py 
+jupyter lab
+cdd
+jl
+mkdir ouranal
+cd ouranal
+v wrangle.py
+gs 
+gd ../Pipfile
+..
+gd ouranal/
+ls ouranal
+ga ouranal/
+gcm 'add data wrangler class'
+gg
+gs
+ga notebooks/;gcm 'add wrangle dev notebooks'
+la
+rm -r .ipynb_checkpoints
+v __init__.py
+ls
+v ouranal/__init__.py 
+v ouranal/wrangle.py 
+v ouranal/correlations.py
+tree
+cd ../../temp
+mkdir streamlit
+pip install streamlit
+v app.py
+streamlit run app.py
+v app.py 
+cdpr
+cd oura
+v ouranal/dashboard.py
+ga ouranal/dashboard.py; gcm 'add minimal dashboard'
+ga ouranal/dashboard.py; gcm 'add begin/end date to dashboard'
+v README.md
+cat tests/
+cat tests/*
+ga tests/;gcm 'add wrangle tests'
+ga ouranal/__init__.py; gcm 'add __init__ to scripts'
+rm figure_name.png
+ls
+ga Pipefile*
+ga Pipfile Pipfile.lock
+gcm 
+pipenv uninstall qgrid
+gcm 'add streamlit and pyyaml to pipenv'
+gd Pipfile
+gs
+ga ouranal/dashboard.py; gcm 'add sidebar to dashboard'
+v ouranal/dashboard.py 
+cd ../../temp
+ls
+streamlit run app.py
+cdpr
+cd oura
+streamlit ouranal/dashboard.py 
+streamlit run ouranal/dashboard.py 
+cd homcv
+v tests/context.py 
+cd ../oura
+touch ouranal/__init__.py
+cd tests
+ls
+..
+v ouranal/wrangle.py 
+pytest
+tree
+ipython
+v to-do.md
+v README.md
+gd ouranal/dashboard.py 
+ga ouranal/dashboard.py; gcm 'add correlation plot'
+v ouranal/wrangle.py 
+gd ouranal/wrangle.py 
+ga ouranal/wrangle.py 
+gcm 'add new Data class for wrangle'
+gs
+ls
+v workstation_oura.sh
+v new_columns.yml
+l
+..
+tree
+pipenv install streamlit
+pipenv install yaml
+pip list | fzf
+pipenv install pyyaml
+cat Pipfile
+pipenv run streamlit run ouranal/dashboard.py 
+cd data
+rm -r .ipynb_checkpoints
+gs
+ls
+mv data/oura_raw_data data/test_data.csv
+v data/test_data.csv 
+mkdir config
+mv data/new_columns.yml config/column_designations.yml
+ga data/ config/;gcm 'move data to test data and config'
+gs
+gd ouranal/
+mkdir tests
+cd tests
+v context.py
+..
+v tests/test_wrangler.py 
+pytest
+ls
+tree
+v to-do.md
+v README.md
+open -a "Brave Browser" http://192.168.0.105:8501\
+
+pipenv run streamlit run ouranal/dashboard.py
+nvim ouranal/dashboard.py
