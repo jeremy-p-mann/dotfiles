@@ -24,6 +24,7 @@ alias gr="git restore"
 alias gb="git branch"
 
 alias v="nvim"
+alias vvimrc="nvim ~/Documents/dotfiles/.vimrc"
 alias vtd="vim to-do.md"
 
 alias tmas="tmux attach-session -t"
