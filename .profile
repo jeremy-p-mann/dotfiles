@@ -4,8 +4,8 @@ if [ -n "$BASH" ] && [ -r ~/.bashrc ] && [ -r ~/.fzf.bash ]; then
     . ~/.config/fzf/fzf.bash
 fi
 
-if [ -n "$ZSH_VERSION" ] && [ -r ~/.zshrc ] && [ -r ~/.fzf.zsh ]; then
-    . ~/.zshrc
+if [ -n "$ZSH_VERSION" ] && [ -r ~/.config/zsh/.zshrc ] && [ -r ~/.config/fzf/fzf.zsh ]; then
+    export ZDOTDIR=$HOME/.config/zsh
     . ~/.config/fzf/fzf.zsh
 fi
 
