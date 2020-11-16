@@ -37,10 +37,10 @@ endsnippet
 snippet tmworkstation "tmux workstation script"
 tmux has-session -t ${1:SESSION}
 
-if [$? = 1]
+if [ $? = 1 ]
 then 
     tmux new-session -s $1 -d -n ${2:WINDOW} 
-    tmux new-window -t $2 -d -n ${3:WINDOW2} 
+    tmux new-window -t $1 -d -n ${3:WINDOW2} 
 
     tmux send-keys -t $1:$2 "${4:COMMAND}" Enter
 
