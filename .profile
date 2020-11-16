@@ -9,7 +9,7 @@ if [ -n "$ZSH_VERSION" ] && [ -r ~/.zshrc ] && [ -r ~/.fzf.zsh ]; then
     . ~/.config/fzf/fzf.zsh
 fi
 
-[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.config/aliases ] && source ~/.config/aliases
 
 export CLICOLOR=1
 export EDITOR="nvim"
