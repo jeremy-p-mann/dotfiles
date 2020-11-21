@@ -1,9 +1,9 @@
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-export HISTFILESIZE=1000
-export HISTSIZE=1000
-export HISTFILE=~/.config/zsh/zsh_history
+HISTFILESIZE=1000
+HISTSIZE=1000
+HISTFILE=~/.config/zsh/zsh_history
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
