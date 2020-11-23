@@ -132,7 +132,7 @@ endsnippet
 
 # Streamlit
 
-snippet stselectbox "streamlit stselectbox"
+snippet stselectbox "streamlit selectbox"
 st.selectbox(
     label='$1',
     options=$2,
@@ -141,6 +141,14 @@ st.selectbox(
 $4
 endsnippet
 
+snippet stmultiselectbox "streamlit multiselectbox"
+st.multiselect(
+    label='$1',
+    options=$2,
+    default=$3,
+)
+$4
+endsnippet
 # General Python Stuff
 
 # Argparser
