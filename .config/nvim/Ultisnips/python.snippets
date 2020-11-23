@@ -130,6 +130,17 @@ plt.tick_params(labelrotation=45)
 plt.title('(Pearson) Correlations of ${2:DESCRIPTION}', fontdict={'fontsize': 30})
 endsnippet
 
+# Streamlit
+
+snippet stselectbox "streamlit stselectbox"
+st.selectbox(
+    label='$1',
+    options=$2,
+    index=${3: 1}
+)
+$4
+endsnippet
+
 # General Python Stuff
 
 # Argparser
