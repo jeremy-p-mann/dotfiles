@@ -1,3 +1,5 @@
+TMUX_CONFIG="~/.config/tmux/.tmux.conf"
+
 alias ..="cd .."
 alias 2.="cd ../.."
 alias 3.="cd ../../.."
@@ -27,8 +29,8 @@ alias v="nvim"
 alias vvimrc="nvim ~/Documents/dotfiles/.vimrc"
 alias vtd="vim to-do.md"
 
-alias tmas="tmux attach-session -t"
-alias tmns="tmux new-session -s"
+alias tmas="tmux -f $TMUX_CONFIG attach-session -t"
+alias tmns="tmux -f $TMUX_CONFIG new-session -s"
 alias tmls="tmux list-sessions"
 alias tmks="tmux kill-session -t"
 
@@ -53,7 +55,7 @@ alias cdt='cd ~/Documents/travel/docs'
 alias cdc='cd ~/Documents/concertai'
 alias cddbt='cd ~/Documents/dbt/'
 alias cdp='cd ~/Documents/personal_health'
-
+alias cdo='cd ~/Documents/programs/oura'
 
 
 alias firefox="open -a 'firefox'"
@@ -83,3 +85,4 @@ alias tb="task burndown"
 
 # Date stuff
 alias datetime='date +%Y-%m-%dT%H:%M:%S%Z'
+
