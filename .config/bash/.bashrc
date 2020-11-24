@@ -1,7 +1,7 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
-[ -f ~/.bash_prompt ] && source ~/.bash_prompt
+[ -f $BASHRC_CONFIG_DIR/.bash_prompt ] && source $BASHRC_CONFIG_DIR/.bash_prompt
 
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
