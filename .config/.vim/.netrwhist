@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/jeremymann/Documents/dotfiles/.git'
+let g:netrw_dirhist_9='/Users/jeremymann/Documents/programs/homcv/tests'
+let g:netrw_dirhist_8='/Users/jeremymann/Documents/programs/homcv'
+let g:netrw_dirhist_7='/Users/jeremymann/Documents/programs/homcv/tests'
+let g:netrw_dirhist_6='/Users/jeremymann/Documents/programs/homcv'
+let g:netrw_dirhist_5='/Users/jeremymann/.matplotlib'
+let g:netrw_dirhist_4='/Users/jeremymann/Documents/dbt/scr/test_data'
+let g:netrw_dirhist_3='/Users/jeremymann/.ipython/profile_default'
+let g:netrw_dirhist_2='/Users/jeremymann/.ipython'
+let g:netrw_dirhist_1='/Users/jeremymann/.ipython/nbextensions'
