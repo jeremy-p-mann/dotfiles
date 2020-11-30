@@ -9,6 +9,8 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set smartindent
 set nohlsearch
 
+set spell spelllang=en_us
+
 nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 
@@ -130,7 +132,7 @@ let g:limelight_conceal_ctermfg = 'DarkGray'
 let g:limelight_default_coefficient = 0.1
 
 nnoremap <silent> <leader>li :Limelight <CR>
-nnoremap <silent> <leader>LI :Limelight! <CR>
+nnoremap <silent> <leader>Li :Limelight! <CR>
 nnoremap <silent> <leader>g :Goyo <CR>
 
 " YCM
