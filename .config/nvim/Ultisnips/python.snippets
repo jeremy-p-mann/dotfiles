@@ -71,6 +71,24 @@ import seaborn as sns
 import streamlit as st
 endsnippet
 
+# Numpy
+
+snippet np_linspace "range with n_samples in [a,b]"
+np.linspace(start=${1:0}, stop=${2:1}, num=${3:10}, endpoint=${4:True})
+$5
+endsnippet
+snippet np_range "range with steps [a, b)"
+np.arange(start=${1:0}, stop=${2:1}, step=${3:.1}, dtype=${4:'float'})
+$5
+endsnippet
+
+snippet np_testing_all_close "assert array are approx ="
+np.testing.assert_allclose(
+    actual=${1:None},
+    desired=${2:None},
+    atol=${3:10**-1},
+    )
+endsnippet
 # Matplotlib
 
 snippet figure "matplotlib figure"
