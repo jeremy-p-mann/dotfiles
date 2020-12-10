@@ -56,30 +56,6 @@ map L $
 " Control t for fuzzy file finder
 nnoremap <silent> <C-t> :Files<CR>
 
-" Remove crutches in Command Mode
-cnoremap <Down> <Nop>
-cnoremap <Left> <Nop>
-cnoremap <Right> <Nop>
-cnoremap <Up> <Nop>
-
-" Remove crutches in Insert Mode
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-
-" Remove crutches in Normal Mode
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Up> <Nop>
-
-" Remove crutches in Visual Mode
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
-vnoremap <Up> <Nop>	
-
 " Make html with sphinx--must be in docs folder
 nnoremap <silent> <leader>c :w<CR> :silent ! make html<CR> 
 nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.html<CR> 
