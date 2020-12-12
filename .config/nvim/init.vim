@@ -2,15 +2,14 @@
 " Jeremy' init.vim
 " 
 set relativenumber
-
 set noswapfile
 syntax enable
+set spell spelllang=en_us
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set smartindent
 set ai " autoindent
 
-set spell spelllang=en_us
 
 set showmode " show the current mode
 set showcmd " show the command as it's being typed
@@ -38,8 +37,6 @@ Plug 'SirVer/ultisnips'
 
 " Linters/Fixers
 Plug 'dense-analysis/ale'
-
-Plug 'tpope/vim-fugitive'
 
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
