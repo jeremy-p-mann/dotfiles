@@ -1,7 +1,11 @@
 "
 " Jeremy' init.vim
 " 
+
+" See the number of the current line and relative line numbers otherwise
+set number
 set relativenumber
+
 set noswapfile
 syntax enable
 set spell spelllang=en_us
@@ -9,7 +13,6 @@ set spell spelllang=en_us
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set smartindent
 set ai " autoindent
-
 
 set showmode " show the current mode
 set showcmd " show the command as it's being typed
@@ -46,5 +49,6 @@ Plug 'junegunn/limelight.vim'
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
-source remaps.vim
-source plugin_config.vim
+" let g:config_file_list = ['remaps.vim']
+source ~/.config/nvim/remaps.vim
+source ~/.config/nvim/plugin_config.vim
