@@ -2,6 +2,10 @@ snippet shebang "shebang #!"
 #!/usr/local/bin/python3
 endsnippet
 
+snippet if_name_==_main "If name == main"
+if __name__ == '__main__':
+    ${1:main()}
+endsnippet
 
 # Tests
 
@@ -37,28 +41,56 @@ with open("$1", 'r') as stream:
         print(exc)
 endsnippet
 
-snippet function "def .. return function"
-def $1($2):
-    # TODO write $1
-    pass
+snippet load_json "load json"
+with open("$1.json", 'r') as file:
+    $2 = json.load(file)
 endsnippet
 
+snippet function "def .. return function"
+def $1($2) -> $3:
+    $4
+    ${5:pass}
+$6
+endsnippet
+
+snippet class_method "class method"
+def $1(self,$2) -> $3:
+    $4
+    ${5:pass}
+$6
+endsnippet
 # OS
 snippet ls "ls"
 os.listdir('${1:filepath}')
 endsnippet
+
 # Docs
 
-snippet class_docstring, "docstring before class ___:"
-    '''
-    ${1:# TODO Short Description of Class}
+snippet class_docstring "docstring before class ___:"
+'''
+${1:# TODO Short Description of Class}
 
-    Attributes
-    ----------
-    ${2:attribute_name}: ${3:type},default,${4:None}
-	${5:# TODO Write description for $2}
+Attributes
+----------
+${2:attribute_name}: ${3:type},default,${4:None}
+    ${5:# TODO Write description for $2}
 
-    '''
+'''
+endsnippet
+
+snippet function_docstring "function docstring"
+'''
+$1
+
+Parameters
+----------
+$2
+
+Returns
+-------
+$3
+'''
+$4
 endsnippet
 
 # Data Science Stuff
