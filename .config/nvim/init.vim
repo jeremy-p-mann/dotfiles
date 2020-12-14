@@ -33,22 +33,21 @@ call plug#begin('~/.config/nvim/plugged')
 " File Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 " Completions/Snippets
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'SirVer/ultisnips'
-
 " Linters/Fixers
 Plug 'dense-analysis/ale'
-
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
 " Color Schemes
 Plug 'gruvbox-community/gruvbox'
+" Integrate tmux
+Plug 'benmills/vimux'
+
 call plug#end()
 
 " let g:config_file_list = ['remaps.vim']
-source ~/.config/nvim/remaps.vim
-source ~/.config/nvim/plugin_config.vim
+" source ~/.config/nvim/remaps.vim
+" source ~/.config/nvim/plugin_config.vim
