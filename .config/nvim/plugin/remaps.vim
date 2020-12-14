@@ -6,6 +6,10 @@
 nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 
+" easier to move to start/end of the line
+map H ^
+map L $
+
 " I don't know how I feel about this but I don't like pressing shift
 nnoremap ; :
 nnoremap : ;
@@ -14,7 +18,7 @@ nnoremap : ;
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
-" dturn on spell check
+" turn on spell check
 nnoremap <silent> <leader>sp :set spell!<CR>
 
 " resize windows
@@ -27,10 +31,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" easier to move to start/end of the line
-map H ^
-map L $
-
 " Control t for fuzzy file finder
 nnoremap <silent> <C-t> :Files<CR>
 
@@ -40,7 +40,6 @@ nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.h
 
 " Typing and testing
 nnoremap <silent> <leader>mp :w<CR> :! mypy %<CR>
-nnoremap <silent> <leader>pt :w<CR> :!pytest<CR>
 
 " AutoComplete
 nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
@@ -53,4 +52,14 @@ nnoremap <silent> <leader>lt :ALEToggle <CR>
 nnoremap <silent> <leader>li :Limelight <CR>
 nnoremap <silent> <leader>Li :Limelight! <CR>
 nnoremap <silent> <leader>g :Goyo <CR>
+
+" Vimux
+nnoremap <leader>vp :VimuxPromptCommand<CR>
+nnoremap <leader>vl :VimuxRunLastCommand<CR>
+nnoremap <Leader>vq :VimuxCloseRunner<CR>
+
+nnoremap <silent> <leader>pt :VimuxRunCommand("pytest")<CR>
+nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
+nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
+
 
