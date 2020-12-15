@@ -18,19 +18,29 @@ sys.path.insert(
 
 import ${1:name_of_module}
 endsnippet
+
 snippet fixture "pytest fixture"
 @pytest.fixture
 def $1($2):
-    # TODO make $1 fixture
     $3
     return $1
 endsnippet
 
-snippet test "pytest test function"
+snippet param_fixture "parametrized pytest fixture"
+params = [
+    $1
+]
+@pytest.mark.parametrize('$2', ${4:params})
+def $3($2, ${4:}):
+    $5
+    return $3
+endsnippet
+
+
+snippet pytest_test "pytest test function"
 def test_$1(${2:fixture}):
-    #TODO write test
     $3
-    assert 0 == 1
+    assert ${4:0 == 1}
 endsnippet
 
 snippet loadyaml "load yaml"
