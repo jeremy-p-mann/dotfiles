@@ -30,9 +30,9 @@ snippet param_fixture "parametrized pytest fixture"
 params = [
     $1
 ]
-@pytest.mark.parametrize('$2', ${4:params})
-def $3($2, ${4:}):
-    $5
+@pytest.fixture(params=params,scope="${2:function}")
+def $3(request, ${4:}):
+    $3 = request.param
     return $3
 endsnippet
 
