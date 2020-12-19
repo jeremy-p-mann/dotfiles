@@ -35,7 +35,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <C-t> :Files<CR>
 
 " Make html with sphinx--must be in docs folder
-nnoremap <silent> <leader>c :w<CR> :silent ! make html<CR> 
+nnoremap <silent> <leader>cp :w<CR> :silent ! make html<CR> 
 nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.html<CR> 
 
 " Typing and testing
@@ -62,4 +62,6 @@ nnoremap <silent> <leader>pt :VimuxRunCommand("pytest")<CR>
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 
+" UltiSnips
 
+nnoremap <silent> <leader>ue <C-w>s :w <CR>:UltiSnipsEdit<CR>
