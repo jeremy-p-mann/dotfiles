@@ -45,6 +45,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'gruvbox-community/gruvbox'
 " Integrate tmux
 Plug 'benmills/vimux'
+" REPL-Driven Development
+Plug 'metakirby5/codi.vim'
+" Comment stuff out
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
