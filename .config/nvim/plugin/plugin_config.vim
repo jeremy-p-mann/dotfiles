@@ -16,4 +16,14 @@ colorscheme gruvbox
 set background=dark
 
 " Ale
-let g:ale_linters = {'python': ['flake8', 'mypy']}
+let g:ale_linters = {
+            \ 'python': ['flake8', 'mypy'],
+            \ 'rst': ['rstcheck'], 
+            \ 'markdown': ['markdownlint'],
+            \ }
+
+" fzf
+" open files in a separate window
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
