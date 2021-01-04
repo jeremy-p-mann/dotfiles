@@ -1,15 +1,11 @@
-snippet xshebang "shebang #!"
+snippet shebang "shebang #!"
 #!/usr/local/bin/python3
 endsnippet
 
-snippet xif_name_==_main "If name == main"
-if __name__ == '__main__':
-    ${1:main()}
-endsnippet
 
 # Tests
 
-snippet xcontext.py "contents of context.py file"
+snippet context.py "contents of context.py file"
 import os, sys
 sys.path.insert(
     0,
@@ -18,32 +14,22 @@ sys.path.insert(
 
 import ${1:name_of_module}
 endsnippet
-
-snippet xfixture "pytest fixture"
+snippet fixture "pytest fixture"
 @pytest.fixture
 def $1($2):
+    # TODO make $1 fixture
     $3
     return $1
 endsnippet
 
-snippet xparam_fixture "parametrized pytest fixture"
-params = [
-    $1
-]
-@pytest.fixture(params=params,scope="${2:function}")
-def $3(request, ${4:}):
-    $3 = request.param
-    return $3
-endsnippet
-
-
-snippet xpytest_test "pytest test function"
+snippet test "pytest test function"
 def test_$1(${2:fixture}):
+    #TODO write test
     $3
-    assert ${4:0 == 1}
+    assert 0 == 1
 endsnippet
 
-snippet xloadyaml "load yaml"
+snippet loadyaml "load yaml"
 with open("$1", 'r') as stream:
     try:
         yaml.safe_load(stream)
@@ -51,61 +37,33 @@ with open("$1", 'r') as stream:
         print(exc)
 endsnippet
 
-snippet xload_json "load json"
-with open("$1.json", 'r') as file:
-    $2 = json.load(file)
+snippet function "def .. return function"
+def $1($2):
+    # TODO write $1
+    pass
 endsnippet
 
-snippet xfunction "def .. return function"
-def $1($2) -> $3:
-    $4
-    ${5:pass}
-$6
-endsnippet
-
-snippet xclass_method "class method"
-def $1(self,$2) -> $3:
-    $4
-    ${5:pass}
-$6
-endsnippet
 # OS
-snippet xls "ls"
+snippet ls "ls"
 os.listdir('${1:filepath}')
 endsnippet
-
 # Docs
 
-snippet xclass_docstring "docstring before class ___:"
-'''
-${1:# TODO Short Description of Class}
+snippet class_docstring, "docstring before class ___:"
+    '''
+    ${1:# TODO Short Description of Class}
 
-Attributes
-----------
-${2:attribute_name}: ${3:type},default,${4:None}
-    ${5:# TODO Write description for $2}
+    Attributes
+    ----------
+    ${2:attribute_name}: ${3:type},default,${4:None}
+	${5:# TODO Write description for $2}
 
-'''
-endsnippet
-
-snippet xfunction_docstring "function docstring"
-'''
-$1
-
-Parameters
-----------
-$2
-
-Returns
--------
-$3
-'''
-$4
+    '''
 endsnippet
 
 # Data Science Stuff
 
-snippet ximportds "Import pd np plt sns"
+snippet importds "Import pd np plt sns"
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -113,28 +71,9 @@ import seaborn as sns
 import streamlit as st
 endsnippet
 
-# Numpy
-
-snippet xnp_linspace "range with n_samples in [a,b]"
-np.linspace(start=${1:0}, stop=${2:1}, num=${3:10}, endpoint=${4:True})
-$5
-endsnippet
-
-snippet xnp_range "range with steps [a, b)"
-np.arange(start=${1:0}, stop=${2:1}, step=${3:.1}, dtype=${4:'float'})
-$5
-endsnippet
-
-snippet xnp_testing_all_close "assert array are approx ="
-np.testing.assert_allclose(
-    actual=${1:None},
-    desired=${2:None},
-    atol=${3:10**-1},
-    )
-endsnippet
 # Matplotlib
 
-snippet xfigure "matplotlib figure"
+snippet figure "matplotlib figure"
 fig = plt.figure(figsize=(10, 10))
 ax = plt.axes()
 
@@ -151,18 +90,18 @@ ax.set(
 fig.savefig('${1:figure_name}.png')
 endsnippet
 
-snippet xsubplots "matplotlib subplots"
+snippet subplots "matplotlib subplots"
 fig, ax = plt.subplots(${1:n_rows}, ${2:n_columns})
 endsnippet
 
-snippet xplot "matplotlib plot"
+snippet plot "matplotlib plot"
 ${1:ax}.plot(
     ${2:x_axis},
     ${3:y_axis},
 )
 endsnippet
 
-snippet xscatter "matplotlib scatter"
+snippet scatter "matplotlib scatter"
 ${1:ax}.scatter(
     ${2:x_axis},
     ${3:y_axis},
@@ -174,7 +113,7 @@ ${1:ax}.scatter(
 )
 endsnippet
 
-snippet xhistogram "matplotlib histogram"
+snippet histogram "matplotlib histogram"
 ${1: ax}.hist(
     ${2:x},
     bins=${3:n_bins}, 
@@ -184,7 +123,7 @@ $5
 endsnippet
 
 
-snippet xcorrelations_plot "plot correlation matrix"
+snippet correlations_plot "plot correlation matrix"
 fig = plt.figure(figsize=(12, 12))
 corr = np.round(${1:DATAFRAME}.corr(), decimals=2)
 mask = np.triu(np.ones_like(corr, dtype=np.bool), k=1)
@@ -204,7 +143,7 @@ endsnippet
 
 # Streamlit
 
-snippet xstselectbox "streamlit selectbox"
+snippet stselectbox "streamlit selectbox"
 st.selectbox(
     label='$1',
     options=$2,
@@ -213,7 +152,7 @@ st.selectbox(
 $4
 endsnippet
 
-snippet xstmultiselectbox "streamlit multiselectbox"
+snippet stmultiselectbox "streamlit multiselectbox"
 st.multiselect(
     label='$1',
     options=$2,
@@ -225,11 +164,11 @@ endsnippet
 
 # Argparser
 
-snippet xargumentparser "create argument parser object"
+snippet argumentparser "create argument parser object"
 parser = argparse.ArgumentParser()
 endsnippet
 
-snippet xoptional_argument "add argument to argparser"
+snippet optional_argument "add argument to argparser"
 parser.add_argument(
     '--${1:flag_name}',
     action='${2:store_const}',
@@ -240,7 +179,7 @@ parser.add_argument(
 )
 endsnippet
 
-snippet xparser_args "gets arguments from argument parser"
+snippet parser_args "gets arguments from argument parser"
 args = parser.parse_args()
 endsnippet
 
