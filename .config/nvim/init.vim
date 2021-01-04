@@ -49,9 +49,7 @@ Plug 'benmills/vimux'
 Plug 'metakirby5/codi.vim'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
+" Testing stuff
+Plug 'vim-test/vim-test'
 
 call plug#end()
-
-" let g:config_file_list = ['remaps.vim']
-" source ~/.config/nvim/remaps.vim
-" source ~/.config/nvim/plugin_config.vim

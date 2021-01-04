@@ -1,4 +1,4 @@
-" 
+"
 " Jeremy's Remaps
 "
 
@@ -36,7 +36,6 @@ nnoremap <silent> <C-t> :Files<CR>
 
 " Make html with sphinx--must be in docs folder
 nnoremap <silent> <leader>cp :w<CR> :silent ! make html<CR> 
-nnoremap <silent> <leader>sd :w<CR> :silent ! open -a firefox build/html/index.html<CR> 
 
 " Typing and testing
 nnoremap <silent> <leader>mp :w<CR> :! mypy %<CR>
@@ -57,11 +56,19 @@ nnoremap <silent> <leader>g :Goyo <CR>
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
-
-nnoremap <silent> <leader>pt :VimuxRunCommand("pytest")<CR>
+nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
+nnoremap <silent> <leader>sd :VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 
 " UltiSnips
-
 nnoremap <silent> <leader>ue <C-w>s :w <CR>:UltiSnipsEdit<CR>
+
+
+" Vim-test
+nnoremap <silent> <leader>tn :TestNearest<CR>
+nnoremap <silent> <leader>tf :TestFile<CR>
+nnoremap <silent> <leader>ts :TestSuite<CR>
+nnoremap <silent> <leader>tl :TestLast<CR>
+"Visits the test file from which you last run your tests
+nnoremap <silent> <leader>tv :TestVisit<CR> 
