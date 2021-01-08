@@ -32,7 +32,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Control t for fuzzy file finder
-nnoremap <silent> <C-t> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 
 " Make html with sphinx--must be in docs folder
 nnoremap <silent> <leader>cp :w<CR> :silent ! make html<CR> 
