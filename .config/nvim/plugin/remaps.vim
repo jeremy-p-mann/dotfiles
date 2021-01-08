@@ -31,6 +31,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Toggles cursorlines
+nnoremap <silent> <leader>cl :set cursorline<CR>
+nnoremap <silent> <leader>Cl :set nocursorline<CR>
+
 " Control t for fuzzy file finder
 nnoremap <silent> <C-p> :Files<CR>
 
