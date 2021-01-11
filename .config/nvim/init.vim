@@ -1,6 +1,6 @@
 "
 " Jeremy' init.vim
-" 
+"
 
 " See the number of the current line and relative line numbers otherwise
 set number
@@ -25,8 +25,12 @@ set ignorecase
 set smartcase
 set nohlsearch " I don't like highlights when I search
 
+set scrolloff=4
+set cursorline
 
-set splitbelow splitright " make new window open on right/below
+set hidden "navigate to and from without saving
+
+set splitbelow splitright
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -53,3 +57,18 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-test/vim-test'
 
 call plug#end()
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup THE_PRIMEAGEN
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+    autocmd VimEnter * :VimApm
+augroup END
+
+
+
