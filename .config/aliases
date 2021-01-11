@@ -51,10 +51,10 @@ alias cdph='cd ~/Documents/programs/homcv'
 alias cdpj='cd ~/Documents/programs/jers_ml_tools'
 alias cdw='cd ~/Documents/writing/docs'
 alias cddot='cd ~/Documents/dotfiles'
-alias cdt='cd ~/Documents/travel/docs'
+alias cdt='cd ~/Documents/temp'
 alias cdc='cd ~/Documents/concertai'
 alias cddbt='cd ~/Documents/dbt/'
-alias cdp='cd ~/Documents/personal_health'
+alias cdp='cd ~/Documents/programs/personal_health'
 alias cdo='cd ~/Documents/programs/oura'
 
 
@@ -64,6 +64,7 @@ alias weather="curl wttr.in -s | head -n 37"
 
 alias showdocs="open -a 'firefox' build/html/index.html"
 
+alias tree="tree -I \"__pycache__|build|*egg*|dist|*cache*|.git|*checkpoint*|.DS*\""
 alias t1="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
