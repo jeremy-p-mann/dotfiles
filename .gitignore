@@ -133,3 +133,4 @@ sample_dotfiles/
 .config/zsh/.zcompdump
 .config/zsh/zsh_history
 
+.config/aliases/file_aliases
