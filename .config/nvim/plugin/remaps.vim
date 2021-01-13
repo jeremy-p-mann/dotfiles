@@ -18,8 +18,9 @@ nnoremap : ;
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
-" turn on spell check
+" spell check stuff
 nnoremap <silent> <leader>sp :set spell!<CR>
+nnoremap <silent> <leader>sc 1z=
 
 " resize windows
 nnoremap <silent> <leader>k :resize +5<CR>
@@ -39,14 +40,14 @@ nnoremap <silent> <leader>Cl :set nocursorline<CR>
 nnoremap <silent> <C-p> :Files<CR>
 
 " Make html with sphinx--must be in docs folder
-nnoremap <silent> <leader>cp :w<CR> :silent ! make html<CR> 
+nnoremap <silent> <leader>cp :w<CR> :silent ! make html<CR>
 
 " Typing and testing
 nnoremap <silent> <leader>mp :w<CR> :! mypy %<CR>
 
 " AutoComplete
-nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR> 
-nnoremap <silent> <leader><tab> :YcmCompleter GetDoc<CR> 
+nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <leader><tab> :YcmCompleter GetDoc<CR>
 
 " Linting
 nnoremap <silent> <leader>lt :ALEToggle <CR>
@@ -74,5 +75,5 @@ nnoremap <silent> <leader>tn :TestNearest<CR>
 nnoremap <silent> <leader>tf :TestFile<CR>
 nnoremap <silent> <leader>ts :TestSuite<CR>
 nnoremap <silent> <leader>tl :TestLast<CR>
-"Visits the test file from which you last run your tests
-nnoremap <silent> <leader>tv :TestVisit<CR> 
+" Visits the test file from which you last run your tests
+nnoremap <silent> <leader>tv :TestVisit<CR>

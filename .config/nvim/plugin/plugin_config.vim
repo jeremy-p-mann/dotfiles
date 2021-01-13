@@ -27,3 +27,6 @@ let g:ale_linters = {
 let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" vim-test
+let test#strategy = 'vimux'
