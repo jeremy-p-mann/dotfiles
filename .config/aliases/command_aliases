@@ -5,6 +5,18 @@ alias tmns="tmux -f $TMUX_CONFIG new-session -s"
 alias tmls="tmux list-sessions"
 alias tmks="tmux kill-session -t"
 
+#Git
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gc="git checkout"
+alias gd='git diff'
+alias gcm="git commit -m"
+alias gpob='git push origin $(git branch --show-current)'
+alias gg="git graph"
+alias gr="git restore"
+alias gb="git branch"
+
 # Tree
 alias tree="tree -I \"__pycache__|build|*egg*|dist|*cache*|.git|*checkpoint*|.DS*\""
 alias t1="tree -L 1"
