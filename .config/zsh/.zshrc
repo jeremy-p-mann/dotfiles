@@ -54,7 +54,6 @@ if [ -f ~/.config/zsh/useful_functions.zsh ] && [ -r ~/.config/zsh/useful_functi
     . ~/.config/zsh/useful_functions.zsh
 fi
 
-bindkey "^F" fzf-cd-widget
-
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+bindkey "^F" fzf-cd-widget
