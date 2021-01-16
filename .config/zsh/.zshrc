@@ -46,10 +46,15 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f ~/.config/aliases/command_aliases ] && source ~/.config/aliases/command_aliases 
+[ -f ~/.config/aliases/file_aliases ] && source ~/.config/aliases/file_aliases 
+
 
 if [ -f ~/.config/zsh/useful_functions.zsh ] && [ -r ~/.config/zsh/useful_functions.zsh ]; then
     . ~/.config/zsh/useful_functions.zsh
 fi
 
 bindkey "^F" fzf-cd-widget
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
