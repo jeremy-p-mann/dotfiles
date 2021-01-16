@@ -23,7 +23,7 @@ nnoremap <silent> <leader>sp :set spell!<CR>
 nnoremap <silent> <leader>sc 1z=
 
 " resize windows
-nnoremap <silent> <leader>k :resize +5<CR>
+nnoremap <silent> <leader>k :resize +10<CR>
 nnoremap <silent> <leader>j :resize -5<CR>
 
 " make moving windows easier
@@ -47,17 +47,11 @@ nnoremap <silent> <leader>ws :call TrimWhitespace()<CR>
 " Control p for fuzzy file finder
 nnoremap <silent> <C-p> :Files<CR>
 
-" Make html with sphinx--must be in docs folder
-nnoremap <silent> <leader>cp :w<CR> :silent ! make html<CR>
-
-" Typing and testing
-nnoremap <silent> <leader>mp :w<CR> :! mypy %<CR>
-
 " AutoComplete
 nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <leader><tab> :YcmCompleter GetDoc<CR>
 
-" Linting
+" Linting on/off
 nnoremap <silent> <leader>lt :ALEToggle <CR>
 
 " Minimal Modes
