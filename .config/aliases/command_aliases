@@ -13,7 +13,7 @@ alias gc="git checkout"
 alias gd='git diff'
 alias gcm="git commit -m"
 alias gpob='git push origin $(git branch --show-current)'
-alias gg="git graph"
+alias gg="git log --all --graph --decorate --oneline"
 alias gr="git restore"
 alias gb="git branch"
 

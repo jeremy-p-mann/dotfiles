@@ -1,0 +1,5 @@
+alias cdd="cd ~/Documents/"
+alias cddw="cd ~/Downloads/"
+alias cdc="cd ~/Documents/code"
+alias cddot="cd ~/Documents/dotfiles/.config"
+alias cdt="cd ~/Documents/temp"

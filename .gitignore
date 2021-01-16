@@ -130,7 +130,8 @@ dmypy.json
 
 to-do.md
 sample_dotfiles/
-.config/zsh/.zcompdump
+.config/zsh/.zcomp*
 .config/zsh/zsh_history
-
-.config/aliases/file_aliases
+.config/nvim/plugged
+.config/nvim/.netrwhist
+.config/configstore
