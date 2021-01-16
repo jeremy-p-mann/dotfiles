@@ -134,4 +134,7 @@ sample_dotfiles/
 .config/zsh/zsh_history
 .config/nvim/plugged
 .config/nvim/.netrwhist
+.config/nvim/plugged
 .config/configstore
+.config/ipython/profile_default/history*
+.config/nvim/spell
