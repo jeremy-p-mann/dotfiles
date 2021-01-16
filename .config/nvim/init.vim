@@ -55,20 +55,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-commentary'
 " Testing stuff
 Plug 'vim-test/vim-test'
+" For git stuff
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
-
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-augroup THE_PRIMEAGEN
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
-    autocmd VimEnter * :VimApm
-augroup END
-
-
-

@@ -36,7 +36,15 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <leader>cl :set cursorline<CR>
 nnoremap <silent> <leader>Cl :set nocursorline<CR>
 
-" Control t for fuzzy file finder
+" Trim Trailing Whitespace
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+nnoremap <silent> <leader>ws :call TrimWhitespace()<CR>
+
+" Control p for fuzzy file finder
 nnoremap <silent> <C-p> :Files<CR>
 
 " Make html with sphinx--must be in docs folder
@@ -69,6 +77,8 @@ nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 " UltiSnips
 nnoremap <silent> <leader>ue <C-w>s :w <CR>:UltiSnipsEdit<CR>
 
+" Fugitive/Git
+nnoremap <silent> <leader>gs :G<CR>
 
 " Vim-test
 nnoremap <silent> <leader>tn :TestNearest<CR>
