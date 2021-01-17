@@ -8,3 +8,4 @@ sample_dotfiles/
 .config/ipython/profile_default/history*
 .config/nvim/spell
 .config/task/.task
+.config/aliases/local_file_aliases
