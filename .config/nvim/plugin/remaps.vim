@@ -2,7 +2,7 @@
 " Jeremy's Remaps
 "
 
-" Leader key = spacce
+" Leader key = space
 nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 
@@ -24,7 +24,7 @@ nnoremap <silent> <leader>sc 1z=
 
 " resize windows
 nnoremap <silent> <leader>k :resize +10<CR>
-nnoremap <silent> <leader>j :resize -5<CR>
+nnoremap <silent> <leader>j :resize -10<CR>
 
 " make moving windows easier
 nnoremap <C-h> <C-w>h
