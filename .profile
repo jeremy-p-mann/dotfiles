@@ -15,7 +15,9 @@ if [ -n "$ZSH_VERSION" ] && [ -r ~/.config/zsh/.zshrc ] && [ -r ~/.config/fzf/fz
     . ~/.config/fzf/fzf.zsh
 fi
 
-[ -f ~/.config/aliases ] && source ~/.config/aliases
+[ -f ~/.config/aliases/command_aliases ] && source ~/.config/aliases/command_aliases
+[ -f ~/.config/aliases/file_aliases ] && source ~/.config/aliases/file_aliases
+[ -f ~/.config/aliases/local_file_aliases ] && source ~/.config/aliases/local_file_aliases
 
 export CLICOLOR=1
 export EDITOR="nvim"
