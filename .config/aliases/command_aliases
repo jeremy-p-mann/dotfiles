@@ -17,8 +17,11 @@ alias gg="git log --all --graph --decorate --oneline"
 alias gr="git restore"
 alias gb="git branch"
 
+# Lazy Git
+alias lg="lazygit"
+
 # Tree
-alias tree="tree -I \"__pycache__|build|*egg*|dist|*cache*|.git|*checkpoint*|.DS*\""
+alias tree="tree -I \"build|*egg*|dist|*cache*|.git|*checkpoint*|.DS*\""
 alias t1="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
@@ -54,7 +57,7 @@ alias v="nvim"
 
 alias szp="source ~/.zprofile"
 
-
+alias cmx="chmod +x"
 
 # Date stuff
 alias datetime='date +%Y-%m-%dT%H:%M:%S%Z'
