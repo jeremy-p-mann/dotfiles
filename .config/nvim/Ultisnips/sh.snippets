@@ -4,11 +4,11 @@ endsnippet
 
 # Conditionals
 snippet ifthenconditional "bash conditional"
-if [ -f ${1:condional} ] 
+if [ ${1:expression} ${2:condional} ] 
 then
-    ${2:command}
-else
     ${3:command}
+else
+    ${4:command}
 fi
 endsnippet
 
