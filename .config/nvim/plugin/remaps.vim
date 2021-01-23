@@ -65,6 +65,9 @@ nnoremap <leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
 nnoremap <silent> <leader>sd :VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>
+
+nnoremap <silent> <leader>lg :VimuxRunCommand("lazygit")<CR>
+
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 
