@@ -10,10 +10,6 @@ let mapleader="\<Space>"
 map H ^
 map L $
 
-" I don't know how I feel about this but I don't like pressing shift
-nnoremap ; :
-nnoremap : ;
-
 " add line above/below without entering insert mode or moving cursor
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
@@ -63,10 +59,14 @@ nnoremap <silent> <leader>g :Goyo <CR>
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
+
 nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
-nnoremap <silent> <leader>sd :VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>
+let showdocs  = "open -a 'Brave Browser' build/html/index.html"
+nnoremap <silent> <leader>sd :VimuxRunCommand(showdocs)<CR>
 
 nnoremap <silent> <leader>lg :VimuxRunCommand("lazygit")<CR>
+
+nnoremap <silent> <leader>ex :VimuxRunCommand("python3 " . expand('%')) <CR>
 
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
