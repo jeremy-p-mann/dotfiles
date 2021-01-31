@@ -32,7 +32,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <leader>cl :set cursorline<CR>
 nnoremap <silent> <leader>Cl :set nocursorline<CR>
 
-" Trim Trailing Whitespace
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -73,9 +72,6 @@ nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 
 " UltiSnips
 nnoremap <silent> <leader>ue <C-w>s :w <CR>:UltiSnipsEdit<CR>
-
-" Fugitive/Git
-nnoremap <silent> <leader>gs :G<CR>
 
 " Vim-test
 nnoremap <silent> <leader>tn :TestNearest<CR>
