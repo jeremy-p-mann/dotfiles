@@ -18,6 +18,8 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 nnoremap <silent> <leader>sp :set spell!<CR>
 nnoremap <silent> <leader>sc 1z=
 
+nnoremap <silent> <leader>af gqk
+
 " resize windows
 nnoremap <silent> <leader>k :resize +10<CR>
 nnoremap <silent> <leader>j :resize -10<CR>
