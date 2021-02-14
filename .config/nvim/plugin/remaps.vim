@@ -41,6 +41,9 @@ fun! TrimWhitespace()
 endfun
 nnoremap <silent> <leader>ws :call TrimWhitespace()<CR>
 
+" Folds
+nnoremap <silent> <leader>fp zfi{
+
 " Control p for fuzzy file finder
 nnoremap <silent> <C-p> :Files<CR>
 
