@@ -62,7 +62,7 @@ nnoremap <silent> <leader>g :Goyo <CR>
 " Vimux
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
-nnoremap <Leader>vq :VimuxCloseRunner<CR>
+nnoremap <Leader>vv :VimuxCloseRunner<CR>
 
 nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
 let showdocs  = "open -a 'Brave Browser' build/html/index.html"
