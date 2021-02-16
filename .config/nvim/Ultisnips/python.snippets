@@ -7,6 +7,7 @@ if __name__ == '__main__':
     ${1:main()}
 endsnippet
 
+
 # Tests
 
 snippet xcontext.py "contents of context.py file"
@@ -43,6 +44,8 @@ def test_$1(${2:fixture}):
     assert ${4:0 == 1}
 endsnippet
 
+# General Stuff
+
 snippet xloadyaml "load yaml"
 with open("$1", 'r') as stream:
     try:
@@ -63,12 +66,24 @@ def $1($2) -> $3:
 $6
 endsnippet
 
-snippet xclass_method "class method"
-def $1(self,$2) -> $3:
+snippet xmethod "method"
+def $1(self, $2) -> $3:
     $4
     ${5:pass}
 $6
 endsnippet
+
+snippet xinit "init method"
+def __init__(self, ${1:parameter}: ${2:type}):
+    self.$1 = $1
+endsnippet
+
+snippet prop "Make a property"
+@property
+def $1(self):
+    return self._$1
+endsnippet
+
 # OS
 snippet xls "ls"
 os.listdir('${1:filepath}')
@@ -183,21 +198,20 @@ ${1: ax}.hist(
 $5
 endsnippet
 
-
 snippet xcorrelations_plot "plot correlation matrix"
 fig = plt.figure(figsize=(12, 12))
 corr = np.round(${1:DATAFRAME}.corr(), decimals=2)
 mask = np.triu(np.ones_like(corr, dtype=np.bool), k=1)
 sns.heatmap(corr,
-            mask=mask,
-            cmap='RdBu',
-            vmin=-1,
-            vmax=1,
-            linewidths=3,
-            square=True,
-            cbar=False,
-            annot=True
-	    )
+    mask=mask,
+    cmap='RdBu',
+    vmin=-1,
+    vmax=1,
+    linewidths=3,
+    square=True,
+    cbar=False,
+    annot=True
+    )
 plt.tick_params(labelrotation=45)
 plt.title('(Pearson) Correlations of ${2:DESCRIPTION}', fontdict={'fontsize': 30})
 endsnippet
@@ -221,7 +235,9 @@ st.multiselect(
 )
 $4
 endsnippet
-# General Python Stuff
+
+# Pandas
+
 
 # Argparser
 
@@ -243,5 +259,19 @@ endsnippet
 snippet xparser_args "gets arguments from argument parser"
 args = parser.parse_args()
 endsnippet
+
+# Scipy Stats
+
+snippet xttest "Ordinary T-Test"
+# Test that mu_a - mu_b < 0
+ttest_result = ttest_ind(
+    a=${1:a},
+    b=${2:b},
+    equal_var=${3:False}
+    )
+endsnippet
+
+
+
 
 
