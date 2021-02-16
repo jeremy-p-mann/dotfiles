@@ -30,3 +30,6 @@ let g:fzf_action = {
 
 " vim-test
 let test#strategy = 'vimux'
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1
