@@ -145,3 +145,24 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_trigger_keyword_length = 2
 
+" TreeSitter 
+" Syntax Highlighting 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = { enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["foo.bar"] = "Identifier",
+    },
+  },
+}
+EOF
+
+" Indentation
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  indent = {
+    enable = true
+  }
+}
+EOF

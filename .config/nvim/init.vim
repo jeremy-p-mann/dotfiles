@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'Valloric/YouCompleteMe', {'do': './install.py' }
 Plug 'SirVer/ultisnips'
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
@@ -64,6 +65,8 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
