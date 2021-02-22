@@ -87,10 +87,10 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
-nnoremap <Leader>ff :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>
+nnoremap <Leader>ff :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr><cr>
 nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({}))<cr>
 nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({}))<cr>
-nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes').get_dropdown({}))<cr>
+nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes').get_dropdown({}))<cr><cr>
 
 
 " Completion
