@@ -39,10 +39,9 @@ tmux has-session -t ${1:SESSION}
 
 if [ $? = 1 ]
 then 
-    tmux -f ~/.config/tmux/.tmux.conf new-session -s $1 -d -n ${2:WINDOW} 
-    tmux new-window -t $1 -d -n ${3:WINDOW2} 
-
-    tmux send-keys -t $1:$2 "${4:COMMAND}" Enter
+    tmux -f ~/.config/tmux/.tmux.conf new-session -s $1 -d -n ${2:term} 
+    tmux new-window -t $1 -d -n ${3:code} 
+    tmux new-window -t $1 -d -n ${3:tests} 
 
     tmux -u -f ~/.config/tmux/.tmux.conf attach -t $1
 else
