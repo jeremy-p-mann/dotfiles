@@ -1,6 +1,7 @@
 *.pyc
-build/
+build
 *.icloud
-.*cache*/
-plugged/
+.*cache*
+plugged
 .DS*
+foo.py
