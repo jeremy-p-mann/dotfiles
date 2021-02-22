@@ -32,16 +32,15 @@ set hidden "navigate to and from without saving
 
 set splitbelow splitright
 
+set completeopt=menuone,noinsert,noselect
+
 call plug#begin('~/.config/nvim/plugged')
 
 " File Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Completions/Snippets
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 Plug 'SirVer/ultisnips'
-" Linters/Fixers
-Plug 'dense-analysis/ale'
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -64,7 +63,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 call plug#end()
 
-lua require'lspconfig'.pyright.setup{}
+

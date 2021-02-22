@@ -91,3 +91,9 @@ nnoremap <Leader>ff :lua require'telescope.builtin'.find_files(require('telescop
 nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({}))<cr>
 nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({}))<cr>
 nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes').get_dropdown({}))<cr>
+
+
+" Completion
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

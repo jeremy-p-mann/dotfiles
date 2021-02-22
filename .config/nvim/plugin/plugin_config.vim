@@ -80,6 +80,8 @@ require('telescope').setup{
 }
 EOF
 
+" LSP stuff
+
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
@@ -132,5 +134,14 @@ end
 local servers = { "pyright", "rust_analyzer", "tsserver" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
+
+require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 end
 EOF
+
+" Completions
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_trigger_keyword_length = 2
+
