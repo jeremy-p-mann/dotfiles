@@ -157,12 +157,3 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
-" Indentation
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  indent = {
-    enable = true
-  }
-}
-EOF
