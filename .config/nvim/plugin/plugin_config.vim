@@ -31,19 +31,6 @@ let g:fzf_action = {
 " vim-test
 let test#strategy = 'vimux'
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" LSP stuff
-
-
-" Completions
-
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_enable_snippet = 'UltiSnips'
-let g:completion_trigger_keyword_length = 2
-
-" TreeSitter 
 " Syntax Highlighting 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
