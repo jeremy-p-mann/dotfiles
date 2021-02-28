@@ -6,7 +6,9 @@ require'lspconfig'.pyls.setup{
     pyls_mypy = {
       enabled = true,
       live_mode = false
-    }
+    },
   },
 }
 EOF
+
+autocmd BufEnter * lua require'completion'.on_attach()
