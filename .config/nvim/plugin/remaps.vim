@@ -47,8 +47,6 @@ nnoremap <silent> <leader>fp zfi{
 " Control p for fuzzy file finder
 nnoremap <silent> <Leader>ff :Files<CR>
 
-" AutoComplete
-nnoremap <silent> <leader>df :w <CR> :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <leader><tab> :YcmCompleter GetDoc<CR>
 
 " Linting on/off
@@ -63,15 +61,11 @@ nnoremap <silent> <leader>g :Goyo <CR>
 nnoremap <leader>vp :VimuxPromptCommand<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vv :VimuxCloseRunner<CR>
-
 nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
 let showdocs  = "open -a 'Brave Browser' build/html/index.html"
 nnoremap <silent> <leader>sd :VimuxRunCommand(showdocs)<CR>
-
 nnoremap <silent> <leader>lg :VimuxRunCommand("lazygit")<CR>
-
 nnoremap <silent> <leader>ex :VimuxRunCommand("python3 " . expand('%')) <CR>
-
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 
@@ -87,13 +81,21 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
-nnoremap <C-p>  :lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr><cr>
-nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({}))<cr>
-nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({}))<cr>
-nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes').get_dropdown({}))<cr><cr>
+nnoremap <C-p>  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
+nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>
+nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes'))<cr>
+nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes'))<cr><cr>
 
 
 " Completion
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+" LSP
+nnoremap <Leader>df :lua vim.lsp.buf.definition()<CR>
+nnoremap <Leader>rn :lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader>ho :lua vim.lsp.buf.hover()<CR>
+nnoremap <Leader>fm :lua vim.lsp.buf.formatting()<CR>
+nnoremap <Leader>rf :lua vim.lsp.buf.references()<CR>
