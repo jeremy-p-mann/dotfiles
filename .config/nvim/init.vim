@@ -45,22 +45,23 @@ Plug 'junegunn/limelight.vim'
 Plug 'gruvbox-community/gruvbox'
 " Integrate tmux
 Plug 'benmills/vimux'
-" REPL-Driven Development
+
 Plug 'metakirby5/codi.vim'
-" Comment stuff out
+
 Plug 'tpope/vim-commentary'
-" Testing stuff
+
 Plug 'vim-test/vim-test'
-" For git stuff
+
 Plug 'tpope/vim-fugitive'
 
-" Telescope Requirements
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'neovim/nvim-lspconfig'
+
 Plug 'nvim-lua/completion-nvim'
+Plug 'steelsojka/completion-buffers'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
