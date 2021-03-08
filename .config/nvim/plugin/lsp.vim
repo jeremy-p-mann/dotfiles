@@ -15,6 +15,7 @@ require'lspconfig'.pyls.setup{
 }
 EOF
 
+
 lua << EOF
 -- npm install -g vscode-json-languageserver
 require'lspconfig'.jsonls.setup {
@@ -28,5 +29,7 @@ require'lspconfig'.jsonls.setup {
 }
 EOF
 
-autocmd BufEnter * lua require'completion'.on_attach()
+" npm i -g bash-language-server
+lua require'lspconfig'.bashls.setup{}
 
+autocmd BufEnter * lua require'completion'.on_attach()
