@@ -20,6 +20,9 @@ nnoremap <silent> <leader>sc 1z=
 
 nnoremap <silent> <leader>af gqk
 
+" Search for current python class
+nnoremap <silent> <leader>fc /^class <CR>
+
 " resize windows
 nnoremap <silent> <leader>k :resize +10<CR>
 nnoremap <silent> <leader>j :resize -10<CR>
@@ -68,6 +71,8 @@ nnoremap <silent> <leader>lg :VimuxRunCommand("lazygit")<CR>
 nnoremap <silent> <leader>ex :VimuxRunCommand("python3 " . expand('%')) <CR>
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
+nnoremap <silent> <leader>lf :w <CR>:VimuxRunCommand("lua " . expand("%"))<CR>
+
 
 " UltiSnips
 nnoremap <silent> <leader>ue <C-w>s :w <CR>:UltiSnipsEdit<CR>
@@ -81,11 +86,13 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
+
 nnoremap <C-p>  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
 nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>
 nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes'))<cr>
 nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes'))<cr><cr>
-
+nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
+nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
 
 " Completion
 " Use <Tab> and <S-Tab> to navigate through popup menu
