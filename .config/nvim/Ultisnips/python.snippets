@@ -300,6 +300,26 @@ ttest_result = ttest_ind(
     )
 endsnippet
 
+# Logging
 
+snippet xloggingconfig
+logging.basicConfig(
+    filename='${1:filepath}', encoding='utf-8', level=logging.${2:INFO}
+    )
+endsnippet
+ 
+snippet xloginfo
+logging.info(f'$1' $2)$3
+endsnippet
 
+snippet xlogdebug
+logging.debug(f'$1' $2)$3
+endsnippet
 
+snippet xlogwarning
+logging.warning(f'$1' $2)$3
+endsnippet
+
+snippet xlogerror
+logging.error(f'$1' $2)$3
+endsnippet

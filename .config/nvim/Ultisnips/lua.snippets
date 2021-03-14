@@ -22,8 +22,14 @@ end
 $3
 endsnippet
 
-snippet xforlooptable
+snippet xforloopoverindex
 for ${1:key},${2:value} in ipairs(${3:array}) do
+  $4
+end
+
+endsnippet
+snippet xforloopovervalues
+for ${1:key},${2:value} in pairs(${3:array}) do
   $4
 end
 endsnippet
