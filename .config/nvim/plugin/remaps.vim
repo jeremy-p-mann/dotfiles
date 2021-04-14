@@ -33,6 +33,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Navigate Through a Quickfix List
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
+
 " Toggles cursorlines
 nnoremap <silent> <leader>cl :set cursorline<CR>
 nnoremap <silent> <leader>Cl :set nocursorline<CR>
@@ -86,11 +90,11 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
-
 nnoremap <C-p>  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
 nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>
 nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes'))<cr>
 nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes'))<cr><cr>
+nnoremap <Leader>fs :lua require'telescope.builtin'.grep_string(require('telescope.themes'))<cr><cr>
 nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
 nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
 
