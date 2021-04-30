@@ -51,7 +51,6 @@ nnoremap <silent> <leader>fp zfi{
 " Control p for fuzzy file finder
 nnoremap <silent> <Leader>ff :Files<CR>
 
-nnoremap <silent> <leader><tab> :YcmCompleter GetDoc<CR>
 
 " Linting on/off
 nnoremap <silent> <leader>lt :ALEToggle <CR>
