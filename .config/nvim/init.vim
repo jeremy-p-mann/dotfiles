@@ -46,8 +46,6 @@ Plug 'gruvbox-community/gruvbox'
 " Integrate tmux
 Plug 'benmills/vimux'
 
-Plug 'metakirby5/codi.vim'
-
 Plug 'tpope/vim-commentary'
 
 Plug 'vim-test/vim-test'
