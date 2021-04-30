@@ -51,7 +51,6 @@ nnoremap <silent> <leader>fp zfi{
 " Control p for fuzzy file finder
 nnoremap <silent> <Leader>ff :Files<CR>
 
-
 " Linting on/off
 nnoremap <silent> <leader>lt :ALEToggle <CR>
 
@@ -88,10 +87,8 @@ nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
 nnoremap <C-p>  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
-nnoremap <Leader>fg :lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>
 nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes'))<cr>
-nnoremap <Leader>fh :lua require'telescope.builtin'.help_tags(require('telescope.themes'))<cr><cr>
-nnoremap <Leader>fs :lua require'telescope.builtin'.grep_string(require('telescope.themes'))<cr><cr>
+nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
 nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
 
