@@ -1,4 +1,4 @@
-"
+"User
 " Jeremy's Remaps
 "
 
@@ -15,6 +15,9 @@ nnoremap <silent> <leader>sp :set spell!<CR>
 nnoremap <silent> <leader>sc 1z=
 
 nnoremap <silent> <leader>af gqk
+
+" git blame
+nnoremap <silent> <leader>gb :GitBlameToggle<CR>
 
 " Search for current python class
 nnoremap <silent> <leader>fc /^class <CR>
@@ -56,7 +59,8 @@ nnoremap <silent> <leader>lt :ALEToggle <CR>
 " Minimal Modes
 nnoremap <silent> <leader>li :Limelight <CR>
 nnoremap <silent> <leader>Li :Limelight! <CR>
-nnoremap <silent> <leader>g :Goyo <CR>
+nnoremap <silent> <leader>go :Goyo <CR>
+
 
 " Vimux
 nnoremap <leader>vp :VimuxPromptCommand<CR>
