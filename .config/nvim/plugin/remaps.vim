@@ -6,10 +6,6 @@
 nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 
-" easier to move to start/end of the line
-map H ^
-map L $
-
 " add line above/below without entering insert mode or moving cursor
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
