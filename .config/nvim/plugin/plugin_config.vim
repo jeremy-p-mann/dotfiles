@@ -15,12 +15,6 @@ let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
 
-" Ale
-let g:ale_linters = {
-            \ 'python': ['flake8', 'mypy'],
-            \ 'rst': ['rstcheck'], 
-            \ 'markdown': ['markdownlint'],
-            \ }
 
 " fzf
 " open files in a separate window
