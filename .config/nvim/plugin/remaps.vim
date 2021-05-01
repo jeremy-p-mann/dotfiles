@@ -34,6 +34,13 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
+" Copy/paste to/from the clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+nnoremap <leader>p "+p
+
+
 " Toggles cursorlines
 nnoremap <silent> <leader>cl :set cursorline<CR>
 nnoremap <silent> <leader>Cl :set nocursorline<CR>
