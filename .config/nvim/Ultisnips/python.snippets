@@ -12,6 +12,24 @@ from typing import List, Dict, Set, Union
 endsnippet
 
 
+snippet xsetup "contents of minimal setup.py file"
+
+from setuptools import setup, find_packages
+
+setup(
+    name='${1:MyPackageName}',
+    version='0.0.0dev',
+    url='https://github.com/${2:mypackage.git}',
+    author='Jeremy Mann',
+    author_email='jmann277@gmail.com',
+    description='${3:Description of my package}',
+    packages=find_packages(),
+    install_requires=[${4:'numpy >= 1.11.1', 'matplotlib >= 1.5.1'}],
+)
+endsnippet
+
+
+
 # Tests
 
 snippet xcontext.py "contents of context.py file"
@@ -215,7 +233,7 @@ endsnippet
 snippet xhistogram "matplotlib histogram"
 ${1: ax}.hist(
     ${2:x},
-    bins=${3:n_bins}, 
+    bins=${3:n_bins},
     density=${4:True}
     )
 $5
@@ -307,7 +325,7 @@ logging.basicConfig(
     filename='${1:filepath}', encoding='utf-8', level=logging.${2:INFO}
     )
 endsnippet
- 
+
 snippet xloginfo
 logging.info(f'$1' $2)$3
 endsnippet
