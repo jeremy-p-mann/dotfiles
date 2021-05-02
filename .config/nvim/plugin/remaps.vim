@@ -100,6 +100,8 @@ nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.t
 nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
 nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
+nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
+
 
 " Completion
 " Use <Tab> and <S-Tab> to navigate through popup menu
