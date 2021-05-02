@@ -63,9 +63,6 @@ nnoremap <silent> <Leader>ff :Files<CR>
 " Formatting JSONS
 noremap <silent><leader>jq :%!python -m json.tool<cr>
 
-" Linting on/off
-nnoremap <silent> <leader>lt :ALEToggle <CR>
-
 " Minimal Modes
 nnoremap <silent> <leader>li :Limelight <CR>
 nnoremap <silent> <leader>Li :Limelight! <CR>
