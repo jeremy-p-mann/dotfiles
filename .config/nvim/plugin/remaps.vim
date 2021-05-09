@@ -18,7 +18,7 @@ nnoremap <silent> <leader>sc 1z=
 nnoremap <silent> <leader>af gqk
 
 " git blame
-nnoremap <silent> <leader>gb :Git blame<CR>
+nnoremap <silent> <leader>gb :GitBlameToggle<CR>
 
 " Search for current python class
 nnoremap <silent> <leader>fc /^class <CR>
