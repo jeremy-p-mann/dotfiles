@@ -41,6 +41,7 @@ nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
 
 " Toggles cursorlines
