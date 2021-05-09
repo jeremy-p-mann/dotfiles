@@ -10,18 +10,60 @@ snippet ximage "include image"
 .. image:: /_static/${1:image_name.png}
 endsnippet
 
+snippet xconjecture "conjecture"
+
+.. admonition:: Conjecture
+    
+    $2
+endsnippet
+
 snippet xadmonition "admonition"
 
 .. admonition:: $1
-     
-     $2
+    
+    $2
+endsnippet
+
+snippet xadmonition "admonition"
+
+.. admonition:: $1
+    
+    $2
+endsnippet
+
+snippet xadmonition "admonition"
+
+.. admonition:: $1
+    
+    $2
+endsnippet
+
+snippet xadmonition "admonition"
+
+.. admonition:: $1
+    
+    $2
+endsnippet
+
+snippet xadmonition "admonition"
+
+.. admonition:: $1
+    
+    $2
+endsnippet
+
+snippet xcode "code"
+
+.. code-block:: $1
+    
+    $2
 endsnippet
 
 snippet xquestion "question"
 
 .. admonition:: Question
-     
-     $2
+    
+    $2
 endsnippet
 
 snippet xtheorem "theorem admonition"
@@ -50,7 +92,8 @@ snippet xtodo "to-to"
 
 .. admonition:: To Do 
     
-    $1
+    #. $1
+    #. $2
 endsnippet
 
 snippet xdefinition "definition admonition"

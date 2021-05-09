@@ -8,7 +8,6 @@ set relativenumber
 
 set noswapfile
 syntax enable
-set spell spelllang=en_us
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set smartindent
@@ -37,11 +36,8 @@ call plug#begin('~/.config/nvim/plugged')
 " File Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Completions/Snippets
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 Plug 'SirVer/ultisnips'
-" Linters/Fixers
-Plug 'dense-analysis/ale'
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -49,13 +45,24 @@ Plug 'junegunn/limelight.vim'
 Plug 'gruvbox-community/gruvbox'
 " Integrate tmux
 Plug 'benmills/vimux'
-" REPL-Driven Development
-Plug 'metakirby5/codi.vim'
-" Comment stuff out
+
 Plug 'tpope/vim-commentary'
-" Testing stuff
+
 Plug 'vim-test/vim-test'
-" For git stuff
+
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'nvim-lua/completion-nvim'
+Plug 'steelsojka/completion-buffers'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
