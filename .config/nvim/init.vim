@@ -46,6 +46,8 @@ Plug 'gruvbox-community/gruvbox'
 " Integrate tmux
 Plug 'benmills/vimux'
 
+Plug 'voldikss/vim-floaterm'
+
 Plug 'tpope/vim-commentary'
 
 Plug 'vim-test/vim-test'

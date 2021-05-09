@@ -69,6 +69,11 @@ nnoremap <silent> <leader>li :Limelight <CR>
 nnoremap <silent> <leader>Li :Limelight! <CR>
 nnoremap <silent> <leader>go :Goyo <CR>
 
+let current_file = expand("%")
+" FloatTerm
+nnoremap <silent><leader>lg :FloatermNew --height=0.9 --width=0.9 lazygit<CR>
+nnoremap <silent><leader>ex :execute("FloatermNew! --height=0.9 --width=0.9 python " . current_file)<CR>
+
 
 " Vimux
 nnoremap <leader>vp :VimuxPromptCommand<CR>
@@ -77,8 +82,6 @@ nnoremap <Leader>vv :VimuxCloseRunner<CR>
 nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
 let showdocs  = "open -a 'Brave Browser' build/html/index.html"
 nnoremap <silent> <leader>sd :VimuxRunCommand(showdocs)<CR>
-nnoremap <silent> <leader>lg :VimuxRunCommand("lazygit")<CR>
-nnoremap <silent> <leader>ex :VimuxRunCommand("python3 " . expand('%')) <CR>
 nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
 nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 nnoremap <silent> <leader>lf :w <CR>:VimuxRunCommand("lua " . expand("%"))<CR>
