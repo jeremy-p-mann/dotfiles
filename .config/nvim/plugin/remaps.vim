@@ -14,10 +14,11 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 nnoremap <silent> <leader>sp :set spell!<CR>
 nnoremap <silent> <leader>sc 1z=
 
+" Format things like paragraphs
 nnoremap <silent> <leader>af gqk
 
 " git blame
-nnoremap <silent> <leader>gb :GitBlameToggle<CR>
+nnoremap <silent> <leader>gb :Git blame<CR>
 
 " Search for current python class
 nnoremap <silent> <leader>fc /^class <CR>
