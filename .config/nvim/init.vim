@@ -53,7 +53,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-test/vim-test'
 
 Plug 'tpope/vim-fugitive'
-Plug 'APZelos/blamer.nvim'
+Plug 'f-person/git-blame.nvim'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
