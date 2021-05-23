@@ -109,6 +109,10 @@ nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
 nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
 
 
+nnoremap <silent><leader>tb <cmd>Tabularize /,<CR>
+vnoremap <silent><leader>tb <cmd>Tabularize /,<CR>
+
+
 " Completion
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -121,3 +125,4 @@ nnoremap <Leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>ho :lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>fm :lua vim.lsp.buf.formatting()<CR>
 nnoremap <Leader>rf :lua vim.lsp.buf.references()<CR>
+
