@@ -10,6 +10,7 @@ let mapleader="\<Space>"
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+nnoremap <silent> <leader>so :w <CR> :so %<CR>
 " spell check stuff
 nnoremap <silent> <leader>sp :set spell!<CR>
 nnoremap <silent> <leader>sc 1z=
