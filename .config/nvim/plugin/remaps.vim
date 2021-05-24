@@ -11,6 +11,11 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 nnoremap <silent> <leader>so :w <CR> :so %<CR>
+
+
+" Replace word
+nnoremap <silent> <leader>rw viwp
+
 " spell check stuff
 nnoremap <silent> <leader>sp :set spell!<CR>
 nnoremap <silent> <leader>sc 1z=
@@ -36,7 +41,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
-nnoremap <leader>bp oimport pdb; pdb.set_trace()
+nnoremap <leader>bp oimport pdb; pdb.set_trace()<
 
 " Copy/paste to/from the clipboard
 nnoremap <leader>y "+y
@@ -73,8 +78,13 @@ nnoremap <silent> <leader>go :Goyo <CR>
 
 let current_file = expand("%")
 " FloatTerm
-nnoremap <silent><leader>lg :FloatermNew --height=0.9 --width=0.9 lazygit<CR>
+nnoremap <silent><leader>lg :FloatermNew! --height=0.9 --width=0.9 lazygit<CR>
+nnoremap <silent> <leader>asc :FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>
+nnoremap <silent> <leader>asl :execute("FloatermNew! --height=0.9 --width=0.9 asciiquarium \| lolcat)<CR>
+nnoremap <silent><leader>mp :execute("FloatermNew! --height=0.9 --width=0.9 mypy " . current_file)<CR>
 nnoremap <silent><leader>ex :execute("FloatermNew! --height=0.9 --width=0.9 python " . current_file)<CR>
+nnoremap <silent><leader>ip :execute("FloatermNew! --height=0.9 --width=0.9 ipython")<CR>
+
 
 
 " Vimux
@@ -84,8 +94,6 @@ nnoremap <Leader>vv :VimuxCloseRunner<CR>
 nnoremap <silent> <leader>mh :w <CR>:VimuxRunCommand("make html")<CR>
 let showdocs  = "open -a 'Brave Browser' build/html/index.html"
 nnoremap <silent> <leader>sd :VimuxRunCommand(showdocs)<CR>
-nnoremap <silent> <leader>asc :VimuxRunCommand("asciiquarium")<CR>
-nnoremap <silent> <leader>asl :VimuxRunCommand("asciiquarium \| lolcat")<CR>
 nnoremap <silent> <leader>lf :w <CR>:VimuxRunCommand("lua " . expand("%"))<CR>
 
 
@@ -109,8 +117,7 @@ nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
 nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
 
 
-nnoremap <silent><leader>tb <cmd>Tabularize /,<CR>
-vnoremap <silent><leader>tb <cmd>Tabularize /,<CR>
+nnoremap <silent><leader>tb :Tabularize /,<CR>
 
 
 " Completion
@@ -126,3 +133,11 @@ nnoremap <Leader>ho :lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>fm :lua vim.lsp.buf.formatting()<CR>
 nnoremap <Leader>rf :lua vim.lsp.buf.references()<CR>
 
+" Harpoon
+" Harpoon Throw
+nnoremap <Leader>ht :lua require("harpoon.mark").add_file()<CR>
+nnoremap <Leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <Leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <Leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
+" Harpoon File
+nnoremap <Leader>hf :lua require("harpoon.ui").toggle_quick_menu()<CR>
