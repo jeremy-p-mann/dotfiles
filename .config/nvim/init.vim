@@ -67,6 +67,8 @@ Plug 'steelsojka/completion-buffers'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'ThePrimeagen/harpoon'
+
 Plug 'godlygeek/tabular'
 
 call plug#end()
