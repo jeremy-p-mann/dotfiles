@@ -41,7 +41,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
-nnoremap <leader>bp oimport pdb; pdb.set_trace()<
+nnoremap <leader>bp oimport pdb; pdb.set_trace()
 
 " Copy/paste to/from the clipboard
 nnoremap <leader>y "+y
