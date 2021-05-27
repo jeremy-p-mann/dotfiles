@@ -17,8 +17,15 @@ function M.find_tests ()
         cwd = tests_folder
     })
 end
+
+
+
+function M.find_in_current_directory ()
+    require("telescope.builtin").find_files({
+        prompt_title = "Tests",
+        cwd = vim.fn.expand('%'):match('.*/')
+    })
+end
  
 
 return M
-
-
