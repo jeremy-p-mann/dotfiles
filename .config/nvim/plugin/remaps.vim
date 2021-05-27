@@ -131,9 +131,7 @@ nnoremap <Leader>df :lua vim.lsp.buf.definition()<CR>
 nnoremap <Leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>ho :lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>fm :lua vim.lsp.buf.formatting()<CR>
-nnoremap <Leader>rf :lua vim.lsp.buf.references()<CR>
-nnoremap <silent>gr    <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
-nnoremap <silent>gr    <cmd>lua require'telescope.builtin'.lsp_definitions{}<CR>
+nnoremap <Leader>rf <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 
 " Harpoon
 " Harpoon Throw
