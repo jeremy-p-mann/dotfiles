@@ -26,9 +26,6 @@ nnoremap <silent> <leader>af gqk
 " git blame
 nnoremap <silent> <leader>gb :GitBlameToggle<CR>
 
-" Search for current python class
-nnoremap <silent> <leader>fc /^class <CR>
-
 " resize windows
 nnoremap <silent> <leader>k :resize +10<CR>
 nnoremap <silent> <leader>j :resize -10<CR>
@@ -109,11 +106,14 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
-nnoremap <C-p>  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
+nnoremap <Leader>ff  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
+nnoremap <C-p>  :lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>
 nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes'))<cr>
 nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>fz :lua require('telescope.builtin').live_grep()<CR>
 nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
 nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
+nnoremap <leader>fc :lua require('jer.telescope').find_in_current_directory()<CR>
 nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
 
 
@@ -132,6 +132,8 @@ nnoremap <Leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>ho :lua vim.lsp.buf.hover()<CR>
 nnoremap <Leader>fm :lua vim.lsp.buf.formatting()<CR>
 nnoremap <Leader>rf :lua vim.lsp.buf.references()<CR>
+nnoremap <silent>gr    <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <silent>gr    <cmd>lua require'telescope.builtin'.lsp_definitions{}<CR>
 
 " Harpoon
 " Harpoon Throw
