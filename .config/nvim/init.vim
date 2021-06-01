@@ -49,6 +49,7 @@ Plug 'benmills/vimux'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'tpope/vim-commentary'
+Plug 'mhinz/vim-startify'
 
 Plug 'vim-test/vim-test'
 
