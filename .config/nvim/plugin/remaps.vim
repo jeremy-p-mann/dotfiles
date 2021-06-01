@@ -1,4 +1,5 @@
 "User
+"
 " Jeremy's Remaps
 "
 
@@ -10,7 +11,8 @@ let mapleader="\<Space>"
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
-nnoremap <silent> <leader>so :w <CR> :so %<CR>
+nnoremap <silent> <leader>so :w <CR> :so %<CR> :echo "sourced " . expand("%")<CR>
+
 
 
 " Replace word
@@ -38,7 +40,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
-nnoremap <leader>bp oimport pdb; pdb.set_trace()
+nnoremap <leader>bp oimport pdb; pdb.set_trace()<C-c>
 
 " Copy/paste to/from the clipboard
 nnoremap <leader>y "+y
@@ -77,10 +79,11 @@ let current_file = expand("%")
 " FloatTerm
 nnoremap <silent><leader>lg :FloatermNew! --height=0.9 --width=0.9 lazygit<CR>
 nnoremap <silent> <leader>asc :FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>
-nnoremap <silent> <leader>asl :execute("FloatermNew! --height=0.9 --width=0.9 asciiquarium \| lolcat)<CR>
+nnoremap <silent> <leader>asl :execute("FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat")<CR>
 nnoremap <silent><leader>mp :execute("FloatermNew! --height=0.9 --width=0.9 mypy " . current_file)<CR>
 nnoremap <silent><leader>ex :execute("FloatermNew! --height=0.9 --width=0.9 python " . current_file)<CR>
-nnoremap <silent><leader>ip :execute("FloatermNew! --height=0.9 --width=0.9 ipython")<CR>
+nnoremap <silent><leader>tr :execute("FloatermNew! --height=0.9 --width=0.9 tree \| bat")<CR>
+nnoremap <silent><leader>tr :execute("FloatermNew! --height=0.9 --width=0.9 tree -f \| fzf")<CR>
 
 
 
@@ -106,14 +109,16 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 " Telescope
-nnoremap <Leader>ff  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
+nnoremap <Leader>fF  :lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>
 nnoremap <C-p>  :lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>
-nnoremap <Leader>fb :lua require'telescope.builtin'.buffers(require('telescope.themes'))<cr>
 nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <leader>fz :lua require('telescope.builtin').live_grep()<CR>
+nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<CR>
+nnoremap <leader>fv :lua require('telescope.builtin').treesitter()<CR>
 nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
 nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
-nnoremap <leader>fc :lua require('jer.telescope').find_in_current_directory()<CR>
+nnoremap <leader>ff :lua require('jer.telescope').find_in_current_directory()<CR>
+nnoremap <leader>fc :lua require('jer.telescope').find_classes()<CR>
+nnoremap <leader>fx :lua require('jer.telescope').find_fixtures()<CR>
 nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
 
 
