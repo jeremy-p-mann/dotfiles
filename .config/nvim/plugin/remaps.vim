@@ -115,9 +115,10 @@ nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim
 nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<CR>
 nnoremap <leader>fv :lua require('telescope.builtin').treesitter()<CR>
 nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
-nnoremap <leader>ft :lua require('jer.telescope').find_tests()<CR>
+nnoremap <leader>fT :lua require('jer.telescope').find_tests()<CR>
 nnoremap <leader>ff :lua require('jer.telescope').find_in_current_directory()<CR>
 nnoremap <leader>fc :lua require('jer.telescope').find_classes()<CR>
+nnoremap <leader>ft :lua require('jer.telescope').find_individual_test()<CR>
 nnoremap <leader>fx :lua require('jer.telescope').find_fixtures()<CR>
 nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
 

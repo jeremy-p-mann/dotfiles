@@ -33,6 +33,15 @@ function M.find_classes ()
     })
 end
 
+ 
+function M.find_individual_test ()
+    require("telescope.builtin").grep_string({
+        prompt_title = "Classes",
+        search='def test_',
+        use_regex=True
+    })
+end
+
 function M.find_fixtures ()
     require("telescope.builtin").grep_string({
         prompt_title = "Fixtures",
