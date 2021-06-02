@@ -17,6 +17,7 @@ nnoremap <silent> <leader>so :w <CR> :so %<CR> :echo "sourced " . expand("%")<CR
 
 " Replace word
 nnoremap <silent> <leader>rw viwp
+nnoremap <silent> <leader>rW viWp
 
 " spell check stuff
 nnoremap <silent> <leader>sp :set spell!<CR>
