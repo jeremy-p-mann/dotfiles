@@ -6,6 +6,9 @@
 set number
 set relativenumber
 
+" Reload the file when it changes
+set autoread
+
 set noswapfile
 syntax enable
 
