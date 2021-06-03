@@ -73,3 +73,6 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'godlygeek/tabular'
 
 call plug#end()
+
+
+lua require('jer')
