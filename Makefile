@@ -31,8 +31,8 @@ python:
 	    seaborn \
 	    sklearn \
 	    Sphinx \
-	    yapf \
+	    yapf
 shell_programs:
 	echo fzf asciiquarium cowsay htop lazygit lua luajit neovim pandoc \
 	    pkg-config the_silver_searcher tmux tree zsh-syntax-highlighting \
-	    ffmpeg cmake vim node tree-sitter fd
+	    ffmpeg cmake vim node tree-sitter fd bat ffmepg scim htop git-delta
