@@ -67,7 +67,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'nvim-lua/completion-nvim'
-Plug 'steelsojka/completion-buffers'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
