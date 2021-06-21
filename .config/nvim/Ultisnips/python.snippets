@@ -57,11 +57,8 @@ def $1($2):
     return $1
 endsnippet
 
-snippet xparam_fixture "parametrized pytest fixture"
-params = [
-    $1
-]
-@pytest.fixture(params=params,scope="${2:function}")
+snippet xfixture_param "parametrized pytest fixture"
+@pytest.fixture(params=$1,scope="${2:function}")
 def $3(request, ${4:}):
     $3 = request.param
     return $3
