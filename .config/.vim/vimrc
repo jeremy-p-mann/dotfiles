@@ -1,25 +1,19 @@
-"  Jeremy Mann's .vimrc
+"  Jeremy Mann's vimrc
 
-set number
 set ai 
-set relativenumber
 set title
 set noswapfile
 syntax enable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set smartindent
 set nohlsearch
-
 set showmode
 set showcmd
-
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 set incsearch
 set ignorecase
 set smartcase
-
 set splitbelow splitright
 
 nnoremap <SPACE> <Nop>
@@ -29,10 +23,30 @@ let mapleader="\<Space>"
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+nnoremap <silent> <leader>so :w <CR> :so %<CR> :echo "sourced " . expand("%")<CR>
+inoremap <C-o> <C-c>o
+inoremap <C-O> <C-c>O
+
+" Replace word
+nnoremap <silent> <leader>rw viwp
+nnoremap <silent> <leader>rW viWp
+
+" Format things like paragraphs
+nnoremap <silent> <leader>af gqk
+
 " dturn on spell check
 nnoremap <silent> <leader>sp :set spell!<CR>
 
 call plug#begin('~/.vim/plugged')
+  Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+  Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
+
+let g:ctrlp_map = '<c-p>'
+
+colorscheme challenger_deep
+let g:lightline = { 'colorscheme': 'challenger_deep' }
+
+
 
