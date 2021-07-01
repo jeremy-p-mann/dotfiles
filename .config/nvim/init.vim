@@ -27,7 +27,7 @@ set ignorecase
 set smartcase
 set nohlsearch " I don't like highlights when I search
 
-set scrolloff=4
+set scrolloff=3
 set cursorline
 
 set hidden "navigate to and from without saving
