@@ -1,1 +1,1 @@
-let g:floaterm_keymap_toggle = '<C-e>'
+let g:floaterm_keymap_toggle = '<C-h>'
