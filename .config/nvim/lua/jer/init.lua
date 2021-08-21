@@ -10,7 +10,7 @@ require('telescope').setup {
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
-        layout_defaults = {
+        layout_config = {
           horizontal = {
             width_padding = 0.1,
             height_padding = 0.1,
