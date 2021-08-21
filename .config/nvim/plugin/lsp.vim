@@ -1,18 +1,7 @@
 ", need to also install mypy, pyflakes
 lua << EOF
--- pip install python-language-server
--- pip install --upgrade pyflakes
--- pip install yapf
--- pip install mypy
-require'lspconfig'.pyls.setup{
-  enable = true,
-  plugins = {
-    pyls_mypy = {
-      enabled = true,
-      live_mode = false
-    },
-  },
-}
+-- pip install 'python-lsp-server[all]'
+require'lspconfig'.pylsp.setup{}
 EOF
 
 
