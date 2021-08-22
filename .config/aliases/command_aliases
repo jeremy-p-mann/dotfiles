@@ -16,6 +16,8 @@ alias gpob='git push origin $(git branch --show-current)'
 alias gg="git log --all --graph --decorate --oneline"
 alias gr="git restore"
 alias gb="git branch"
+alias gf="git fetch"
+alias gfa="git fetch --all"
 
 # Lazy Git
 alias lg="lazygit"
