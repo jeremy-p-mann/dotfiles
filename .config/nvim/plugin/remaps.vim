@@ -12,6 +12,8 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 nnoremap <silent> <leader>so :w <CR> :so %<CR> :echo "sourced " . expand("%")<CR>
+nnoremap <silent> <leader>si :luafile ~/.config/nvim/lua/jer/init.lua<CR>
+
 
 inoremap <C-o> <C-c>o
 inoremap <C-O> <C-c>O
