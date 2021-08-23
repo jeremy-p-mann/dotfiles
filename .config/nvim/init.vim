@@ -48,6 +48,7 @@ Plug 'benmills/vimux'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-capslock'
 
 Plug 'vim-test/vim-test'
 
