@@ -36,10 +36,6 @@ set splitbelow splitright
 
 call plug#begin('~/.config/nvim/plugged')
 
-" File Navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 Plug 'SirVer/ultisnips'
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
@@ -52,11 +48,9 @@ Plug 'benmills/vimux'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'tpope/vim-commentary'
-Plug 'mhinz/vim-startify'
 
 Plug 'vim-test/vim-test'
 
-Plug 'tpope/vim-fugitive'
 Plug 'f-person/git-blame.nvim'
 
 Plug 'nvim-lua/popup.nvim'
@@ -69,10 +63,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'ThePrimeagen/harpoon'
-
-Plug 'godlygeek/tabular'
 
 call plug#end()
 
