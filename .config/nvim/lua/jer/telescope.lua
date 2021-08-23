@@ -1,4 +1,3 @@
-local actions = require('telescope.actions')
 
 local M = {}
 M.search_dotfiles = function()
@@ -8,8 +7,8 @@ M.search_dotfiles = function()
     })
 end
 
-current_directory = vim.fn.getcwd()
-tests_folder = current_directory .. "/tests/"
+local current_directory = vim.fn.getcwd()
+local tests_folder = current_directory .. "/tests/"
 
 function M.find_tests ()
     require("telescope.builtin").find_files({
@@ -24,21 +23,21 @@ function M.find_in_current_directory ()
         cwd = vim.fn.expand('%'):match('.*/')
     })
 end
- 
+
 function M.find_classes ()
     require("telescope.builtin").grep_string({
         prompt_title = "Classes",
-        search='class ',
-        use_regex=True
+        search='^class ',
+        use_regex=true
     })
 end
 
- 
+
 function M.find_individual_test ()
     require("telescope.builtin").grep_string({
         prompt_title = "Classes",
         search='def test_',
-        use_regex=True
+        use_regex=true
     })
 end
 
@@ -46,7 +45,7 @@ function M.find_fixtures ()
     require("telescope.builtin").grep_string({
         prompt_title = "Fixtures",
         search='fixture',
-        use_regex=True
+        use_regex=true
     })
 end
 
