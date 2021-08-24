@@ -72,9 +72,6 @@ nnoremap <silent> <leader>fp zfi{
 " Control p for fuzzy file finder
 nnoremap <silent> <Leader>ff :Files<CR>
 
-" Formatting JSONS
-noremap <silent><leader>jq :%!python -m json.tool<cr>
-
 " Minimal Modes
 nnoremap <silent> <leader>li :Limelight <CR>
 nnoremap <silent> <leader>Li :Limelight! <CR>
