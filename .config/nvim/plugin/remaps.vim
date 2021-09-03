@@ -126,6 +126,11 @@ nnoremap <leader>ft :lua require('jer.telescope').find_individual_test()<CR>
 nnoremap <leader>fx :lua require('jer.telescope').find_fixtures()<CR>
 " Changing my colorscheme has never been faster
 nnoremap <leader>cc :lua require('telescope.builtin').colorscheme()<CR>
+" Help
+nnoremap <leader>hk :lua require('telescope.builtin').keymaps()<CR>
+nnoremap <leader>hc :lua require('telescope.builtin').commands()<CR>
+nnoremap <leader>hv :lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>hm :lua require('telescope.builtin').man_pages()<CR>
 
 
 nnoremap <silent><leader>tb :Tabularize /,<CR>
