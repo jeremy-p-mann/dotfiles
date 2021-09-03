@@ -132,6 +132,12 @@ nnoremap <leader>hc :lua require('telescope.builtin').commands()<CR>
 nnoremap <leader>hv :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>hm :lua require('telescope.builtin').man_pages()<CR>
 
+" Git Stuff
+nnoremap <leader>gs :lua require('telescope.builtin').git_status()<CR>
+nnoremap <leader>gbr :lua require('telescope.builtin').git_branches()<CR>
+nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
+nnoremap <leader>gbc :lua require('telescope.builtin').git_bcommits()<CR>
+
 
 nnoremap <silent><leader>tb :Tabularize /,<CR>
 
