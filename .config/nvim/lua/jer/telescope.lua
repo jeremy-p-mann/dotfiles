@@ -32,10 +32,9 @@ function M.find_classes ()
     })
 end
 
-
 function M.find_individual_test ()
     require("telescope.builtin").grep_string({
-        prompt_title = "Classes",
+        prompt_title = "Tests",
         search='def test_',
         use_regex=true
     })

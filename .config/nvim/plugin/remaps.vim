@@ -124,6 +124,8 @@ nnoremap <leader>ff :lua require('jer.telescope').find_in_current_directory()<CR
 nnoremap <leader>fc :lua require('jer.telescope').find_classes()<CR>
 nnoremap <leader>ft :lua require('jer.telescope').find_individual_test()<CR>
 nnoremap <leader>fx :lua require('jer.telescope').find_fixtures()<CR>
+" Changing my colorscheme has never been faster
+nnoremap <leader>cc :lua require('telescope.builtin').colorscheme()<CR>
 
 
 nnoremap <silent><leader>tb :Tabularize /,<CR>
