@@ -24,4 +24,5 @@ export EDITOR="nvim"
 export IPYTHONDIR="~/.config/ipython"
 export TASKRC="~/.config/task/taskrc"
 export LESSHISTFILE="-"
+export PTPYTHON_CONFIG_HOME="$HOME/.config/ptpython"
 
