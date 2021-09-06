@@ -9,6 +9,15 @@ end
 
 local current_directory = vim.fn.getcwd()
 local tests_folder = current_directory .. "/tests/"
+local folder_name_trailing_newling = vim.fn.system('basename $(pwd)')
+local folder_name, _ = string.gsub(folder_name_trailing_newling, "\n", "")
+
+function M.find_code ()
+    require("telescope.builtin").find_files({
+        prompt_title = "Tests",
+        cwd = current_directory .. "/" .. folder_name
+    })
+end
 
 function M.find_tests ()
     require("telescope.builtin").find_files({
@@ -53,6 +62,17 @@ function M.copy_path_to_clipboard(prompt_bufnr, map)
     vim.fn.system('echo ' .. content.value .. ' | pbcopy')
     require('telescope.actions').close(prompt_bufnr)
     return true
+end
+
+local actions = require('telescope.actions')
+
+function M.git_status ()
+    require("telescope.builtin").git_status({
+        attach_mappings = function(_, map)
+            map('i', '<c-s>', actions.git_staging_toggle)
+            return true
+        end
+    })
 end
 
 return M
