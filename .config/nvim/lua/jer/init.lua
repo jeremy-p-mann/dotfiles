@@ -9,7 +9,9 @@ require('telescope').setup {
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+        sorting_strategy = "ascending",
         layout_config = {
+          prompt_position = "top",
           horizontal = {
             width_padding = 0.1,
             height_padding = 0.1,
@@ -26,7 +28,7 @@ require('telescope').setup {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
                 ["<C-y>"] = require('jer.telescope').copy_path_to_clipboard,
-                ["<C-c>"] = actions.close
+                ["<C-c>"] = actions.close,
             },
             n = {
                 ["<C-c>"] = actions.close
