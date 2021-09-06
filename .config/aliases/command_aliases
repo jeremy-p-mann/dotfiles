@@ -68,4 +68,7 @@ alias firefox="open -a 'firefox'"
 alias obs="open -a 'obs'"
 alias weather="curl wttr.in -s | head -n 37"
 alias showdocs="open -a 'Brave Browser' build/html/index.html"
+alias swriting="open -a 'Brave Browser' ~/Documents/writing/docs/build/html/index.html"
+
+alias lw="~/Documents/code/personal_health/bash/log_weight.sh"
 
