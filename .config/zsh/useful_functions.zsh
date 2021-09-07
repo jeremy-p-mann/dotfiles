@@ -11,3 +11,9 @@ et() {
 e() {
     [[ -n $1 ]] && nvim $1 || nvim . -c ":lua require('telescope.builtin').git_files()"
 }
+fdr() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
