@@ -58,9 +58,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey "^n" complete-word
-bindkey "^e" autosuggest-execute
-bindkey "^U" autosuggest-accept
-
-bindkey "^r" fzf-history-widget
-bindkey "^i" fzf-completion
-bindkey "^t" fzf-file-widget
+bindkey "^e" autosuggest-accept
