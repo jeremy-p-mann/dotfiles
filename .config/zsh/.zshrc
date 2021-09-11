@@ -54,6 +54,7 @@ if [ -f ~/.config/zsh/useful_functions.zsh ] && [ -r ~/.config/zsh/useful_functi
     . ~/.config/zsh/useful_functions.zsh
 fi
 
+source /usr/local/share/fzf-tab/fzf-tab.plugin.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
