@@ -60,3 +60,4 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey "^n" complete-word
 bindkey "^e" autosuggest-accept
+bindkey "^f" fzf-cd-widget
