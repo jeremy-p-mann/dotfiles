@@ -59,5 +59,5 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey "^n" complete-word
-bindkey "^e" autosuggest-accept
+bindkey "^e" autosuggest-execute
 bindkey "^f" fzf-cd-widget
