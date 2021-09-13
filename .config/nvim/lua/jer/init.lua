@@ -1,20 +1,23 @@
 local actions = require('telescope.actions')
+local themes = require'telescope.themes'
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = '> ',
         layout_strategy = 'horizontal',
         color_devicons = true,
-
+        path_display = {shorten = 2},
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
         sorting_strategy = "ascending",
         layout_config = {
+            width = .95,
+            height = .9,
           prompt_position = "top",
           horizontal = {
-            width_padding = 0.1,
-            height_padding = 0.1,
+            width_padding = 0.001,
+            height_padding = 0.01,
             preview_width = 0.6,
           },
           vertical = {
