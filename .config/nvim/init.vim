@@ -40,8 +40,6 @@ Plug 'SirVer/ultisnips'
 " Nice Viewing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-" Color Schemes
-Plug 'gruvbox-community/gruvbox'
 " Integrate tmux
 Plug 'benmills/vimux'
 
@@ -64,8 +62,18 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'flazz/vim-colorschemes'
+Plug 'sainnhe/sonokai'
+Plug 'mangeshrex/uwu.vim'
+Plug 'dylanaraps/wal.vim'
+Plug 'norcalli/nvim-colorizer.lua' " This brings me the most joy
 
 call plug#end()
 
+set background=dark
+set termguicolors
 
 lua require('jer')
