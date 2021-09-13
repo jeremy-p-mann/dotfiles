@@ -12,7 +12,7 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 nnoremap <silent> <leader>so :w <CR> :so %<CR> :echo "sourced " . expand("%")<CR>
-nnoremap <silent> <leader>si :luafile ~/.config/nvim/lua/jer/init.lua<CR>
+nnoremap <silent> <leader>si <cmd>w <CR> <cmd>lua require('plenary.reload').reload_module('jer', true)<CR> <cmd>luafile ~/.config/nvim/lua/jer/init.lua<CR>
 
 
 inoremap <C-o> <C-c>o
@@ -118,22 +118,23 @@ nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<CR>
 nnoremap <leader>fv :lua require('telescope.builtin').treesitter()<CR>
 nnoremap <leader>fb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <silent><leader>ch <cmd>lua require('telescope.builtin').command_history{}<CR>
-nnoremap <leader>vrc :lua require('jer.telescope').search_dotfiles()<CR>
-nnoremap <leader>fT :lua require('jer.telescope').find_tests()<CR>
+nnoremap <leader>fd :lua require('jer.telescope').search_dotfiles()<CR>
 nnoremap <leader>ff :lua require('jer.telescope').find_in_current_directory()<CR>
-nnoremap <leader>fc :lua require('jer.telescope').find_classes()<CR>
-nnoremap <leader>ft :lua require('jer.telescope').find_individual_test()<CR>
-nnoremap <leader>fx :lua require('jer.telescope').find_fixtures()<CR>
 " Changing my colorscheme has never been faster
-nnoremap <leader>cc :lua require('telescope.builtin').colorscheme()<CR>
+nnoremap <leader>cc :lua require('telescope.builtin').colorscheme({use_regex=true})<CR>
 " Help
 nnoremap <leader>hk :lua require('telescope.builtin').keymaps()<CR>
 nnoremap <leader>hc :lua require('telescope.builtin').commands()<CR>
 nnoremap <leader>hv :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>hm :lua require('telescope.builtin').man_pages()<CR>
+" Python
+nnoremap <leader>ft :lua require('jer.telescope').find_test()<CR>
+nnoremap <leader>fx :lua require('jer.telescope').find_fixtures()<CR>
+nnoremap <leader>fT :lua require('jer.telescope').find_test_module({})<CR>
+nnoremap <leader>fc :lua require('jer.telescope').find_classes()<CR>
 
 " Git Stuff
-nnoremap <leader>gs :lua require('telescope.builtin').git_status()<CR>
+nnoremap <leader>gs :lua require('jer.telescope').git_status({})<CR>
 nnoremap <leader>gbr :lua require('telescope.builtin').git_branches()<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
 nnoremap <leader>gbc :lua require('telescope.builtin').git_bcommits()<CR>
