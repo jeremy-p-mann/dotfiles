@@ -1,4 +1,17 @@
 
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
+local finders = require "telescope.finders"
+local make_entry = require "telescope.make_entry"
+local pickers = require "telescope.pickers"
+local previewers = require "telescope.previewers"
+local utils = require "telescope.utils"
+local entry_display = require "telescope.pickers.entry_display"
+local strings = require "plenary.strings"
+local Path = require "plenary.path"
+
+local conf = require("telescope.config").values
+
 local M = {}
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
@@ -19,17 +32,26 @@ function M.find_code ()
     })
 end
 
-function M.find_tests ()
-    require("telescope.builtin").find_files({
-        prompt_title = "Tests",
-        cwd = tests_folder
-    })
+M.find_test_module = function(opts)
+  -- By creating the entry maker after the cwd options,
+  -- we ensure the maker uses the cwd options when being created.
+  opts.entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
+  opts.path_display = {"tail"}
+
+  pickers.new(opts, {
+    prompt_title = "Test",
+    finder = finders.new_oneshot_job(
+      vim.tbl_flatten { "find", ".", "-name", "*test_*.py" },
+      opts
+    ),
+    previewer = conf.file_previewer(opts),
+  }):find()
 end
 
 function M.find_in_current_directory ()
     require("telescope.builtin").find_files({
         prompt_title = "Files",
-        cwd = vim.fn.expand('%'):match('.*/')
+        cwd = vim.fn.expand('%'):match('.*/'),
     })
 end
 
@@ -37,15 +59,17 @@ function M.find_classes ()
     require("telescope.builtin").grep_string({
         prompt_title = "Classes",
         search='^class ',
-        use_regex=true
+        use_regex=true,
+        path_display = {"hidden"},
     })
 end
 
-function M.find_individual_test ()
+function M.find_test ()
     require("telescope.builtin").grep_string({
         prompt_title = "Tests",
-        search='def test_',
-        use_regex=true
+        search='^def test_',
+        use_regex=true,
+        path_display = {"hidden"},
     })
 end
 
