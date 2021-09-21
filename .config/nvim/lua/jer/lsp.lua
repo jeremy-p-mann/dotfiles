@@ -2,6 +2,9 @@
 -- pip install 'python-lsp-server[all]'
 require'lspconfig'.pylsp.setup{on_attach=require'completion'.on_attach}
 
+-- npm install -g typescript typescript-language-server
+require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+
 -- LUA
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 local system_name
