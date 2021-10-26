@@ -46,6 +46,18 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+
+# Make CTRL-Z background things and unbackground them.
+function fg-bg() {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg
+  else
+    zle push-input
+  fi
+}
+zle -N fg-bg
+bindkey '^Z' fg-bg
+
 [ -f ~/.config/aliases/command_aliases ] && source ~/.config/aliases/command_aliases 
 [ -f ~/.config/aliases/file_aliases ] && source ~/.config/aliases/file_aliases 
 
