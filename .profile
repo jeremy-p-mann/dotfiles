@@ -8,9 +8,8 @@ fi
 
 
 
-
 if [ -n "$ZSH_VERSION" ] && [ -r ~/.config/zsh/.zshrc ] && [ -r ~/.config/fzf/fzf.zsh ]; then
-    ZDOTDIR=$HOME/.config/zsh
+    export ZDOTDIR=$HOME/.config/zsh
     source ~/.config/zsh/.zshrc
     . ~/.config/fzf/fzf.zsh
 fi
@@ -25,4 +24,3 @@ export IPYTHONDIR="~/.config/ipython"
 export TASKRC="~/.config/task/taskrc"
 export LESSHISTFILE="-"
 export PTPYTHON_CONFIG_HOME="$HOME/.config/ptpython"
-

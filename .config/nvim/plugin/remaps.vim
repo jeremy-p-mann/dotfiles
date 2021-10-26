@@ -83,7 +83,7 @@ nnoremap <silent><leader>lg :FloatermNew! --height=0.9 --width=0.9 lazygit<CR>
 nnoremap <silent> <leader>asc :FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>
 nnoremap <silent> <leader>asl :execute("FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat")<CR>
 nnoremap <silent><leader>mp :execute("FloatermNew! --height=0.9 --width=0.9 mypy " . current_file)<CR>
-nnoremap <silent><leader>ex :execute("FloatermNew! --height=0.9 --width=0.9 python " . current_file)<CR>
+nnoremap <silent><leader>ex :execute("FloatermNew! --height=0.9 --width=0.9 python3 " . current_file)<CR>
 nnoremap <silent><leader>tr :execute("FloatermNew! --height=0.9 --width=0.9 tree \| bat")<CR>
 nnoremap <silent><leader>tr :execute("FloatermNew! --height=0.9 --width=0.9 tree -f \| fzf")<CR>
 
@@ -123,7 +123,7 @@ nnoremap <leader>ff :lua require('jer.telescope').find_in_current_directory()<CR
 " Changing my colorscheme has never been faster
 nnoremap <leader>cc :lua require('telescope.builtin').colorscheme({use_regex=true})<CR>
 " Help
-nnoremap <leader>hk :lua require('telescope.builtin').keymaps()<CR>
+nnoremap <leader>km :lua require('telescope.builtin').keymaps()<CR>
 nnoremap <leader>hc :lua require('telescope.builtin').commands()<CR>
 nnoremap <leader>hv :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>hm :lua require('telescope.builtin').man_pages()<CR>
