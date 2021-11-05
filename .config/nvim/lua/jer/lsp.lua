@@ -1,9 +1,9 @@
 -- PYTHON
 -- pip install 'python-lsp-server[all]'
-require'lspconfig'.pylsp.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.pylsp.setup{}
 
 -- npm install -g typescript typescript-language-server
-require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+require'lspconfig'.tsserver.setup{}
 
 -- LUA
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
@@ -28,7 +28,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-  on_attach=require'completion'.on_attach,
+  -- on_attach=require'completion'.on_attach,
   settings = {
     Lua = {
       runtime = {

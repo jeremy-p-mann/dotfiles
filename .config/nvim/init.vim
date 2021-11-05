@@ -59,7 +59,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'nvim-lua/completion-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
@@ -70,6 +69,20 @@ Plug 'sainnhe/sonokai'
 Plug 'mangeshrex/uwu.vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'norcalli/nvim-colorizer.lua' " This brings me the most joy
+
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'onsails/lspkind-nvim'
+
+" For vsnip users.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
 
 call plug#end()
 
