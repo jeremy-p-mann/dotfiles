@@ -1,15 +1,6 @@
-
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
 local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
 local pickers = require "telescope.pickers"
-local previewers = require "telescope.previewers"
-local utils = require "telescope.utils"
-local entry_display = require "telescope.pickers.entry_display"
-local strings = require "plenary.strings"
-local Path = require "plenary.path"
-
 local conf = require("telescope.config").values
 
 local M = {}
@@ -21,7 +12,6 @@ M.search_dotfiles = function()
 end
 
 local current_directory = vim.fn.getcwd()
-local tests_folder = current_directory .. "/tests/"
 local folder_name_trailing_newling = vim.fn.system('basename $(pwd)')
 local folder_name, _ = string.gsub(folder_name_trailing_newling, "\n", "")
 
