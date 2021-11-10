@@ -6,6 +6,8 @@
 set number
 set relativenumber
 
+set mouse=a
+
 " Reload the file when it changes
 set autoread
 
@@ -68,16 +70,17 @@ Plug 'flazz/vim-colorschemes'
 Plug 'sainnhe/sonokai'
 Plug 'mangeshrex/uwu.vim'
 Plug 'dylanaraps/wal.vim'
-Plug 'norcalli/nvim-colorizer.lua' " This brings me the most joy
+Plug 'norcalli/nvim-colorizer.lua'
 
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'onsails/lspkind-nvim'
+Plug 'hrsh7th/cmp-nvim-lua'
 
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
