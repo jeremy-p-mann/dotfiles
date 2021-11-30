@@ -1,9 +1,9 @@
 # tmux
 TMUX_CONFIG="~/.config/tmux/.tmux.conf"
-alias tmas="tmux -f $TMUX_CONFIG attach-session -t"
-alias tmns="tmux -f $TMUX_CONFIG new-session -s"
-alias tmls="tmux list-sessions"
-alias tmks="tmux kill-session -t"
+alias ta="tmux -f $TMUX_CONFIG attach-session -t"
+alias tn="tmux -f $TMUX_CONFIG new-session -s"
+alias tl="tmux list-sessions"
+alias tk="tmux kill-session -t"
 
 #Git
 alias g="git"
@@ -30,14 +30,6 @@ alias t3="tree -L 3"
 alias t1a="tree -L 1 -a"
 alias t2a="tree -L 2 -a"
 alias t3a="tree -L 3 -a"
-
-# TaskWarrior
-alias ta="task add"
-alias td="task done"
-alias te="task edit"
-alias tl="task list"
-alias tm="task modify"
-alias tb="task burndown"
 
 alias ..="cd .."
 alias 2.="cd ../.."
