@@ -9,3 +9,4 @@ sample_dotfiles/
 .config/nvim/spell
 .config/task/.task
 .config/aliases/local_file_aliases
+.config/gh/hosts.yml
