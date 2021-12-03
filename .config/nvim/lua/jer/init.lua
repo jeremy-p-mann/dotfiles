@@ -51,5 +51,6 @@ require('gitsigns').setup()
 
 require('jer.lsp')
 require('jer.completion')
+require('jer.remaps')
 require('jer.treesitter')
 
