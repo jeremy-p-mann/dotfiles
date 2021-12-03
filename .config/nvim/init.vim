@@ -38,11 +38,6 @@ set splitbelow splitright
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'SirVer/ultisnips'
-" Nice Viewing
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-" Integrate tmux
 Plug 'benmills/vimux'
 
 Plug 'voldikss/vim-floaterm'
@@ -61,18 +56,15 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
-Plug 'gruvbox-community/gruvbox'
-Plug 'flazz/vim-colorschemes'
-Plug 'sainnhe/sonokai'
-Plug 'mangeshrex/uwu.vim'
-Plug 'dylanaraps/wal.vim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'gruvbox-community/gruvbox'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'rose-pine/neovim'
 
-
+Plug 'SirVer/ultisnips'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -91,5 +83,11 @@ call plug#end()
 
 set background=dark
 set termguicolors
+let g:gruvbox_italicize_comments = 0
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme duskfox
+
 
 lua require('jer')
+
+
