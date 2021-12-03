@@ -52,7 +52,7 @@ Plug 'tpope/vim-capslock'
 
 Plug 'vim-test/vim-test'
 
-Plug 'f-person/git-blame.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
