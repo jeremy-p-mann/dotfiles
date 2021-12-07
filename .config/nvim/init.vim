@@ -78,6 +78,9 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+Plug 'cljoly/telescope-repo.nvim'
+
+
 
 call plug#end()
 
@@ -86,7 +89,6 @@ set termguicolors
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme duskfox
-
 
 lua require('jer')
 
