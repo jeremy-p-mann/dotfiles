@@ -18,7 +18,7 @@ NEWLINE=$'\n'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{10}%~${NEWLINE}> %f' 
+PROMPT='%F{#FCB68A}%~${NEWLINE}> %f' 
 RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
 autoload -Uz compinit && compinit
