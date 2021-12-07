@@ -5,6 +5,19 @@ require'lspconfig'.pylsp.setup{}
 -- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup{}
 
+-- YAML
+-- yarn global add yaml-language-server
+require('lspconfig').yamlls.setup {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
+      },
+    },
+  }
+}
+
+
 -- LUA
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 local system_name
