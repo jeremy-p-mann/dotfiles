@@ -65,6 +65,7 @@ bindkey '^Z' fg-bg
 if [ -f ~/.config/zsh/useful_functions.zsh ] && [ -r ~/.config/zsh/useful_functions.zsh ]; then
     . ~/.config/zsh/useful_functions.zsh
 fi
+. ~/.config/fzf/fzf.zsh
 
 source /usr/local/share/fzf-tab/fzf-tab.plugin.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -73,3 +74,4 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey "^n" complete-word
 bindkey "^e" autosuggest-execute
 bindkey "^f" fzf-cd-widget
+bindkey '^t' fzf-file-widget

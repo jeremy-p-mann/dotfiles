@@ -10,7 +10,6 @@ fi
 
 if [ -n "$ZSH_VERSION" ] && [ -r ~/.config/zsh/.zshrc ] && [ -r ~/.config/fzf/fzf.zsh ]; then
     export ZDOTDIR=$HOME/.config/zsh
-    . ~/.config/fzf/fzf.zsh
 fi
 
 [ -f ~/.config/aliases/command_aliases ] && source ~/.config/aliases/command_aliases
@@ -23,3 +22,5 @@ export IPYTHONDIR="~/.config/ipython"
 export TASKRC="~/.config/task/taskrc"
 export LESSHISTFILE="-"
 export PTPYTHON_CONFIG_HOME="$HOME/.config/ptpython"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
