@@ -9,9 +9,3 @@ if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
 fi
 
-
-
-for file in $(ls $XDG_HOME_CONFIG/aliases/)
-do
-    source $XDG_HOME_CONFIG/aliases/$file
-done
