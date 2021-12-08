@@ -11,8 +11,7 @@ fi
 
 
 
-
-[ -f ~/.config/aliases/command_aliases ] && source ~/.config/aliases/command_aliases
-[ -f ~/.config/aliases/file_aliases ] && source ~/.config/aliases/file_aliases
-[ -f ~/.config/aliases/local_file_aliases ] && source ~/.config/aliases/local_file_aliases
-
+for file in $(ls $XDG_HOME_CONFIG/aliases/)
+do
+    source $XDG_HOME_CONFIG/aliases/$file
+done
