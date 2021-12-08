@@ -1,0 +1,9 @@
+export CLICOLOR=1
+export EDITOR="nvim"
+export IPYTHONDIR="~/.config/ipython"
+export TASKRC="~/.config/task/taskrc"
+export LESSHISTFILE="-"
+export PTPYTHON_CONFIG_HOME="$HOME/.config/ptpython"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export ZDOTDIR=$HOME/.config/zsh
