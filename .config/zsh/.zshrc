@@ -1,3 +1,10 @@
+source  $XDG_HOME_CONFIG/fzf/fzf.zsh
+source  $XDG_HOME_CONFIG/zsh/useful_functions.zsh
+source /usr/local/share/fzf-tab/fzf-tab.plugin.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -24,6 +31,10 @@ RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 autoload -Uz compinit && compinit
 
 bindkey -v
+
+# #------
+# Widgets
+# #------
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -57,19 +68,6 @@ function fg-bg() {
 }
 zle -N fg-bg
 bindkey '^Z' fg-bg
-
-[ -f ~/.config/aliases/command_aliases ] && source ~/.config/aliases/command_aliases 
-[ -f ~/.config/aliases/file_aliases ] && source ~/.config/aliases/file_aliases 
-
-
-if [ -f ~/.config/zsh/useful_functions.zsh ] && [ -r ~/.config/zsh/useful_functions.zsh ]; then
-    . ~/.config/zsh/useful_functions.zsh
-fi
-. ~/.config/fzf/fzf.zsh
-
-source /usr/local/share/fzf-tab/fzf-tab.plugin.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey "^n" complete-word
 bindkey "^e" autosuggest-execute
