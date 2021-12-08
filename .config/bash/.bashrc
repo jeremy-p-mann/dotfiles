@@ -1,4 +1,11 @@
 
+source ~/.config/fzf/fzf.bash
+for file in $(ls $XDG_HOME_CONFIG/aliases/)
+do
+    source $XDG_HOME_CONFIG/aliases/$file
+done
+
+
 shopt -s histappend;
 
 # command line uses vi

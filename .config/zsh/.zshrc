@@ -1,9 +1,15 @@
 source  $XDG_HOME_CONFIG/fzf/fzf.zsh
 source  $XDG_HOME_CONFIG/zsh/useful_functions.zsh
+
 source /usr/local/share/fzf-tab/fzf-tab.plugin.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+
+for file in $(ls $XDG_HOME_CONFIG/aliases/)
+do
+    source $XDG_HOME_CONFIG/aliases/$file
+done
 
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
