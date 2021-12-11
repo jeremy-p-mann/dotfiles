@@ -1,5 +1,6 @@
 
-source ~/.config/fzf/fzf.bash
+source $XDG_HOME_CONFIG/fzf/fzf.bash
+
 for file in $(ls $XDG_HOME_CONFIG/aliases/)
 do
     source $XDG_HOME_CONFIG/aliases/$file
