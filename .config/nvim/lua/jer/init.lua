@@ -1,3 +1,5 @@
+require('jer.plugins')
+
 local actions = require('telescope.actions')
 local themes = require'telescope.themes'
 require('telescope').setup {
