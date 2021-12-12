@@ -64,3 +64,4 @@ alias swriting="open -a 'Brave Browser' ~/Documents/writing/docs/build/html/inde
 
 alias lw="~/Documents/code/personal_health/bash/log_weight.sh"
 
+alias md="mkdir"
