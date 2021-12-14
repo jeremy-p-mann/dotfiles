@@ -21,7 +21,6 @@ go
 npm
 yarn
 ripgrep
-py3-pip
 the_silver_searcher
 lua
 luajit
@@ -43,8 +42,7 @@ node
 tree-sitter
 fd
 bat
-ffmepg
-scim
+sc-im
 htop
 git-delta
 cowsay
