@@ -9,9 +9,7 @@ done
 
 shopt -s histappend;
 
-# command line uses vi
 set -o vi
-# make sure control l works in insert mode
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
