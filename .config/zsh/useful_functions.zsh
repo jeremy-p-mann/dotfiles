@@ -12,9 +12,9 @@ e() {
     if [[ -n $1 ]]; then
         nvim $1
     elif [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
-        nvim -c ":lua require('telescope.builtin').git_files()"
+        nvim . -c ":lua require('telescope.builtin').git_files()"
     else
-        nvim -c "lua require('telescope.builtin').find_files()"
+        nvim . -c "lua require('telescope.builtin').find_files()"
     fi
 }
 fdr() {
@@ -22,4 +22,10 @@ fdr() {
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
+}
+
+rl () {
+    [[ $SHELL == *'bash' ]] && source ~/.profile
+    [[ $SHELL == *'zsh' ]] && source ~/.zprofile 
+    [[ $SHELL == *'zsh' ]] && source $ZDOTDIR/.zshrc
 }
