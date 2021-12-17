@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
   use 'gruvbox-community/gruvbox'
   use 'EdenEast/nightfox.nvim'
   use 'rose-pine/neovim'
-  use 'SirVer/ultisnips'
+  -- use 'SirVer/ultisnips'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'onsails/lspkind-nvim'
   use 'hrsh7th/cmp-nvim-lua'
+  use 'rcarriga/nvim-notify'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'

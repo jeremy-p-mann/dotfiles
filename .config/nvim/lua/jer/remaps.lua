@@ -68,6 +68,8 @@ nremap('<leader>fc', [[<CMD>lua require('jer.telescope').find_classes()<CR>]])
 nremap('<leader>bp', [[oimport pdb; pdb.set_trace()<C-c>]])
 nremap('<leader>mh', [[<CMD>w <CR>:VimuxRunCommand("make html")<CR>]])
 nremap('<leader>sd', [[<CMD>VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>]])
+-- Notify
+nremap('<leader>nn', [[<CMD>lua require('notify')('hi')<CR>]])
 -- Misc.
 nremap('<leader>rw', [[viwp]])
 nremap('<leader>rW', [[viWp]])
@@ -83,6 +85,7 @@ nremap('<leader>o', [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nremap('<leader>O', [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]])
 -- Silly/Random
 nremap('<leader>cc', [[<CMD>lua require('telescope.builtin').colorscheme({use_regex=true})<CR>]])
+nremap('<leader>ex', [[<CMD>lua require('jer.float_term').execute_code()<CR>]])
 
 ----------------- Insert -----------------
 iremap('<Tab>', '')
