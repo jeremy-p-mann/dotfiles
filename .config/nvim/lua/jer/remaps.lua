@@ -70,6 +70,8 @@ nremap('<leader>mh', [[<CMD>w <CR>:VimuxRunCommand("make html")<CR>]])
 nremap('<leader>sd', [[<CMD>VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>]])
 -- Notify
 nremap('<leader>nn', [[<CMD>lua require('notify')('hi')<CR>]])
+-- Reload Config
+nremap('<leader>si', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR>]])
 -- Misc.
 nremap('<leader>rw', [[viwp]])
 nremap('<leader>rW', [[viWp]])

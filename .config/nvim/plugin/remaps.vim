@@ -1,6 +1,4 @@
-
 nnoremap <leader>so :w <CR> :so %<CR> :echo "sourced " . expand("%")<CR>
-nnoremap <leader>si <cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/lua/jer/init.lua<CR>
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
