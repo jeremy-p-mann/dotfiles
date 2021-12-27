@@ -2,11 +2,10 @@
 -- pip install 'python-lsp-server[all]'
 require'lspconfig'.pylsp.setup{}
 
--- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup{}
 
--- YAML
--- yarn global add yaml-language-server
+require'lspconfig'.bashls.setup{}
+
 require('lspconfig').yamlls.setup {
   settings = {
     yaml = {
