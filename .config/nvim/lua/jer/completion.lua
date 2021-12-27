@@ -6,11 +6,14 @@ local cmp = require'cmp'
 cmp.setup({
     snippet = {
       expand = function(args)
-        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        vim.fn["UltiSnips#Anon"](args.body)
       end,
     },
     mapping = {
       ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-s>'] = cmp.mapping.complete({
+        config = {sources = {{ name = 'nvim_lsp' }}}
+      }),
       ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
       ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
       ['<C-y>'] = cmp.config.disable,
@@ -22,9 +25,9 @@ cmp.setup({
     sources ={
       { name = 'ultisnips' },
       { name = 'nvim_lsp' },
-      { name = 'nvim_lua' },
-      { name = 'buffer' },
       { name = 'path' },
+      { name = 'nvim_lua'},
+      { name = 'buffer', keyword_length = 4,},
     },
   formatting = {
     format = lspkind.cmp_format {
@@ -40,6 +43,7 @@ cmp.setup({
   },
     experimental = {
       native_menu = false,
-
   },
+  require'cmp'.setup.cmdline('/', {sources = {{ name = 'buffer' }}}),
+  require'cmp'.setup.cmdline(':', {sources = {{ name = 'cmdline' }}}),
 })
