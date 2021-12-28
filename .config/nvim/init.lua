@@ -1,42 +1,40 @@
 require('jer.plugins')
 
+local opt = vim.opt
+
+opt.mouse = 'a'
+opt.number = true
+opt.relativenumber = true
+opt.autoread = true
+opt.swapfile = false
+opt.incsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = false
+opt.cursorline = true
+opt.hidden = true
+opt.showmode = true
+opt.showcmd = true
+opt.scrolloff = 3
+opt.smartindent = true
+opt.ai = true
+opt.tabstop = 8
+opt.softtabstop = 0
+opt.expandtab = true
+opt.shiftwidth  = 4
+opt.smarttab = true
+opt.splitbelow = true
+opt.splitright = true
+opt.background = 'dark'
+opt.termguicolors = true
+opt.colorcolumn = '80'
+
 vim.api.nvim_exec(
 [[
-set number
-set relativenumber
-
-set mouse=a
-
-" Reload the file when it changes
-set autoread
-
-set noswapfile
 syntax enable
 
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set smartindent
-set ai " autoindent
-
-set showmode " show the current mode
-set showcmd " show the command as it's being typed
-
-set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-set incsearch
-set ignorecase
-set smartcase
-set nohlsearch " I don't like highlights when I search
-
-set scrolloff=3
-set cursorline
-
-set hidden "navigate to and from without saving
-
-set splitbelow splitright
-
-set background=dark
-set termguicolors
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme duskfox
