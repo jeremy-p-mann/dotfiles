@@ -43,15 +43,13 @@ colorscheme duskfox
 ]],
 false)
 
-require('gitsigns').setup()
 
 require('jer')
 
 require('jer.lsp')
 require('jer.completion')
-require('jer.remaps')
 require('jer.treesitter')
 require('jer.float_term')
 require('jer.notify')
-
+require('jer.remaps')
 
