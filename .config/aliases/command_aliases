@@ -10,6 +10,7 @@ alias g="git"
 alias gs="git status"
 alias ga="git add"
 alias gc="git checkout"
+alias gcb="git checkout -b"
 alias gd='git diff'
 alias gcm="git commit -m"
 alias gpob='git push origin $(git branch --show-current)'
