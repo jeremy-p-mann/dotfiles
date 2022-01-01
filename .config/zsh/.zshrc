@@ -75,7 +75,7 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-bindkey "^n" complete-word
+[ -n $(zle -la | grep ^fzf-tab-complete$ ) ] && bindkey "^n" fzf-tab-complete || bindkey "^n" complete-word
 bindkey "^e" autosuggest-execute
 bindkey "^f" fzf-cd-widget
 bindkey '^t' fzf-file-widget
