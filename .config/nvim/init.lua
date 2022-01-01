@@ -50,4 +50,5 @@ require('jer.treesitter')
 require('jer.float_term')
 require('jer.notify')
 require('jer.remaps')
+require('jer.slime')
 

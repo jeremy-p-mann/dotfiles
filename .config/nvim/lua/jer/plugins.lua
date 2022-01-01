@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
   use 'hrsh7th/cmp-nvim-lua'
   use 'rcarriga/nvim-notify'
+  use 'jpalardy/vim-slime'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
