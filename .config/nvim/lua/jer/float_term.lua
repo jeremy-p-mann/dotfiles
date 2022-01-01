@@ -1,4 +1,3 @@
-print('hi')
 local M = {}
 M.execute_code = function()
     local current_file = vim.fn.expand('%')
