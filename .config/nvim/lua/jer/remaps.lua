@@ -6,6 +6,7 @@ local nremap = function(rhs, lhs) keymap('n', rhs, lhs, noremap_silent) end
 local vremap = function(rhs, lhs) keymap('v', rhs, lhs, noremap_silent) end
 
 
+
 ----------------- Normal -----------------
 vim.g.mapleader = ' '
 nremap(' ', '')
@@ -39,6 +40,12 @@ nremap('<leader>1', [[<CMD>require("harpoon.ui").nav_file(1)<CR>]])
 nremap('<leader>2', [[<CMD>require("harpoon.ui").nav_file(2)<CR>]])
 nremap('<leader>3',  [[<CMD>:lua require("harpoon.ui").nav_file(3)<CR>]])
 nremap('<leader>hf', [[<CMD>require("harpoon.ui").toggle_quick_menu()<CR>]])
+-- Slime
+nremap('<leader>sl', [[<CMD>SlimeSendCurrentLine<CR>]])
+nremap('<leader>sf', [[<CMD>%SlimeSend<CR>]])
+keymap('n', '<leader>sr', '<Plug>SlimeParagraphSend', {})
+
+
 -- Format
 nremap('<leader>fm', [[<CMD>lua vim.lsp.buf.formatting()<CR>]])
 nremap('<leader>af', [[gqk]])
