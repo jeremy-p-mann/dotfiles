@@ -6,6 +6,9 @@ require'lspconfig'.tsserver.setup{}
 
 require'lspconfig'.bashls.setup{}
 
+
+require'lspconfig'.rust_analyzer.setup{}
+
 require('lspconfig').yamlls.setup {
   settings = {
     yaml = {
