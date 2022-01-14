@@ -10,10 +10,13 @@ local vremap = function(rhs, lhs) keymap('v', rhs, lhs, noremap_silent) end
 ----------------- Normal -----------------
 vim.g.mapleader = ' '
 nremap(' ', '')
+
 -- Navigate quickfix list
 nremap('<C-j>', [[<CMD>cnext<CR>]])
 nremap('<C-k>', [[<CMD>cprev<CR>]])
+
 -- File Navigation
+
 nremap('<leader>fd', [[<CMD>lua require'jer.telescope'.search_dotfiles()<CR>]])
 nremap('<leader>fF',  [[<CMD>lua require'telescope.builtin'.find_files()<cr>]])
 nremap('<C-p>',  [[<CMD>lua require'telescope.builtin'.git_files()<cr>]])
@@ -22,25 +25,33 @@ nremap('<leader>fg', [[<CMD>lua require('telescope.builtin').live_grep()<CR>]])
 nremap('<leader>fv', [[<CMD>lua require('telescope.builtin').treesitter()<CR>]])
 nremap('<leader>fb', [[<CMD>lua require('telescope.builtin').buffers()<CR>]])
 nremap('<leader>ff', [[<CMD>lua require('jer.telescope').find_in_current_directory()<CR>]])
+
 -- Testing
+
 nremap('<leader>tn', [[<CMD>TestNearest<CR>]])
 nremap('<leader>tf', [[<CMD>TestFile<CR>]])
 nremap('<leader>ts', [[<CMD>TestSuite<CR>]])
 nremap('<leader>tl', [[<CMD>TestLast<CR>]])
 nremap('<leader>tv', [[<CMD>TestVisit<CR>]])
+
 -- LSP
+
 nremap('<leader>df', [[<CMD>lua vim.lsp.buf.definition()<CR>]])
 nremap('<leader>rn', [[<CMD>lua vim.lsp.buf.rename()<CR>]])
 nremap('<leader>ho', [[<CMD>lua vim.lsp.buf.hover()<CR>]])
 nremap('<leader>rf', [[<CMD>lua require'telescope.builtin'.lsp_references{}<CR>]])
 nremap('<leader>dg', [[<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]])
+
 -- Harpoon
+
 nremap('<leader>ht', [[<CMD>require("harpoon.mark").add_file()<CR>]])
 nremap('<leader>1', [[<CMD>require("harpoon.ui").nav_file(1)<CR>]])
 nremap('<leader>2', [[<CMD>require("harpoon.ui").nav_file(2)<CR>]])
 nremap('<leader>3',  [[<CMD>:lua require("harpoon.ui").nav_file(3)<CR>]])
 nremap('<leader>hf', [[<CMD>require("harpoon.ui").toggle_quick_menu()<CR>]])
+
 -- Slime
+
 nremap('<leader>sl', [[<CMD>SlimeSendCurrentLine<CR>]])
 nremap('<leader>sf', [[<CMD>%SlimeSend<CR>]])
 keymap('n', '<leader>sp', '<Plug>SlimeParagraphSend', {})
@@ -81,7 +92,7 @@ nremap('<leader>vi', [[<CMD>VimuxRunCommand("ipython")<CR><CMD>VimuxClearTermina
 nremap('<leader>nn', [[<CMD>lua require('notify')('hi')<CR>]])
 nremap('<leader>jo', [[<CMD>lua require('jer.notify').get_joke()<CR>]])
 -- Reload Config
-nremap('<leader>si', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR>]])
+nremap('<leader>si', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>PackerInstall<CR>]])
 -- Misc.
 nremap('<leader>rw', [[viwp]])
 nremap('<leader>rW', [[viWp]])
@@ -98,6 +109,9 @@ nremap('<leader>O', [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 -- Silly/Random
 nremap('<leader>cc', [[<CMD>lua require('telescope.builtin').colorscheme({use_regex=true})<CR>]])
 nremap('<leader>ex', [[<CMD>lua require('jer.float_term').execute_code()<CR>]])
+
+
+-- calm down
 
 ----------------- Insert -----------------
 iremap('<Tab>', '')
