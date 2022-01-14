@@ -67,6 +67,7 @@ nremap('<leader>gh', [[<CMD>lua require('telescope.builtin').git_bcommits()<CR>]
 nremap('<leader>vp', [[<CMD>VimuxPromptCommand<CR>]])
 nremap('<leader>vl', [[<CMD>VimuxRunLastCommand<CR>]])
 nremap('<leader>vv', [[<CMD>VimuxCloseRunner<CR>]])
+nremap('<leader>vc', [[<CMD>VimuxClearTerminalScreen<CR>]])
 -- python
 nremap('<leader>fT', [[<CMD>lua require('jer.telescope').find_test()<CR>]])
 nremap('<leader>fx', [[<CMD>lua require('jer.telescope').find_fixtures()<CR>]])
