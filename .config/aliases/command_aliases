@@ -69,3 +69,5 @@ alias md="mkdir"
 
 alias rmr="rm -r"
 alias rmrf="rm -rf"
+
+alias cpr="cp -r"
