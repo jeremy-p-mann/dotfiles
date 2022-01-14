@@ -46,3 +46,5 @@ sc-im
 htop
 git-delta
 cowsay
+rust-analyzer
+rustfmt
