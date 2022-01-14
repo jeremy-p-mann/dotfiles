@@ -78,6 +78,7 @@ nremap('<leader>sd', [[<CMD>VimuxRunCommand("open -a 'Brave Browser' build/html/
 nremap('<leader>vi', [[<CMD>VimuxRunCommand("ipython")<CR><CMD>VimuxClearTerminalScreen<CR>]])
 -- Notify
 nremap('<leader>nn', [[<CMD>lua require('notify')('hi')<CR>]])
+nremap('<leader>jo', [[<CMD>lua require('jer.notify').get_joke()<CR>]])
 -- Reload Config
 nremap('<leader>si', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR>]])
 -- Misc.
