@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   use 'gruvbox-community/gruvbox'
   use 'EdenEast/nightfox.nvim'
   use 'rose-pine/neovim'
+  use 'aditya-azad/candle-grey'
   -- use 'SirVer/ultisnips'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
@@ -37,7 +38,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
-}
+  }
   if packer_bootstrap then
     require('packer').sync()
   end
