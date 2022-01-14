@@ -43,7 +43,7 @@ nremap('<leader>hf', [[<CMD>require("harpoon.ui").toggle_quick_menu()<CR>]])
 -- Slime
 nremap('<leader>sl', [[<CMD>SlimeSendCurrentLine<CR>]])
 nremap('<leader>sf', [[<CMD>%SlimeSend<CR>]])
-keymap('n', '<leader>sr', '<Plug>SlimeParagraphSend', {})
+keymap('n', '<leader>sp', '<Plug>SlimeParagraphSend', {})
 
 
 -- Format
@@ -85,8 +85,8 @@ nremap('<leader>si', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_modul
 -- Misc.
 nremap('<leader>rw', [[viwp]])
 nremap('<leader>rW', [[viWp]])
-nremap('<leader>sp', [[<CMD>set spell!<CR>]])
-nremap('<leader>sc', [[1z=]])
+nremap('<leader>Sp', [[<CMD>set spell!<CR>]])
+nremap('<leader>Sc', [[1z=]])
 nremap('<leader>y', [["+y]])
 nremap('<leader>Y', [[gg"+yG]])
 nremap('<leader>p', [["+p]])
