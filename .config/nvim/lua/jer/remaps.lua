@@ -34,13 +34,14 @@ nremap('<leader>ts', [[<CMD>TestSuite<CR>]])
 nremap('<leader>tl', [[<CMD>TestLast<CR>]])
 nremap('<leader>tv', [[<CMD>TestVisit<CR>]])
 
--- LSP
+-- LSP/Treesitter
 
 nremap('<leader>df', [[<CMD>lua vim.lsp.buf.definition()<CR>]])
 nremap('<leader>rn', [[<CMD>lua vim.lsp.buf.rename()<CR>]])
 nremap('<leader>ho', [[<CMD>lua vim.lsp.buf.hover()<CR>]])
 nremap('<leader>rf', [[<CMD>lua require'telescope.builtin'.lsp_references{}<CR>]])
 nremap('<leader>dg', [[<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]])
+nremap('<leader>tr', [[<CMD>lua require'telescope.builtin'.treesitter{}<CR>]])
 
 -- Harpoon
 
