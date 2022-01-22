@@ -1,4 +1,4 @@
-source  $XDG_HOME_CONFIG/fzf/fzf.zsh
+source  $XDG_HOME_CONFIG/fzf/fzf.bash
 source  $XDG_HOME_CONFIG/zsh/useful_functions.zsh
 
 source $ZDOTDIR/plugin/fzf-tab/fzf-tab.plugin.zsh

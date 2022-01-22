@@ -1,7 +1,10 @@
+[[ $SHELL == *'bash' ]] && PREFIX='bash'
+[[ $SHELL == *'zsh' ]] && PREFIX='zsh'
+
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "$XDG_HOME_CONFIG/fzf/fzf/shell/completion.$PREFIX" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.bash"
+source "$XDG_HOME_CONFIG/fzf/fzf/shell/key-bindings.$PREFIX"
