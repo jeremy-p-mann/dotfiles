@@ -10,3 +10,4 @@ sample_dotfiles/
 .config/task/.task
 .config/aliases/local_file_aliases
 .config/gh/hosts.yml
+.config/zsh/plugin
