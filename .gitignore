@@ -12,3 +12,4 @@ sample_dotfiles/
 .config/gh/hosts.yml
 .config/zsh/plugin
 .config/fzf/fzf
+.config/nvim/plugin/packer_compiled.lua
