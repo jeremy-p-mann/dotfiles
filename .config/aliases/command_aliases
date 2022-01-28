@@ -71,3 +71,5 @@ alias rmr="rm -r"
 alias rmrf="rm -rf"
 
 alias cpr="cp -r"
+
+alias fpl="pip list | fzf"
