@@ -93,7 +93,7 @@ nremap('<leader>vi', [[<CMD>VimuxRunCommand("ipython")<CR><CMD>VimuxClearTermina
 nremap('<leader>nn', [[<CMD>lua require('notify')('hi')<CR>]])
 nremap('<leader>jo', [[<CMD>lua require('jer.notify').get_joke()<CR>]])
 -- Reload Config
-nremap('<leader>si', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>PackerInstall<CR>]])
+nremap('<leader>rl', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>PackerInstall<CR>]])
 -- Misc.
 nremap('<leader>rw', [[viwp]])
 nremap('<leader>rW', [[viWp]])
