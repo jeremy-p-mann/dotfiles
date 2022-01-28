@@ -110,7 +110,9 @@ nremap('<leader>O', [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 -- Silly/Random
 nremap('<leader>cc', [[<CMD>lua require('telescope.builtin').colorscheme({use_regex=true})<CR>]])
 nremap('<leader>ex', [[<CMD>lua require('jer.float_term').execute_code()<CR>]])
-
+nremap('<leader>asc',[[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>]])
+nremap('<leader>asl', [[<CMD>FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat<CR>]])
+nremap('<leader>ws', [[<CMD>lua require('jer.trim').trim_whitespace()<CR>]])  
 
 -- calm down
 
