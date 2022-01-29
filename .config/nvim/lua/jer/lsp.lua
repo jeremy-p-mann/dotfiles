@@ -1,24 +1,22 @@
--- PYTHON
--- pip install 'python-lsp-server[all]'
-require'lspconfig'.pylsp.setup{}
 
-require'lspconfig'.tsserver.setup{}
-
-require'lspconfig'.bashls.setup{}
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 
-require'lspconfig'.rust_analyzer.setup{}
-
-require('lspconfig').yamlls.setup {
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
-      },
-    },
-  }
+require'lspconfig'.pylsp.setup{
+    capabilities=capabilities
 }
 
+require'lspconfig'.tsserver.setup{
+    capabilities=capabilities
+}
+
+require'lspconfig'.bashls.setup{
+    capabilities=capabilities
+}
+
+require'lspconfig'.rust_analyzer.setup{
+    capabilities=capabilities
+}
 
 -- LUA
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
@@ -42,6 +40,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require'lspconfig'.sumneko_lua.setup {
+  capabilities=capabilities,
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   -- on_attach=require'completion'.on_attach,
   settings = {
