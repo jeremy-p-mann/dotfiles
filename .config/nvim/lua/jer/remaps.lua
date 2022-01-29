@@ -1,11 +1,8 @@
-
 local keymap = vim.api.nvim_set_keymap
 local noremap_silent = { noremap = true, silent = true }
 local iremap = function(rhs, lhs) keymap('i', rhs, lhs, noremap_silent) end
 local nremap = function(rhs, lhs) keymap('n', rhs, lhs, noremap_silent) end
 local vremap = function(rhs, lhs) keymap('v', rhs, lhs, noremap_silent) end
-
-
 
 ----------------- Normal -----------------
 vim.g.mapleader = ' '
@@ -56,7 +53,6 @@ nremap('<leader>hf', [[<CMD>require("harpoon.ui").toggle_quick_menu()<CR>]])
 nremap('<leader>sl', [[<CMD>SlimeSendCurrentLine<CR>]])
 nremap('<leader>sf', [[<CMD>%SlimeSend<CR>]])
 keymap('n', '<leader>sp', '<Plug>SlimeParagraphSend', {})
-
 
 -- Format
 nremap('<leader>fm', [[<CMD>lua vim.lsp.buf.formatting()<CR>]])
@@ -112,7 +108,7 @@ nremap('<leader>cc', [[<CMD>lua require('telescope.builtin').colorscheme({use_re
 nremap('<leader>ex', [[<CMD>lua require('jer.float_term').execute_code()<CR>]])
 nremap('<leader>asc',[[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>]])
 nremap('<leader>asl', [[<CMD>FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat<CR>]])
-nremap('<leader>ws', [[<CMD>lua require('jer.trim').trim_whitespace()<CR>]])  
+nremap('<leader>ws', [[<CMD>lua require('jer.trim').trim_whitespace()<CR>]])
 
 -- calm down
 
@@ -120,6 +116,11 @@ nremap('<leader>ws', [[<CMD>lua require('jer.trim').trim_whitespace()<CR>]])
 iremap('<Tab>', '')
 iremap('<C-o>', '<C-c>o')
 iremap('<C-O>', '<C-c>O')
+iremap('<C-e>', [[<CMD>lua require('luasnip').expand()<CR>]])
+iremap('<C-l>', [[<CMD>lua require('luasnip').jump(1)<CR>]])
+iremap('<C-p>', [[<CMD>lua require('luasnip').jump(-1)<CR>]])
+
+-- fu
 
 ----------------- Visual -----------------
 vremap('<leader>y', [["+y]])

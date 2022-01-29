@@ -29,3 +29,9 @@ rl () {
     [[ $SHELL == *'zsh' ]] && source ~/.zprofile 
     [[ $SHELL == *'zsh' ]] && source $ZDOTDIR/.zshrc
 }
+
+tn () {
+    session_name=${PWD##*/}
+    config=${TMUX_CONFIG}
+    tmux -f ${config} new-session -s ${session_name}
+}

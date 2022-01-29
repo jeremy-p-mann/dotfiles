@@ -1,7 +1,5 @@
 # tmux
-TMUX_CONFIG="~/.config/tmux/.tmux.conf"
 alias ta="tmux -f $TMUX_CONFIG attach-session -t"
-alias tn="tmux -f $TMUX_CONFIG new-session -s"
 alias tl="tmux list-sessions"
 alias tk="tmux kill-session -t"
 
