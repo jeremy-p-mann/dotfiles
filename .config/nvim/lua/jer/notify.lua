@@ -45,7 +45,7 @@ end
 
 
 M.get_joke = function() async.run(function()
-    joke = vim.fn.system('dadjoke | cowsay')
+    local joke = vim.fn.system('dadjoke | cowsay')
     notify(joke)
 end)
 end
