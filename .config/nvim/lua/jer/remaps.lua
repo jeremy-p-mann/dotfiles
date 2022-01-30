@@ -1,13 +1,13 @@
 local keymap = vim.api.nvim_set_keymap
 local noremap_silent = { noremap = true, silent = true }
 local iremap = function(rhs, lhs)
-	keymap("i", rhs, lhs, noremap_silent)
+  keymap("i", rhs, lhs, noremap_silent)
 end
 local nremap = function(rhs, lhs)
-	keymap("n", rhs, lhs, noremap_silent)
+  keymap("n", rhs, lhs, noremap_silent)
 end
 local vremap = function(rhs, lhs)
-	keymap("v", rhs, lhs, noremap_silent)
+  keymap("v", rhs, lhs, noremap_silent)
 end
 
 ----------------- Normal -----------------
@@ -97,8 +97,8 @@ nremap("<leader>nn", [[<CMD>lua require('notify')('hi')<CR>]])
 nremap("<leader>jo", [[<CMD>lua require('jer.notify').get_joke()<CR>]])
 -- Reload Config
 nremap(
-	"<leader>rl",
-	[[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>PackerInstall<CR>]]
+  "<leader>rl",
+  [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>PackerInstall<CR>]]
 )
 -- Misc.
 nremap("<leader>rw", [[viwp]])
