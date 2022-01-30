@@ -1,12 +1,16 @@
 #!/bin/sh
-npm i -g bash-language-server
-pip install python-lsp-server[all]
-npm install -g typescript typescript-language-server
-yarn global add yaml-language-server
+npm i -g 
+cargo install stylua
+npm install -g \
+    typescript \
+    typescript-language-server \
+    write-good \
+    bash-language-server
 pip3 install --upgrade python-lsp-server \
     pylsp-mypy \
-    pyls-flake8 \
     rope \
-    pyflakes \
-    yapf \
     pdbpp \
+    pyls-black \
+    proselint
+
+
