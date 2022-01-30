@@ -32,13 +32,15 @@ nremap('<leader>tl', [[<CMD>TestLast<CR>]])
 nremap('<leader>tv', [[<CMD>TestVisit<CR>]])
 
 -- LSP/Treesitter
-
-nremap('<leader>df', [[<CMD>lua vim.lsp.buf.definition()<CR>]])
 nremap('<leader>rn', [[<CMD>lua vim.lsp.buf.rename()<CR>]])
-nremap('<leader>ho', [[<CMD>lua vim.lsp.buf.hover()<CR>]])
-nremap('<leader>rf', [[<CMD>lua require'telescope.builtin'.lsp_references{}<CR>]])
-nremap('<leader>dg', [[<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]])
 nremap('<leader>tr', [[<CMD>lua require'telescope.builtin'.treesitter{}<CR>]])
+
+-- Diagnostics
+nremap('<leader>ds', [[<CMD>lua vim.diagnostic.show()<CR>]])
+nremap("<leader>dj", [[<CMD>lua vim.diagnostic.goto_next()<CR>]])
+nremap("<leader>dk", [[<CMD>lua vim.diagnostic.goto_prev()<CR>]])
+nremap("<leader>dl", "<cmd>Telescope diagnostics<cr>")
+
 
 -- Harpoon
 
@@ -93,6 +95,8 @@ nremap('<leader>rl', [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_modul
 -- Misc.
 nremap('<leader>rw', [[viwp]])
 nremap('<leader>rW', [[viWp]])
+nremap('<leader>rn', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
+nremap('<leader>Rn', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 nremap('<leader>Sp', [[<CMD>set spell!<CR>]])
 nremap('<leader>Sc', [[1z=]])
 nremap('<leader>y', [["+y]])
@@ -110,8 +114,6 @@ nremap('<leader>asc',[[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquar
 nremap('<leader>asl', [[<CMD>FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat<CR>]])
 nremap('<leader>ws', [[<CMD>lua require('jer.trim').trim_whitespace()<CR>]])
 
--- calm down
-
 ----------------- Insert -----------------
 iremap('<Tab>', '')
 iremap('<C-o>', '<C-c>o')
@@ -119,8 +121,6 @@ iremap('<C-O>', '<C-c>O')
 iremap('<C-e>', [[<CMD>lua require('luasnip').expand()<CR>]])
 iremap('<C-l>', [[<CMD>lua require('luasnip').jump(1)<CR>]])
 iremap('<C-p>', [[<CMD>lua require('luasnip').jump(-1)<CR>]])
-
--- fu
 
 ----------------- Visual -----------------
 vremap('<leader>y', [["+y]])
