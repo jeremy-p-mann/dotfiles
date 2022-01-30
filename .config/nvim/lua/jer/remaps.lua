@@ -9,6 +9,9 @@ end
 local vremap = function(rhs, lhs)
   keymap("v", rhs, lhs, noremap_silent)
 end
+local function nmap(l, r)
+  vim.keymap.set('n', l, r)
+end
 
 ----------------- Normal -----------------
 vim.g.mapleader = " "
@@ -78,6 +81,16 @@ nremap("<leader>gs", [[<CMD>lua require('jer.telescope').git_status({})<CR>]])
 nremap("<leader>gbr", [[<CMD>lua require('telescope.builtin').git_branches()<CR>]])
 nremap("<leader>gc", [[<CMD>lua require('telescope.builtin').git_commits()<CR>]])
 nremap("<leader>gh", [[<CMD>lua require('telescope.builtin').git_bcommits()<CR>]])
+local gs = package.loaded.gitsigns
+nmap('<leader>hp', gs.preview_hunk)
+nmap('<leader>hr', gs.reset_hunk)
+nmap('<leader>hs', gs.stage_hunk)
+nmap('<leader>hb', function() gs.blame_line{full=true} end)
+nmap('<leader>hB', gs.toggle_current_line_blame)
+nmap('<leader>hd', gs.diffthis)
+vim.keymap.set('n', '<leader>hk', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+vim.keymap.set('n', '<leader>hj', "&diff ? '[c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+
 -- tmux
 nremap("<leader>vp", [[<CMD>VimuxPromptCommand<CR>]])
 nremap("<leader>vl", [[<CMD>VimuxRunLastCommand<CR>]])
