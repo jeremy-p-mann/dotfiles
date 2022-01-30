@@ -6,7 +6,7 @@ local cmp = require'cmp'
 cmp.setup({
     snippet = {
       expand = function(args)
-        vim.fn["UltiSnips#Anon"](args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -23,11 +23,11 @@ cmp.setup({
       }),
     },
     sources ={
-      { name = 'ultisnips' },
+      { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'nvim_lua'},
-      { name = 'buffer', keyword_length = 4,},
+      { name = 'buffer', keyword_length = 4, max_item_count=4},
     },
   formatting = {
     format = lspkind.cmp_format {
@@ -47,3 +47,6 @@ cmp.setup({
   require'cmp'.setup.cmdline('/', {sources = {{ name = 'buffer' }}}),
   require'cmp'.setup.cmdline(':', {sources = {{ name = 'cmdline' }}}),
 })
+
+
+require("luasnip.loaders.from_vscode").load()
