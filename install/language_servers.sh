@@ -5,7 +5,8 @@ npm install -g \
     typescript \
     typescript-language-server \
     write-good \
-    bash-language-server
+    bash-language-server \
+    prettier
 pip3 install --upgrade python-lsp-server \
     pylsp-mypy \
     rope \
