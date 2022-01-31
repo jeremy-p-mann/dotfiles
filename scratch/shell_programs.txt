@@ -48,3 +48,5 @@ git-delta
 cowsay
 rust-analyzer
 rustfmt
+texlab
+stylua

@@ -1,5 +1,5 @@
 #!/bin/sh
-npm i -g 
+# texlab is managed  
 cargo install stylua
 npm install -g \
     typescript \

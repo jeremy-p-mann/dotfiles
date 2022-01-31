@@ -21,7 +21,6 @@ require("null-ls").setup {
   sources = {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.completion.spell,
     null_ls.builtins.diagnostics.write_good,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.pg_format.with {
@@ -30,6 +29,8 @@ require("null-ls").setup {
   },
 }
 require("lspconfig").pylsp.setup(opts)
+
+require'lspconfig'.texlab.setup(opts)
 
 require("lspconfig").tsserver.setup(opts)
 
