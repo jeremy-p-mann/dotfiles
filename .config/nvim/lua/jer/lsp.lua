@@ -2,13 +2,13 @@
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local on_attach = function()
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-  vim.keymap.set("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = 0 })
-  vim.keymap.set("n", "gi", "<CMD>Telescope lsp_implementations<CR>", { buffer = 0 })
-  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
-  vim.keymap.set("n", "<leader>rf", require("telescope.builtin").lsp_references)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0 })
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, desc="Hover Documentation"} )
+  vim.keymap.set("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = 0, desc="Telescope Definitions"})
+  vim.keymap.set("n", "gi", "<CMD>Telescope lsp_implementations<CR>", { buffer = 0,  desc="Telescope Implementations"})
+  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0, desc="Go to Type Definition"})
+  vim.keymap.set("n", "<leader>rf", require("telescope.builtin").lsp_references, {desc="Telescope References"})
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0, desc="LSP Rename"})
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0, desc="LSP Code Actions"})
 end
 
 local opts = {
