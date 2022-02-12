@@ -46,10 +46,13 @@ return require("packer").startup(function(use)
   use "rcarriga/nvim-notify"
   use "jpalardy/vim-slime"
   use "jose-elias-alvarez/null-ls.nvim"
+  use "rcarriga/nvim-dap-ui"
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
+  use "mfussenegger/nvim-dap"
+  use "mfussenegger/nvim-dap-python"
   if packer_bootstrap then
     require("packer").sync()
   end
