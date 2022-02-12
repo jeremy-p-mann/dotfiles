@@ -37,7 +37,7 @@ cmp.setup {
         nvim_lua = "[api]",
         nvim_lsp = "[LSP]",
         path = "[path]",
-        ultisnips = "[snip]",
+        luasnip = "[snip]",
       },
     },
   },
@@ -48,4 +48,3 @@ cmp.setup {
   require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } }),
 }
 
-require("luasnip.loaders.from_vscode").load()
