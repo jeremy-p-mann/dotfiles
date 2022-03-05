@@ -46,7 +46,15 @@ require("telescope").setup {
     },
   },
 }
-
 require("telescope").load_extension "fzy_native"
 
 require("gitsigns").setup()
+
+require('jer.lsp')
+require('jer.completion')
+require('jer.treesitter')
+require('jer.float_term')
+require('jer.notify')
+require('jer.remaps')
+require('jer.slime')
+require('jer.debug')
