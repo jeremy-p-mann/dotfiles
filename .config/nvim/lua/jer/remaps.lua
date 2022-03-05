@@ -32,17 +32,21 @@ nremap("<leader>tf", [[<CMD>TestFile<CR>]], "Run Test File")
 nremap("<leader>ts", [[<CMD>TestSuite<CR>]], "Run Test Suite")
 nremap("<leader>tl", [[<CMD>TestLast<CR>]], "Run Last Test(s)")
 nremap("<leader>tv", [[<CMD>TestVisit<CR>]], "Visit Last Test")
+nremap("<leader>tp", [[<Plug>PlenaryTestFile]], "Test Plugin")
+
 -- Diagnostics --
 nremap("<leader>ds", vim.diagnostic.show, "Show Diagnostic")
 nremap("<leader>dj", vim.diagnostic.goto_next, "Go to Next Diagnostic")
 nremap("<leader>dk", vim.diagnostic.goto_prev, "Go to Previous Diagnostic")
-nremap("<leader>dl", telescope.diagnostics, "Telescope Diagnostics")
+nremap("<leader>td", telescope.diagnostics, "Telescope Diagnostics")
 -- Harpoon --
-nremap("<leader>ht", [[<CMD>require("harpoon.mark").add_file()<CR>]])
-nremap("<leader>1", [[<CMD>require("harpoon.ui").nav_file(1)<CR>]])
-nremap("<leader>2", [[<CMD>require("harpoon.ui").nav_file(2)<CR>]])
-nremap("<leader>3", [[<CMD>:lua require("harpoon.ui").nav_file(3)<CR>]])
-nremap("<leader>hf", [[<CMD>require("harpoon.ui").toggle_quick_menu()<CR>]])
+nremap("<leader>mt", require("harpoon.mark").add_file)
+nremap("<leader>mj", require("harpoon.ui").nav_next)
+nremap("<leader>mk", require("harpoon.ui").nav_prev)
+nremap("<leader>1", function() require("harpoon.ui").nav_file(1) end)
+nremap("<leader>2", function() require("harpoon.ui").nav_file(2) end)
+nremap("<leader>3", function() require("harpoon.ui").nav_file(3) end)
+nremap("<leader>mf", require'jer.harpoon'.telescope_harpoon)
 
 -- Slime
 
@@ -59,6 +63,7 @@ nremap("<leader>ch", telescope.command_history, "Telescope Command History")
 nremap("<leader>km", telescope.keymaps, "Telescope Keymaps")
 nremap("<leader>hc", telescope.commands, "Telescope Commands")
 nremap("<leader>hv", telescope.help_tags, "Telescope Vim Help")
+
 -- Floating Terminal
 vim.g.floaterm_keymap_toggle = "<C-f>"
 -- git
@@ -100,6 +105,7 @@ nremap(
   [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>PackerInstall<CR>]],
     "Reload Entire Config")
 -- Misc --
+nremap("<leader>wr", "<cmd>wa<cr>", "Save all files")
 nremap("<leader>co", require('jer.chill').chill, "Chill out")
 nremap("<leader>uc", require('jer.chill').unchill, "UnChill")
 nremap("<leader>rw", [[viwp]], "Replace Word")
@@ -129,18 +135,19 @@ nremap("<leader>ws", require('jer.trim').trim_whitespace, "Trim Whitespace")
 nremap("<leader>lg",
     [[<CMD> FloatermNew! --height=0.99999 --width=0.99999 lazygit<CR>]],
     "Lazygit")
+nremap("<leader>tr", require('tarot').telescope_tarots, "Tarot")
 
 ----------------- Insert -----------------
 iremap("<Tab>", "")
 iremap("<C-o>", "<C-c>o", "New Line Above")
 iremap("<C-O>", "<C-c>O", "New Line Below")
 
-local ls = require "luasnip"
+local ls = require"luasnip"
 vim.keymap.set({ "i", "s" }, "<c-l>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
+  if require"luasnip".expand_or_jumpable() then
+    require"luasnip".expand_or_jump()
   end
-end, { silent = true, desc='Expand or Jump Snippet'})
+end, {desc='Expand or Jump Snippet'})
 
 -- <c-j> is my jump backwards key.
 -- this always moves to the previous item within the snippet
