@@ -35,3 +35,7 @@ tn () {
     config=${TMUX_CONFIG}
     tmux -f ${config} new-session -s ${session_name}
 }
+
+tr () {
+    nvim . -c ":lua require('tarot').telescope_tarots()"
+}
