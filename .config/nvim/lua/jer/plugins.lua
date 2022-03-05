@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
   use "lewis6991/gitsigns.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
+  use "/Users/jeremymann/Documents/code/tarot.nvim"
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
   use "norcalli/nvim-colorizer.lua"
