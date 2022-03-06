@@ -1,4 +1,5 @@
 local finders = require "telescope.finders"
+local utils = require "telescope.utils"
 local make_entry = require "telescope.make_entry"
 local pickers = require "telescope.pickers"
 local conf = require("telescope.config").values
@@ -22,19 +23,6 @@ function M.find_code()
   }
 end
 
-M.find_test_module = function(opts)
-  -- By creating the entry maker after the cwd options,
-  -- we ensure the maker uses the cwd options when being created.
-  opts.entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
-  opts.path_display = { "tail" }
-
-  pickers.new(opts, {
-    prompt_title = "Test",
-    finder = finders.new_oneshot_job(vim.tbl_flatten { "find", ".", "-name", "*test_*.py" }, opts),
-    previewer = conf.file_previewer(opts),
-  }):find()
-end
-
 function M.find_in_current_directory()
   require("telescope.builtin").find_files {
     prompt_title = "Files",
@@ -48,23 +36,6 @@ function M.find_classes()
     search = "^class ",
     use_regex = true,
     path_display = { "hidden" },
-  }
-end
-
-function M.find_test()
-  require("telescope.builtin").grep_string {
-    prompt_title = "Tests",
-    search = "^def test_",
-    use_regex = true,
-    path_display = { "hidden" },
-  }
-end
-
-function M.find_fixtures()
-  require("telescope.builtin").grep_string {
-    prompt_title = "Fixtures",
-    search = "fixture",
-    use_regex = true,
   }
 end
 

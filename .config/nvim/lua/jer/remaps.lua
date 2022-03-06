@@ -10,7 +10,6 @@ local vremap = function(rhs, lhs, desc)
   keymap("v", rhs, lhs, {noremap = true, silent = true, desc = desc })
 end
 ----------------- Normal -----------------
-print('hi')
 vim.g.mapleader = " "
 nremap(" ", "")
 -- Navigate quickfix list
@@ -26,14 +25,6 @@ nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
 nremap("<leader>ff", require('jer.telescope').find_in_current_directory, "Telescope Current Directory")
--- Testing --
-nremap("<leader>tn", [[<CMD>TestNearest<CR>]], "Run Nearest Tests")
-nremap("<leader>tf", [[<CMD>TestFile<CR>]], "Run Test File")
-nremap("<leader>ts", [[<CMD>TestSuite<CR>]], "Run Test Suite")
-nremap("<leader>tl", [[<CMD>TestLast<CR>]], "Run Last Test(s)")
-nremap("<leader>tv", [[<CMD>TestVisit<CR>]], "Visit Last Test")
-nremap("<leader>tp", [[<Plug>PlenaryTestFile]], "Test Plugin")
-
 -- Diagnostics --
 nremap("<leader>ds", vim.diagnostic.show, "Show Diagnostic")
 nremap("<leader>dj", vim.diagnostic.goto_next, "Go to Next Diagnostic")
@@ -86,9 +77,6 @@ nremap("<leader>vl", [[<CMD>VimuxRunLastCommand<CR>]], "Run Last command in Tmux
 nremap("<leader>vv", [[<CMD>VimuxCloseRunner<CR>]], "Close Tmux window")
 nremap("<leader>vc", [[<CMD>VimuxClearTerminalScreen<CR>]], "Clear Tmux Screen")
 -- python --
-nremap("<leader>fT", require('jer.telescope').find_test, "Find Invidual Test")
-nremap("<leader>fx", require('jer.telescope').find_fixtures, "Find Fixture")
-nremap("<leader>ft", require('jer.telescope').find_test_module, "Find Test Module")
 nremap("<leader>fc", require('jer.telescope').find_classes, "Find Class")
 nremap("<leader>bp", [[oimport pdb; pdb.set_trace()<C-c>]], "Add breakpoint")
 nremap("<leader>mh", [[<CMD>w <CR>:VimuxRunCommand("make html")<CR>]])
