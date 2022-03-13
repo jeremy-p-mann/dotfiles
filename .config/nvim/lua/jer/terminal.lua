@@ -1,5 +1,13 @@
 local nremap = require("jer.keymaps").nremap
+
 vim.g.floaterm_keymap_toggle = "<C-f>"
+vim.g.slime_default_config = {
+  ["socket_name"] = "default",
+  ["target_pane"] = "1",
+}
+vim.g.slime_paste_file = vim.fn.tempname()
+vim.g.slime_target = "tmux"
+vim.g.slime_dont_ask_default = 1
 
 local execute_code = function()
   local current_file = vim.fn.expand "%"
@@ -12,7 +20,6 @@ local execute_code = function()
   end
 end
 
--- Floating Terminal
 nremap("<leader>ex", execute_code, "Execute Code in Floating Window")
 nremap("<leader>vp", [[<CMD>VimuxPromptCommand<CR>]], "Run Command From Prompt in Tmux")
 nremap("<leader>vl", [[<CMD>VimuxRunLastCommand<CR>]], "Run Last command in Tmux")
