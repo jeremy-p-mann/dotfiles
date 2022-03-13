@@ -14,6 +14,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
+  use "Pocco81/TrueZen.nvim"
   use "wbthomason/packer.nvim"
   use "L3MON4D3/LuaSnip"
   use "tpope/vim-commentary"
