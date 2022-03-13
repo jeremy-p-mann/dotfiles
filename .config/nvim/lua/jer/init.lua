@@ -51,7 +51,6 @@ require("telescope").load_extension "fzy_native"
 
 require('jer.lsp')
 require('jer.completion')
-require('jer.float_term')
 require('jer.notify')
 require('jer.remaps')
 require('jer.debug')
