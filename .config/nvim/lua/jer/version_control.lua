@@ -1,5 +1,8 @@
 local nremap = require("jer.keymaps").nremap
 local telescope = require "telescope.builtin"
+
+require("gitsigns").setup()
+
 local gs = package.loaded.gitsigns
 local blame_line = function()
   gs.blame_line { full = true }

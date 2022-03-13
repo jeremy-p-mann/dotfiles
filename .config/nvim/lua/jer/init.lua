@@ -48,7 +48,6 @@ require("telescope").setup {
 }
 require("telescope").load_extension "fzy_native"
 
-require("gitsigns").setup()
 
 require('jer.lsp')
 require('jer.completion')
