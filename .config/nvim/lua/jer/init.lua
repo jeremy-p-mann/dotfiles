@@ -62,4 +62,5 @@ require('jer.formatting')
 require('jer.silly')
 require('jer.diagnostics')
 require('jer.snippets')
+require('jer.registers')
 

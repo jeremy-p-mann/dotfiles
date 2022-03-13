@@ -1,14 +1,7 @@
 ----------------- Many Keymaps -----------------
-local keymap = vim.keymap.set
-local iremap = function(rhs, lhs, desc)
-  keymap("i", rhs, lhs, { noremap = true, silent = true, desc = desc })
-end
-local nremap = function(rhs, lhs, desc)
-  keymap("n", rhs, lhs, { noremap = true, silent = true, desc = desc })
-end
-local vremap = function(rhs, lhs, desc)
-  keymap("v", rhs, lhs, { noremap = true, silent = true, desc = desc })
-end
+local keymap = require("jer.keymaps")
+local nremap = keymap.nremap
+local iremap = keymap.iremap
 ----------------- Normal -----------------
 vim.g.mapleader = " "
 nremap(" ", "")
@@ -62,14 +55,9 @@ nremap("<leader>rW", [[viWp]], "Replace Entire Word")
 nremap("<leader>rN", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], "Rename All Occurences of Word in File")
 nremap("<leader>Sp", [[<CMD>set spell!<CR>]], "Set Spelling")
 nremap("<leader>Sc", [[1z=]], "Correct Spelling")
-nremap("<leader>y", [["+y]], "Yank Motion to System Register")
-nremap("<leader>Y", [[gg"+yG]], "Yank File to System Register")
-nremap("<leader>p", [["+p]], "Paste From System Register")
-nremap("<leader>P", [["+P]], "Paste Above/Before From System Register")
 nremap("<leader>cl", [[:set cursorline<CR>]], "Turn on Cursor Line")
 nremap("<leader>Cl", [[:set nocursorline<CR>]], "Turn off Cursor Line")
 nremap("<leader>o", [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>]], "Append a Line Below")
-
 nremap("<leader>O", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]], "Append a Line Above")
 
 ----------------- Insert -----------------
@@ -78,4 +66,3 @@ iremap("<C-o>", "<C-c>o", "New Line Above")
 iremap("<C-O>", "<C-c>O", "New Line Below")
 
 ----------------- Visual -----------------
-vremap("<leader>y", [["+y]], "Copy to System Register")
