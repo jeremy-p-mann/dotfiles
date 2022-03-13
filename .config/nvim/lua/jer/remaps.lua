@@ -77,20 +77,5 @@ iremap("<Tab>", "")
 iremap("<C-o>", "<C-c>o", "New Line Above")
 iremap("<C-O>", "<C-c>O", "New Line Below")
 
-local ls = require "luasnip"
-vim.keymap.set({ "i", "s" }, "<c-l>", function()
-  if require("luasnip").expand_or_jumpable() then
-    require("luasnip").expand_or_jump()
-  end
-end, { desc = "Expand or Jump Snippet" })
-
--- <c-j> is my jump backwards key.
--- this always moves to the previous item within the snippet
-vim.keymap.set({ "i", "s" }, "<c-h>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true, desc = "Go to Previous Item in Snipppet" })
-
 ----------------- Visual -----------------
 vremap("<leader>y", [["+y]], "Copy to System Register")
