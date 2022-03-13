@@ -48,13 +48,4 @@ end
 
 local actions = require "telescope.actions"
 
-function M.git_status()
-  require("telescope.builtin").git_status {
-    attach_mappings = function(_, map)
-      map("i", "<c-s>", actions.git_staging_toggle)
-      return true
-    end,
-  }
-end
-
 return M
