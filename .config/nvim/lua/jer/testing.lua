@@ -1,5 +1,7 @@
 local nremap = require("jer.keymaps").nremap
-
+local save_files = function()
+  vim.cmd [[wa]]
+end
 -- Testing --
 
 local is_lua_test_file = function()
@@ -8,6 +10,7 @@ local is_lua_test_file = function()
 end
 
 local test_nearest = function()
+  save_files()
   if is_lua_test_file() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
@@ -16,6 +19,7 @@ local test_nearest = function()
 end
 
 local test_debug = function()
+  save_files()
   if is_lua_test_file() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
@@ -24,6 +28,7 @@ local test_debug = function()
 end
 
 local test_file = function()
+  save_files()
   if is_lua_test_file() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
@@ -32,6 +37,7 @@ local test_file = function()
 end
 
 local test_suite = function()
+  save_files()
   if is_lua_test_file() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
@@ -40,6 +46,7 @@ local test_suite = function()
 end
 
 local test_last = function()
+  save_files()
   if is_lua_test_file() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
