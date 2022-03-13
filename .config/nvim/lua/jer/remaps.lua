@@ -30,8 +30,6 @@ nremap("<leader>rW", [[viWp]], "Replace Entire Word")
 nremap("<leader>rN", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], "Rename All Occurences of Word in File")
 nremap("<leader>Sp", [[<CMD>set spell!<CR>]], "Set Spelling")
 nremap("<leader>Sc", [[1z=]], "Correct Spelling")
-nremap("<leader>cl", [[:set cursorline<CR>]], "Turn on Cursor Line")
-nremap("<leader>Cl", [[:set nocursorline<CR>]], "Turn off Cursor Line")
 nremap("<leader>o", [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>]], "Append a Line Below")
 nremap("<leader>O", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]], "Append a Line Above")
 

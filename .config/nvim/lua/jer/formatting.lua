@@ -1,6 +1,5 @@
 local nremap = require("jer.keymaps").nremap
 
-local colorscheme = require("telescope.builtin").colorscheme
 
 local trim_whitespace = function()
   local patterns = {
@@ -19,4 +18,3 @@ end
 nremap("<leader>fm", vim.lsp.buf.formatting, "LSP formatting")
 nremap("<leader>af", [[gqk]], "Split long line into separate lines")
 nremap("<leader>ws", trim_whitespace, "Trim Whitespace")
-nremap("<leader>cc", colorscheme, "Telescope to Change Colorscheme")
