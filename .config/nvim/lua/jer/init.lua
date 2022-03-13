@@ -63,4 +63,5 @@ require('jer.version_control')
 require('jer.terminal')
 require('jer.help')
 require('jer.formatting')
+require('jer.silly')
 

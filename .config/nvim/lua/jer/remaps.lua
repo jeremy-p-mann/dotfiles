@@ -55,7 +55,6 @@ nremap("<leader>sd", [[<CMD>VimuxRunCommand("open -a 'Brave Browser' build/html/
 nremap("<leader>vi", [[<CMD>VimuxRunCommand("ipython")<CR><CMD>VimuxClearTerminalScreen<CR>]], "Open ipython in tmux")
 -- Notify --
 nremap("<leader>nn", [[<CMD>lua require('notify')('hi')<CR>]])
-nremap("<leader>jo", require("jer.notify").get_joke, "Get A Joke")
 -- Reload Config --
 nremap(
   "<leader>rl",
@@ -79,15 +78,6 @@ nremap("<leader>cl", [[:set cursorline<CR>]], "Turn on Cursor Line")
 nremap("<leader>Cl", [[:set nocursorline<CR>]], "Turn off Cursor Line")
 nremap("<leader>o", [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>]], "Append a Line Below")
 nremap("<leader>O", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]], "Append a Line Above")
--- Silly/Random --
-nremap("<leader>asc", [[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>]], "Float asciiquarium")
-nremap(
-  "<leader>asl",
-  [[<CMD>FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat<CR>]],
-  "Float asciiquarium in lolcatz"
-)
-
-nremap("<leader>tr", require("tarot").telescope_tarots, "Tarot")
 
 ----------------- Insert -----------------
 iremap("<Tab>", "")
