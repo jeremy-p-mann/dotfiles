@@ -58,12 +58,6 @@ nremap("<leader>sp", "<Plug>SlimeParagraphSend", "Send the Paragraph")
 nremap("<leader>fm", vim.lsp.buf.formatting, "LSP formatting")
 nremap("<leader>af", [[gqk]], "Split long line into separate lines")
 
--- Help
-nremap("<leader>ch", telescope.command_history, "Telescope Command History")
-nremap("<leader>km", telescope.keymaps, "Telescope Keymaps")
-nremap("<leader>hc", telescope.commands, "Telescope Commands")
-nremap("<leader>hv", telescope.help_tags, "Telescope Vim Help")
-
 -- Floating Terminal
 vim.g.floaterm_keymap_toggle = "<C-f>"
 
@@ -128,6 +122,7 @@ vim.keymap.set({ "i", "s" }, "<c-l>", function()
     require("luasnip").expand_or_jump()
   end
 end, { desc = "Expand or Jump Snippet" })
+
 -- <c-j> is my jump backwards key.
 -- this always moves to the previous item within the snippet
 vim.keymap.set({ "i", "s" }, "<c-h>", function()
