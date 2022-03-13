@@ -60,3 +60,7 @@ require('jer.slime')
 require('jer.debug')
 require('jer.testing')
 require('jer.version_control')
+require('jer.terminal')
+require('jer.help')
+require('jer.formatting')
+
