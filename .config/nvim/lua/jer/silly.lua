@@ -8,3 +8,4 @@ nremap(
   "Float asciiquarium in lolcatz"
 )
 nremap("<leader>jo", require("jer.notify").get_joke, "Get A Joke")
+nremap("<leader>nn", [[<CMD>lua require('notify')('hi')<CR>]])

@@ -53,8 +53,6 @@ nremap("<leader>fc", require("jer.telescope").find_classes, "Find Class")
 nremap("<leader>mh", [[<CMD>w <CR>:VimuxRunCommand("make html")<CR>]])
 nremap("<leader>sd", [[<CMD>VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>]])
 nremap("<leader>vi", [[<CMD>VimuxRunCommand("ipython")<CR><CMD>VimuxClearTerminalScreen<CR>]], "Open ipython in tmux")
--- Notify --
-nremap("<leader>nn", [[<CMD>lua require('notify')('hi')<CR>]])
 -- Reload Config --
 nremap(
   "<leader>rl",
@@ -77,6 +75,7 @@ nremap("<leader>P", [["+P]], "Paste Above/Before From System Register")
 nremap("<leader>cl", [[:set cursorline<CR>]], "Turn on Cursor Line")
 nremap("<leader>Cl", [[:set nocursorline<CR>]], "Turn off Cursor Line")
 nremap("<leader>o", [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>]], "Append a Line Below")
+
 nremap("<leader>O", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]], "Append a Line Above")
 
 ----------------- Insert -----------------
