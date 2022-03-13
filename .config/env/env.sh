@@ -1,9 +1,3 @@
-if [ $(uname) = "Darwin" ]; then
-    export BASEDIR=$HOME/Documents
-else
-    export BASEDIR=$HOME
-fi
-export DOTFILEDIR=$BASEDIR/dotfiles
 export CLICOLOR=1
 export EDITOR=nvim
 export IPYTHONDIR=$XDG_HOME_CONFIG/ipython
