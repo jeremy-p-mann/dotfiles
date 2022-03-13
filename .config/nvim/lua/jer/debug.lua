@@ -1,3 +1,5 @@
+local nremap = require("jer.keymaps").nremap
+
 local dap = require('dap')
 -- Python
 require('dap-python').test_runner = 'pytest'
@@ -21,3 +23,5 @@ dap.configurations.python = {
     end;
   },
 }
+
+nremap("<leader>bp", [[oimport pdb; pdb.set_trace()<C-c>]], "Add breakpoint")

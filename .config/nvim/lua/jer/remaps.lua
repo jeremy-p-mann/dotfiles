@@ -64,7 +64,6 @@ nremap("<leader>vv", [[<CMD>VimuxCloseRunner<CR>]], "Close Tmux window")
 nremap("<leader>vc", [[<CMD>VimuxClearTerminalScreen<CR>]], "Clear Tmux Screen")
 -- python --
 nremap("<leader>fc", require("jer.telescope").find_classes, "Find Class")
-nremap("<leader>bp", [[oimport pdb; pdb.set_trace()<C-c>]], "Add breakpoint")
 nremap("<leader>mh", [[<CMD>w <CR>:VimuxRunCommand("make html")<CR>]])
 nremap("<leader>sd", [[<CMD>VimuxRunCommand("open -a 'Brave Browser' build/html/index.html")<CR>]])
 nremap("<leader>vi", [[<CMD>VimuxRunCommand("ipython")<CR><CMD>VimuxClearTerminalScreen<CR>]], "Open ipython in tmux")
