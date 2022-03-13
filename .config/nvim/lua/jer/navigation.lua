@@ -8,6 +8,61 @@ local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
 local harpoon = require("harpoon")
 local harpoon_mark = require("harpoon.mark")
+local actions = require "telescope.actions"
+
+function copy_path_to_clipboard(prompt_bufnr, map)
+  local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+  vim.fn.system("echo " .. content.value .. " | pbcopy")
+  require("telescope.actions").close(prompt_bufnr)
+  return true
+end
+
+require("telescope").setup {
+  defaults = {
+    file_sorter = require("telescope.sorters").get_fzy_sorter,
+    prompt_prefix = "> ",
+    layout_strategy = "horizontal",
+    color_devicons = true,
+    path_display = { shorten = 2 },
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    sorting_strategy = "ascending",
+    layout_config = {
+      width = 0.95,
+      height = 0.9,
+      prompt_position = "top",
+      horizontal = {
+        width_padding = 0.001,
+        height_padding = 0.01,
+        preview_width = 0.6,
+      },
+      vertical = {
+        width_padding = 0.05,
+        height_padding = 1,
+        preview_height = 0.5,
+      },
+    },
+    mappings = {
+      i = {
+        ["<C-x>"] = false,
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-y>"] = copy_path_to_clipboard,
+        ["<C-c>"] = actions.close,
+      },
+      n = {
+        ["<C-c>"] = actions.close,
+      },
+    },
+  },
+  extensions = {
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+    },
+  },
+}
+require("telescope").load_extension "fzy_native"
 
 -- Harpoon
 local function filter_empty_string(list)
@@ -101,7 +156,6 @@ nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
 nremap("<leader>ff", find_in_current_directory, "Telescope Current Directory")
-
 -- Marks
 nremap("<leader>mt", require("harpoon.mark").add_file, "Add a Mark")
 nremap("<leader>mj", require("harpoon.ui").nav_next, "Next Mark")
