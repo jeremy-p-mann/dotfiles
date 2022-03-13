@@ -54,10 +54,6 @@ nremap("<leader>sl", [[<CMD>SlimeSendCurrentLine<CR>]], "Send Current Line")
 nremap("<leader>sf", [[<CMD>%SlimeSend<CR>]], "Send The File")
 nremap("<leader>sp", "<Plug>SlimeParagraphSend", "Send the Paragraph")
 
--- Format
-nremap("<leader>fm", vim.lsp.buf.formatting, "LSP formatting")
-nremap("<leader>af", [[gqk]], "Split long line into separate lines")
-
 -- Floating Terminal
 vim.g.floaterm_keymap_toggle = "<C-f>"
 
@@ -99,7 +95,6 @@ nremap("<leader>Cl", [[:set nocursorline<CR>]], "Turn off Cursor Line")
 nremap("<leader>o", [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>]], "Append a Line Below")
 nremap("<leader>O", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]], "Append a Line Above")
 -- Silly/Random --
-nremap("<leader>cc", require("telescope.builtin").colorscheme, "Telescope to Change Colorscheme")
 nremap("<leader>ex", require("jer.float_term").execute_code, "Execute Code in Floating Window")
 nremap("<leader>asc", [[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>]], "Float asciiquarium")
 nremap(
@@ -107,7 +102,6 @@ nremap(
   [[<CMD>FloatermNew! --height=0.99 --width=0.99 asciiquarium \| lolcat<CR>]],
   "Float asciiquarium in lolcatz"
 )
-nremap("<leader>ws", require("jer.trim").trim_whitespace, "Trim Whitespace")
 
 nremap("<leader>tr", require("tarot").telescope_tarots, "Tarot")
 
