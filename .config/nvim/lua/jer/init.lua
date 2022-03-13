@@ -1,5 +1,4 @@
 local actions = require "telescope.actions"
-local themes = require "telescope.themes"
 
 require("telescope").setup {
   defaults = {
@@ -63,4 +62,5 @@ require('jer.silly')
 require('jer.diagnostics')
 require('jer.snippets')
 require('jer.registers')
+require('jer.navigation')
 
