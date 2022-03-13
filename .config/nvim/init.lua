@@ -1,4 +1,8 @@
 require('jer.plugins')
+local nremap = require('jer.keymaps').nremap
+
+vim.g.mapleader = " "
+nremap(" ", "")
 
 local opt = vim.opt
 
