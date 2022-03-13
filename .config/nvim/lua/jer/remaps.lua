@@ -48,20 +48,6 @@ nremap("<leader>3", function()
 end)
 nremap("<leader>mf", require("jer.harpoon").telescope_harpoon)
 
--- Slime
-
-nremap("<leader>sl", [[<CMD>SlimeSendCurrentLine<CR>]], "Send Current Line")
-nremap("<leader>sf", [[<CMD>%SlimeSend<CR>]], "Send The File")
-nremap("<leader>sp", "<Plug>SlimeParagraphSend", "Send the Paragraph")
-
--- Floating Terminal
-vim.g.floaterm_keymap_toggle = "<C-f>"
-
--- tmux --
-nremap("<leader>vp", [[<CMD>VimuxPromptCommand<CR>]], "Run Command From Prompt in Tmux")
-nremap("<leader>vl", [[<CMD>VimuxRunLastCommand<CR>]], "Run Last command in Tmux")
-nremap("<leader>vv", [[<CMD>VimuxCloseRunner<CR>]], "Close Tmux window")
-nremap("<leader>vc", [[<CMD>VimuxClearTerminalScreen<CR>]], "Clear Tmux Screen")
 -- python --
 nremap("<leader>fc", require("jer.telescope").find_classes, "Find Class")
 nremap("<leader>mh", [[<CMD>w <CR>:VimuxRunCommand("make html")<CR>]])
@@ -94,7 +80,6 @@ nremap("<leader>Cl", [[:set nocursorline<CR>]], "Turn off Cursor Line")
 nremap("<leader>o", [[:<C-u>call append(line("."),   repeat([""], v:count1))<CR>]], "Append a Line Below")
 nremap("<leader>O", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]], "Append a Line Above")
 -- Silly/Random --
-nremap("<leader>ex", require("jer.float_term").execute_code, "Execute Code in Floating Window")
 nremap("<leader>asc", [[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>]], "Float asciiquarium")
 nremap(
   "<leader>asl",
