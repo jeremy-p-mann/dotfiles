@@ -1,6 +1,5 @@
 local nremap = require("jer.keymaps").nremap
 local telescope = require "telescope.builtin"
-local actions = require "telescope.actions"
 local gs = package.loaded.gitsigns
 local blame_line = function()
   gs.blame_line { full = true }
@@ -9,7 +8,7 @@ end
 local function git_status()
   telescope.git_status {
     attach_mappings = function(_, map)
-      map("i", "<c-s>", actions.git_staging_toggle)
+      map("i", "<c-s>", require'telescope.actions'.git_staging_toggle)
       return true
     end,
   }
