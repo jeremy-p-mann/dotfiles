@@ -64,4 +64,5 @@ require('jer.terminal')
 require('jer.help')
 require('jer.formatting')
 require('jer.silly')
+require('jer.diagnostics')
 
