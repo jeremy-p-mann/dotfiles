@@ -27,12 +27,6 @@ nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
 nremap("<leader>ff", require("jer.telescope").find_in_current_directory, "Telescope Current Directory")
--- Diagnostics --
-nremap("<leader>ds", [[<cmd>lua vim.diagnostic.show()<cr>]], "Show Diagnostic")
-nremap("<leader>dj", vim.diagnostic.goto_next, "Go to Next Diagnostic")
-nremap("<leader>dk", vim.diagnostic.goto_prev, "Go to Previous Diagnostic")
--- This is already taken
-nremap("<leader>td", telescope.diagnostics, "Telescope Diagnostics")
 -- Harpoon --
 nremap("<leader>mt", require("harpoon.mark").add_file)
 nremap("<leader>mj", require("harpoon.ui").nav_next)
