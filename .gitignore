@@ -14,3 +14,4 @@ sample_dotfiles/
 .config/fzf/fzf
 .config/nvim/plugin/packer_compiled.lua
 .config/aliases/local_aliases
+.config/linode-cli
