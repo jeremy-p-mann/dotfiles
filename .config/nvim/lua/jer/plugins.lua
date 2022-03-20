@@ -59,4 +59,5 @@ return require("packer").startup(function(use)
     require("packer").sync()
   end
   use "ThePrimeagen/harpoon"
+  use "AckslD/nvim-neoclip.lua"
 end)

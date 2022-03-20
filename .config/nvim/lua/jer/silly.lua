@@ -1,6 +1,6 @@
 local nremap = require("jer.keymaps").nremap
 
-nremap("<leader>tr", require("tarot").telescope_tarots, "Tarot")
+nremap("<leader>tar", require("tarot").telescope_tarots, "Tarot")
 nremap("<leader>asc", [[<CMD> FloatermNew! --height=0.999 --width=0.999 asciiquarium<CR>]], "Float asciiquarium")
 nremap(
   "<leader>asl",
