@@ -71,3 +71,8 @@ alias rmrf="rm -rf"
 alias cpr="cp -r"
 
 alias fpl="pip list | fzf"
+
+alias prb="gh pr view --web"
+alias prc="gh pr create"
+
+alias lnc="linode-cli"
