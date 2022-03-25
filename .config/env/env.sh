@@ -9,3 +9,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export ZDOTDIR=$XDG_HOME_CONFIG/zsh
 export ANSIBLE_CONFIG=$XDG_HOME_CONFIG/ansible/ansible.cfg
 export TMUX_CONFIG=$XDG_HOME_CONFIG/tmux/.tmux.conf
+export CODEDIR=$BASEDIR/code
