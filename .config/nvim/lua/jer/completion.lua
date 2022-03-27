@@ -14,6 +14,9 @@ cmp.setup {
     ["<C-s>"] = cmp.mapping.complete {
       config = { sources = { { name = "nvim_lsp" } } },
     },
+    ["<C-b>"] = cmp.mapping.complete {
+      config = { sources = { { name = "buffer" } } },
+    },
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable,
