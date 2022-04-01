@@ -32,7 +32,13 @@ require("lspconfig").pylsp.setup(opts)
 
 require'lspconfig'.texlab.setup(opts)
 
-require("lspconfig").tsserver.setup(opts)
+require("lspconfig").tsserver.setup({
+    capabilities = opts.capabilities,
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        on_attach()
+    end
+})
 
 require("lspconfig").bashls.setup(opts)
 
