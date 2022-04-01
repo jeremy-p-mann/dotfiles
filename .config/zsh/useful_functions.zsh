@@ -39,3 +39,28 @@ tn () {
 tr () {
     nvim . -c ":lua require('tarot').telescope_tarots()"
 }
+
+
+tp () {
+  IFS=$'\n' files=($(ls $CODEDIR| fzf-tmux --multi --select-1 --exit-0))
+  [[ -n "$files" ]] &&  folder="${files[@]}"
+  directory=$CODEDIR/$folder
+  if [[ -n $TMUX ]]
+  then
+      if (tmux has-session -t ${folder})
+      then
+          tmux -f ${TMUX_CONFIG} switch -t ${folder}
+      else
+          tmux -f ${TMUX_CONFIG} new -s ${folder} -d -c ${directory}
+          tmux -f ${TMUX_CONFIG} switch -t ${folder}
+      fi
+  else
+      if (tmux has-session -t ${folder})
+      then
+        tmux -f ${TMUX_CONFIG} attach -t ${folder}   
+      else
+        tmux -f ${TMUX_CONFIG} new -s ${folder} -c ${directory}
+      fi
+  fi
+}
+
