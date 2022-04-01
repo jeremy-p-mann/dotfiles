@@ -77,5 +77,5 @@ bindkey '^Z' fg-bg
 
 [ -n $(zle -la | grep ^fzf-tab-complete$ ) ] && bindkey "^n" fzf-tab-complete || bindkey "^n" complete-word
 bindkey "^e" autosuggest-execute
-bindkey "^f" fzf-cd-widget
+bindkey "^p" fzf-cd-widget
 bindkey '^t' fzf-file-widget
