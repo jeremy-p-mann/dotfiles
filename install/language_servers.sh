@@ -6,6 +6,7 @@ npm install -g \
     typescript-language-server \
     write-good \
     bash-language-server \
+    vscode-langservers-extracted \
     prettier
 pip3 install --upgrade python-lsp-server \
     pylsp-mypy \
