@@ -8,6 +8,11 @@ ls.config.set_config {
   enable_autosnippets = true
 }
 require("luasnip.loaders.from_vscode").load()
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+
+require('luasnip').filetype_extend("javascript", { "html" })
+
+
 
 local expand_jump_snippet = function()
   if ls.expand_or_jumpable() then ls.expand_or_jump() end
