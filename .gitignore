@@ -15,3 +15,4 @@ sample_dotfiles/
 .config/nvim/plugin/packer_compiled.lua
 .config/aliases/local_aliases
 .config/linode-cli
+.config/gatsby
