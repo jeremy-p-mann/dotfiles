@@ -44,6 +44,10 @@ require("lspconfig").bashls.setup(opts)
 
 require("lspconfig").rust_analyzer.setup(opts)
 
+require'lspconfig'.html.setup{}
+
+require'lspconfig'.cssls.setup{}
+
 -- LUA
 -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
 local system_name
