@@ -79,6 +79,7 @@ td () {
 }
 
 
+
 tp () {
   IFS=$'\n' files=($(ls $CODEDIR| fzf-tmux --multi --select-1 --exit-0))
   [[ -n "$files" ]] &&  folder="${files[@]}"
@@ -89,4 +90,8 @@ tp () {
 cf () {
     project=($(ls $CODEDIR | fzf-tmux))
     cd $CODEDIR/$project
+}
+
+def () {
+    dict $1 | bat
 }

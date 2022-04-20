@@ -50,3 +50,4 @@ rust-analyzer
 rustfmt
 texlab
 stylua
+dict
