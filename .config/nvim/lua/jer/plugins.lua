@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
   use "aditya-azad/candle-grey"
   use "neovim/nvim-lspconfig"
 
+  use "nvim-treesitter/nvim-treesitter-textobjects"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "tpope/vim-surround"
