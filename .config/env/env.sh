@@ -12,3 +12,4 @@ export TMUX_CONFIG=$XDG_HOME_CONFIG/tmux/.tmux.conf
 export CODEDIR=$BASEDIR/code
 export MEASUREMENT_DATA_FILEPATH=$BASEDIR/personal_data/numeric_measurement_data.csv
 export DOTFILES=$BASEDIR/dotfiles
+export WRITING=$BASEDIR/writing
