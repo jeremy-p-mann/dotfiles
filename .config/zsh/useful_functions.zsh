@@ -78,6 +78,11 @@ td () {
   create_or_attach_work_session "pde" $DOTFILES
 }
 
+tw () {
+  create_or_attach_work_session "writing" $WRITING
+}
+
+
 
 
 tp () {
