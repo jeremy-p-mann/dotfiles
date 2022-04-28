@@ -17,9 +17,15 @@ cmp.setup {
     ["<C-b>"] = cmp.mapping.complete {
       config = { sources = { { name = "buffer" } } },
     },
+    ["<C-a>"] = cmp.mapping.complete {
+      config = { sources = { { name = "luasnip" } } },
+    },
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable,
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-x>"] = cmp.mapping.abort(),
     ["<C-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
