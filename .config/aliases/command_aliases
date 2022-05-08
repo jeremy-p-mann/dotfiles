@@ -77,3 +77,7 @@ alias prb="gh pr view --web"
 alias prc="gh pr create"
 
 alias lnc="linode-cli"
+
+alias ascp="aws s3 cp"
+alias asls="aws s3 ls"
+alias assy="aws s3 sync"
