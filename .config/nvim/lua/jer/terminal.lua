@@ -12,11 +12,12 @@ vim.g.slime_dont_ask_default = 1
 local execute_code = function()
   local current_file = vim.fn.expand "%"
   local filetype = vim.bo.filetype
+  vim.cmd("wa")
   if filetype == "python" then
     local command = "FloatermNew! --height=0.99 --width=0.99 python3 " .. current_file
     vim.cmd(command)
   elseif filetype == "lua" then
-    vim.cmd("luafile %")
+    vim.cmd "luafile %"
   end
 end
 
