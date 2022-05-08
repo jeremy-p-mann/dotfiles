@@ -1,5 +1,6 @@
 local nremap = require("jer.keymaps").nremap
 local vremap = require("jer.keymaps").vremap
+local iremap = require("jer.keymaps").iremap
 
 require("neoclip").setup {
   history = 1000,
@@ -52,4 +53,4 @@ nremap("<leader>Y", [[gg"+yG]], "Yank File to System Register")
 nremap("<leader>p", [["+p]], "Paste From System Register")
 nremap("<leader>P", [["+P]], "Paste Above/Before From System Register")
 nremap("<leader>tr", [[:Telescope neoclip<cr>]], "Telescope Register")
-
+iremap("<C-v>", [[<C-c>pa]], "Telescope Register")
