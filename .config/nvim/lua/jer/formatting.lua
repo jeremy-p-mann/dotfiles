@@ -1,6 +1,5 @@
 local nremap = require("jer.keymaps").nremap
 
-
 local trim_whitespace = function()
   local patterns = {
     [[%s/\s\+$//e]],
@@ -15,6 +14,10 @@ local trim_whitespace = function()
   vim.fn.winrestview(save)
 end
 
-nremap("<leader>fm", vim.lsp.buf.formatting, "LSP formatting")
+local format = function()
+  vim.lsp.buf.format { async = true }
+end
+
+nremap("<leader>fm", format, "LSP formatting")
 nremap("<leader>af", [[gqk]], "Split long line into separate lines")
 nremap("<leader>ws", trim_whitespace, "Trim Whitespace")
