@@ -16,3 +16,4 @@ sample_dotfiles/
 .config/aliases/local_aliases
 .config/linode-cli
 .config/gatsby
+.config/glab-cli
