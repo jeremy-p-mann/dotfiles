@@ -14,3 +14,4 @@ export MEASUREMENT_DATA_FILEPATH=$BASEDIR/personal_data/numeric_measurement_data
 export DOTFILES=$BASEDIR/dotfiles
 export WRITING=$BASEDIR/writing
 export LG_CONFIG_FILE=$XDG_HOME_CONFIG/lazygit/config.yml
+export SCRATCH_FILE=$BASEDIR/scratch
