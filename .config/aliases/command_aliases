@@ -81,3 +81,5 @@ alias lnc="linode-cli"
 alias ascp="aws s3 cp"
 alias asls="aws s3 ls"
 alias assy="aws s3 sync"
+
+alias ip_external="ifconfig | grep \"inet \" | grep -Fv 127.0.0.1 | awk '{print $2}' "
