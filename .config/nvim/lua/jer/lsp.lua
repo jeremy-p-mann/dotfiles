@@ -21,7 +21,7 @@ require("null-ls").setup {
   sources = {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.diagnostics.write_good,
+    -- null_ls.builtins.diagnostics.write_good,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.pg_format.with {
       extra_args = {"-w", "80"},
@@ -29,6 +29,8 @@ require("null-ls").setup {
   },
 }
 require("lspconfig").pylsp.setup(opts)
+ 
+require'lspconfig'.dockerls.setup{}
 
 require'lspconfig'.texlab.setup(opts)
 
