@@ -15,7 +15,7 @@ local trim_whitespace = function()
 end
 
 local format = function()
-  vim.lsp.buf.format { async = true }
+  vim.lsp.buf.formatting()
 end
 
 nremap("<leader>fm", format, "LSP formatting")
