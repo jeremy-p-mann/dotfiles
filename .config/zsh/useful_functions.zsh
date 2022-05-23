@@ -26,6 +26,13 @@ fdr() {
   cd "$dir"
 }
 
+fbr() {
+  local branches branch
+  branches=$(git branch) &&
+  branch=$(echo "$branches" | fzf-tmux -d 15 +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //")
+}
+
 rl () {
     [[ $SHELL == *'bash' ]] && source ~/.profile
     [[ $SHELL == *'zsh' ]] && source ~/.zprofile 
@@ -48,7 +55,7 @@ create_workstation() {
     tmux -f ${TMUX_CONFIG} new-session -d -s ${name} -c ${directory}
     tmux list-sessions
     tmux new-window -t ${name} -c ${directory}
-    tmux send-keys -t ${name}:0 "$EDITOR ." Enter
+    tmux send-keys -t ${name}:0 "e" Enter
 }
 
 create_or_attach_work_session () {
@@ -83,6 +90,9 @@ tw () {
 }
 
 
+ts () {
+  create_or_attach_work_session "scratch" $SCRATCH_FILE
+}
 
 
 tp () {
