@@ -10,6 +10,8 @@ nremap(
 nremap("<leader>wr", "<cmd>wa<cr>", "Save all files")
 nremap("<leader>rw", [[viwp]], "Replace Word")
 nremap("<leader>rW", [[viWp]], "Replace Entire Word")
+nremap("<leader>cw", [[g~iw]], "Capitalize Word")
+nremap("<leader>cW", [[g~iW]], "Capitalize Entire Word")
 nremap("<leader>rN", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], "Rename All Occurences of Word in File")
 nremap("<leader>Sp", [[<CMD>set spell!<CR>]], "Set Spelling")
 nremap("<leader>Sc", [[1z=]], "Correct Spelling")
