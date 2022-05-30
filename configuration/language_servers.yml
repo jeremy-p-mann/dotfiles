@@ -23,13 +23,6 @@
       tags:
         - python
 
-    - name: Install black
-      pip:
-        name: black
-        state: latest
-      tags:
-        - python
-
     - name: Install prettier globally.
       community.general.npm:
         name: prettier
