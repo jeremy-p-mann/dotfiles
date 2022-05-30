@@ -4,6 +4,8 @@ local nremap = require('jer.keymaps').nremap
 vim.g.mapleader = " "
 nremap(" ", "")
 
+vim.g.do_filetype_lua = 1
+
 local opt = vim.opt
 
 opt.mouse = 'a'
