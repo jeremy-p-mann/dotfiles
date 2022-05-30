@@ -29,10 +29,21 @@ require("null-ls").setup {
   },
 }
 require("lspconfig").pylsp.setup(opts)
- 
-require'lspconfig'.dockerls.setup{}
+
+require'lspconfig'.ansiblels.setup{
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+require'lspconfig'.dockerls.setup(opts)
 
 require'lspconfig'.texlab.setup(opts)
+
+require'lspconfig'.terraformls.setup{
+  capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes={'tf'},
+}
 
 require("lspconfig").tsserver.setup({
     capabilities = opts.capabilities,
