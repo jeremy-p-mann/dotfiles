@@ -5,7 +5,7 @@ alias tk="tmux kill-session -t"
 
 #Git
 alias g="git"
-alias gs="git status"
+alias gs="git status -svb"
 alias ga="git add"
 alias gc="git checkout -B"
 alias gcb="git checkout -b"
@@ -64,7 +64,7 @@ alias swriting="open -a 'Brave Browser' ~/Documents/writing/docs/build/html/inde
 
 alias lw="python3 $CODEDIR/jer_cdm/jer_cdm log_weight"
 
-alias md="mkdir"
+alias md="mkdir -p"
 
 alias rmr="rm -r"
 alias rmrf="rm -rf"
@@ -83,3 +83,8 @@ alias asls="aws s3 ls"
 alias assy="aws s3 sync"
 
 alias ip_external="ifconfig | grep \"inet \" | grep -Fv 127.0.0.1 | awk '{print $2}' "
+
+
+alias commit="./scripts/commit"
+alias ansp="ansible-playbook"
+alias ans="ansible"
