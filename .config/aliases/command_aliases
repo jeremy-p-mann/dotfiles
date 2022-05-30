@@ -5,7 +5,7 @@ alias tk="tmux kill-session -t"
 
 #Git
 alias g="git"
-alias gs="git status -svb"
+alias gs="git status -svbu"
 alias ga="git add"
 alias gc="git checkout -B"
 alias gcb="git checkout -b"
