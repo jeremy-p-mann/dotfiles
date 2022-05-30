@@ -39,3 +39,7 @@
       pip:
         name: streamlit
 
+    - name: Install SQLAlchemy
+      pip:
+        name: SQLAlchemy
+
