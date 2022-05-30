@@ -1,27 +1,81 @@
+---
 - name: Install Language servers
   hosts: localhost
   tasks:
-
     - name: Install python language server
       pip:
         name: python-lsp-server
+        state: latest
       tags:
         - python
 
     - name: Install mypy python language server plugin
       pip:
         name: pylsp-mypy
+        state: latest
       tags:
         - python
 
     - name: Install black python language server plugin
       pip:
         name: pyls-black
+        state: latest
       tags:
         - python
 
     - name: Install black
       pip:
         name: black
+        state: latest
       tags:
         - python
+
+    - name: Install prettier globally.
+      community.general.npm:
+        name: prettier
+        global: yes
+        state: latest
+      tags:
+        - javascript
+
+    - name: Install typescripts/javascript language server globally.
+      community.general.npm:
+        name: typescript-language-server
+        global: yes
+        state: latest
+      tags:
+        - javascript
+        - typescript
+
+    - name: Install dockerfile language server globally.
+      community.general.npm:
+        name: dockerfile-language-server-nodejs
+        global: yes
+        state: latest
+      tags:
+        - docker
+
+    - name: Install html and css (VS****) language server globally.
+      community.general.npm:
+        name: vscode-langservers-extracted
+        global: yes
+        state: latest
+      tags:
+        - html
+        - css
+
+    - name: Install bash language server globally.
+      community.general.npm:
+        name: bash-language-server
+        global: yes
+        state: latest
+      tags:
+        - bash
+
+    - name: Install ansible yaml language server globally.
+      community.general.npm:
+        name: ansible-language-server
+        global: yes
+        state: latest
+      tags:
+        - ansible
