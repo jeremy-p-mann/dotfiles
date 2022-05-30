@@ -1,0 +1,41 @@
+---
+- name: Install Python Dependencies for Standard Data Science Tasks
+  hosts: localhost
+  tasks:
+
+    - name: Install jupyter python package
+      pip:
+        name: jupyter
+
+    - name: Install matplotlib
+      pip:
+        name: matplotlib
+
+    - name: Install seaborn
+      pip:
+        name: seaborn
+
+    - name: Install sklearn
+      pip:
+        name: sklearn
+
+    - name: Install jupyter
+      pip:
+        name: jupyter
+
+    - name: Install scipy
+      pip:
+        name: scipy
+
+    - name: Install pandas
+      pip:
+        name: pandas
+
+    - name: Install numpy
+      pip:
+        name: numpy
+
+    - name: Install Streamlit
+      pip:
+        name: streamlit
+
