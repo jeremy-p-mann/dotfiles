@@ -8,7 +8,9 @@ npm install -g \
     bash-language-server \
     vscode-langservers-extracted \
     prettier \
-    dockerfile-language-server-nodejs
+    dockerfile-language-server-nodejs \
+    @ansible/ansible-language-server
+
 pip3 install --upgrade python-lsp-server \
     pylsp-mypy \
     rope \
