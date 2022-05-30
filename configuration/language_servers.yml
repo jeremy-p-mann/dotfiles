@@ -1,0 +1,27 @@
+- name: Install Language servers
+  hosts: localhost
+  tasks:
+
+    - name: Install python language server
+      pip:
+        name: python-lsp-server
+      tags:
+        - python
+
+    - name: Install mypy python language server plugin
+      pip:
+        name: pylsp-mypy
+      tags:
+        - python
+
+    - name: Install black python language server plugin
+      pip:
+        name: pyls-black
+      tags:
+        - python
+
+    - name: Install black
+      pip:
+        name: black
+      tags:
+        - python
