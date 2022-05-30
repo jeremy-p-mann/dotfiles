@@ -1,0 +1,11 @@
+---
+- name: Update Homebrew stuff
+  hosts: localhost
+  tasks:
+    - name: Update Homebrew
+      community.general.homebrew:
+        update_homebrew: yes
+
+    - name: Update Homebrew
+      community.general.homebrew:
+        upgrade_all: yes
