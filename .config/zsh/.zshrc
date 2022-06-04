@@ -1,14 +1,14 @@
-source  $XDG_HOME_CONFIG/fzf/fzf.bash
-source  $XDG_HOME_CONFIG/zsh/useful_functions.zsh
+source  $XDG_CONFIG_HOME/fzf/fzf.bash
+source  $XDG_CONFIG_HOME/zsh/useful_functions.zsh
 
 source $ZDOTDIR/plugin/fzf-tab/fzf-tab.plugin.zsh
 source $ZDOTDIR/plugin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugin/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
-for file in $(ls $XDG_HOME_CONFIG/aliases/)
+for file in $(ls $XDG_CONFIG_HOME/aliases/)
 do
-    source $XDG_HOME_CONFIG/aliases/$file
+    source $XDG_CONFIG_HOME/aliases/$file
 done
 
 # Zsh to use the same colors as ls

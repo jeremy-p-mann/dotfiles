@@ -1,9 +1,9 @@
 
-source $XDG_HOME_CONFIG/fzf/fzf.bash
+source $XDG_CONFIG_HOME/fzf/fzf.bash
 
-for file in $(ls $XDG_HOME_CONFIG/aliases/)
+for file in $(ls $XDG_CONFIG_HOME/aliases/)
 do
-    source $XDG_HOME_CONFIG/aliases/$file
+    source $XDG_CONFIG_HOME/aliases/$file
 done
 
 
