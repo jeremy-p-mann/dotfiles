@@ -1,0 +1,31 @@
+---
+- name: Install Dotfiles to Connected Host
+  hosts: localhost
+  vars:
+    - home: "{{ lookup('env','HOME') }}"
+    - is_mac: "{{ ansible_os_family == 'Darwin' }}"
+    - install_dir: "{{ home + '/Documents' if is_mac else home }}"
+  tasks:
+
+    - name: Git dotfiles
+      ansible.builtin.git:
+        repo: https://github.com/jmann277/dotfiles
+        dest: "{{ dotfiles_dir }}"
+
+    - name: Symbolically link dotfile .zprofile to root
+      ansible.builtin.file:
+        src: "{{ dotfiles_dir + '/.zprofile' }}"
+        dest: "{{ home + '/.zprofile' }}"
+        state: link
+
+    - name: Symbolically link dotfile .profile to root
+      ansible.builtin.file:
+        src: "{{ dotfiles_dir + '/.profile' }}"
+        dest: "{{ home + '/.profile' }}"
+        state: link
+
+    - name: Symbolically link dotfile .config to root
+      ansible.builtin.file:
+        src: "{{ dotfiles_dir + '/.config' }}"
+        dest: "{{ home + '/.config' }}"
+        state: link
