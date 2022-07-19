@@ -17,6 +17,13 @@ def $2($3):
     $4
 ]]
 ),
+  ps(
+    "for_loop_snippet",
+    [[
+for ${1:item} in ${2:iterable_object}:
+    ${3:do_something}
+]]
+  ),
 ps(
   "function_snippet",
   [[
