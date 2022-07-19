@@ -10,3 +10,5 @@ source $XDG_CONFIG_HOME/env/env.sh
 
 # source bashrc if shell is bash and interactive
 [[ $SHELL == *'bash' ]] && [[ $- == *i* ]] && source $XDG_HOME_CONFIG/bash/.bashrc
+
+export PATH="$HOME/.poetry/bin:$PATH"

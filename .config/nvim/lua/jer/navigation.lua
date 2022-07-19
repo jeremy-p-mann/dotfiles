@@ -5,6 +5,7 @@ local action_state = require("telescope.actions.state")
 local entry_display = require("telescope.pickers.entry_display")
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
+local builtin = require("telescope.builtin")
 local conf = require("telescope.config").values
 local harpoon = require("harpoon")
 local harpoon_mark = require("harpoon.mark")
@@ -21,7 +22,7 @@ require("telescope").setup {
   defaults = {
     file_sorter = require("telescope.sorters").get_fzy_sorter,
     prompt_prefix = "> ",
-    layout_strategy = "horizontal",
+    layout_strategy = "vertical",
     color_devicons = true,
     path_display = { shorten = 2 },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -48,9 +49,13 @@ require("telescope").setup {
         ["<C-x>"] = false,
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-y>"] = copy_path_to_clipboard,
+        ["<C-h>"] = require'telescope'.extensions.send_to_harpoon.actions.send_selected_to_harpoon,
         ["<C-c>"] = actions.close,
       },
       n = {
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-y>"] = copy_path_to_clipboard,
+        ["<C-h>"] = require'telescope'.extensions.send_to_harpoon.actions.send_selected_to_harpoon,
         ["<C-c>"] = actions.close,
       },
     },
@@ -63,6 +68,8 @@ require("telescope").setup {
   },
 }
 require("telescope").load_extension "fzy_native"
+require('telescope').load_extension('send_to_harpoon')
+
 
 -- Harpoon
 local function filter_empty_string(list)
@@ -147,6 +154,7 @@ end
 -- Quickfix
 nremap("<C-j>", [[<CMD>cnext<CR>]], "Quickfix Next")
 nremap("<C-k>", [[<CMD>cprev<CR>]], "Quickfix Previous")
+nremap("<leader>tt", builtin.builtin, "Telescope Telescope")
 -- General Finding
 nremap("<leader>fd", search_dotfiles, "Telescope Dotfiles")
 nremap("<leader>fF", telescope.find_files, "Telescope all Files")
