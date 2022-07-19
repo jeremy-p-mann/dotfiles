@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
   use "ThePrimeagen/harpoon"
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
-  use '/Users/jeremymann/Documents/code/telescope-send-to-harpoon.nvim'
+  use 'jmann277/telescope-send-to-harpoon.nvim'
 
   use "Pocco81/TrueZen.nvim"
   use "norcalli/nvim-colorizer.lua"
