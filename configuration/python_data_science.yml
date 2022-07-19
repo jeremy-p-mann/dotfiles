@@ -11,6 +11,10 @@
       pip:
         name: matplotlib
 
+    - name: Install altair
+      pip:
+        name: altair
+
     - name: Install seaborn
       pip:
         name: seaborn
