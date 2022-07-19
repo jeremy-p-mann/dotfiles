@@ -4,13 +4,15 @@
   vars:
     - home: "{{ lookup('env','HOME') }}"
     - is_mac: "{{ ansible_os_family == 'Darwin' }}"
-    - install_dir: "{{ home + '/Documents' if is_mac else home }}"
+    - base_dir: "{{ home + '/Documents' if is_mac else home }}"
+    - dotfiles_dir: "{{ base_dir + '/dotfiles' }}"
   tasks:
 
     - name: Git dotfiles
       ansible.builtin.git:
         repo: https://github.com/jmann277/dotfiles
         dest: "{{ dotfiles_dir }}"
+        update: no
 
     - name: Symbolically link dotfile .zprofile to root
       ansible.builtin.file:
