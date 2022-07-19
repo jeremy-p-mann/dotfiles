@@ -41,5 +41,9 @@
 
     - name: Install SQLAlchemy
       pip:
-        name: SQLAlchemy
+        name: sqlalchemy
+
+    - name: Install PyTorck
+      pip:
+        name: torch
 
