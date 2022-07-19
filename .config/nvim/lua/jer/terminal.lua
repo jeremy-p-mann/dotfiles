@@ -14,7 +14,16 @@ local execute_code = function()
   local filetype = vim.bo.filetype
   vim.cmd("wa")
   if filetype == "python" then
-    local command = "FloatermNew! --height=0.99 --width=0.99 python3 " .. current_file
+    local files_in_current_directory = vim.fn.system "ls"
+    package_manager_command = ''
+    if string.find(files_in_current_directory, 'Pipfile.lock') then 
+        package_manager_command = 'pipenv run '
+    end
+    if string.find(files_in_current_directory, 'poetry.lock') then 
+        package_manager_command = 'poetry run '
+    end
+    shell_command = package_manager_command .. 'python3 ' .. current_file
+    local command = 'VimuxRunCommand("' .. shell_command .. '")'
     vim.cmd(command)
   elseif filetype == "lua" then
     vim.cmd "luafile %"
