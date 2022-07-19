@@ -1,0 +1,36 @@
+---
+- name: Install zsh plugins
+  hosts: localhost
+  vars:
+    - zdotdir: "{{ lookup('env','ZDOTDIR') }}"
+    - zsh_plugin_folder: "{{ zdotdir + '/plugin' }}"
+    - fzf_folder: "{{ lookup('env','XDG_CONFIG_HOME') + '/fzf/fzf'}}"
+  tasks:
+
+    - name: Clone autosuggestions
+      ansible.builtin.git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions
+        dest: "{{ zsh_plugin_folder + '/zsh-autosuggestions' }}"
+        update: no
+
+    - name: Clone syntax Highlighting
+      ansible.builtin.git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting
+        dest: "{{ zsh_plugin_folder + '/zsh-syntax-highlighting' }}"
+        update: no
+
+    - name: Clone fuzzy auto-complete
+      ansible.builtin.git:
+        repo: https://github.com/Aloxaf/fzf-tab
+        dest: "{{ zsh_plugin_folder + '/fzf-tab' }}"
+        update: no
+
+    - name: Clone fzf
+      ansible.builtin.git:
+        repo: https://github.com/junegunn/fzf.git
+        dest: "{{ fzf_folder }}"
+        update: no
+        depth: 1
+
+    - name: Install fzf
+      ansible.builtin.shell: "{{ fzf_folder + '/install' }}"
