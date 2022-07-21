@@ -204,6 +204,14 @@ def bert(word: str) -> str:
     return ans
 ]]
 ),
+ps(
+  "load_words",
+  [[
+def get_words() -> List[str]:
+    with open("./tests/mocks/words.yml", 'r') as f:
+        return yaml.safe_load(f)
+]]
+),
 }
 
 return snippets
