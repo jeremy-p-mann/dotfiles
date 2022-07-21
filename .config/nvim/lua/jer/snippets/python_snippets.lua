@@ -17,6 +17,14 @@ def $2($3):
     $4
 ]]
 ),
+ps(
+  "parameterized_fixture",
+  [[
+@pytest.fixture(params=$1)
+def $2(request, $3):
+    $4
+]]
+),
   ps(
     "for_loop_snippet",
     [[
@@ -160,7 +168,42 @@ ps(
   [[
 rng = np.random.default_rng(seed=$1)$2
 ]]
-)
+),
+ps(
+  "slice_reverse_function",
+  [[
+def slice_reverse(word: str) -> str:
+    ans = word[::-1]
+    return ans
+]]
+),
+ps(
+  "for_loop_reverse_function",
+  [[
+def for_loop_reverse(word: str) -> str:
+    n_letters = len(word)
+    ans = ''
+    for index in range(n_letters):
+        reverse_index = n_letters - (index + 1)
+        ans += word[reverse_index]
+    return ans
+]]
+),
+ps(
+  "bert reverse",
+  [[
+def bert(word: str) -> str:
+    qa_model = pipeline(
+        task='question-answering',
+        model='distilbert-base-cased-distilled-squad'
+    )
+    question = f"What is the reverse of the string '{word}'?"
+    # context = f'the answer is {slice_reverse(word)}'
+    context = "the reverse of the string 'foo' is 'oof'. the reverse of the string 'glad' is 'dalg'"
+    ans = qa_model(question=question, context=context)['answer']
+    return ans
+]]
+),
 }
 
 return snippets
