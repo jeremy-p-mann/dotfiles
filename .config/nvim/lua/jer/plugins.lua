@@ -30,7 +30,7 @@ return require("packer").startup(function(use)
   use "nvim-lua/popup.nvim"
   use "jmann277/tarot.nvim"
 
-  use "vim-test/vim-test"
+  use {"vim-test/vim-test", commit='dfbf93d'}
 
   use "lewis6991/gitsigns.nvim"
 
