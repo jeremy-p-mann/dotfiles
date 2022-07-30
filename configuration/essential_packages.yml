@@ -1,0 +1,129 @@
+---
+- name: Install Stuff
+  hosts: localhost
+  become_user: true
+  tasks:
+
+    - name: Install core gnu stuff
+      package:
+        name:
+          - htop
+          - ripgrep
+          - fzf
+          - gcc
+          - curl
+          - htop
+          - cmake
+          - the_silver_searcher
+          - pkg-config
+          - fd
+          - bat
+        state: latest
+      tags:
+        - arch
+
+    - name: Install Version Control Stuff
+      package:
+        name:
+          - git
+          - lazygit
+          - git-delta
+        state: latest
+      tags:
+        - arch
+
+    - name: Install (Neo)Vim
+      package:
+        name:
+          - neovim
+          - lazygit
+        state: latest
+      tags:
+        - arch
+
+    - name: Install Python
+      package:
+        name:
+          - python-pip
+          - python
+        state: latest
+      tags:
+        - arch
+
+    - name: Install tmux
+      package:
+        name:
+          - tmux
+        state: latest
+      tags:
+        - arch
+
+    - name: Install Silly Stuff
+      package:
+        name:
+          - asciiquarium
+        state: latest
+      tags:
+        - arch
+
+    - name: Install Node Stuff
+      package:
+        name:
+          - nodejs
+          - npm
+        state: latest
+      tags:
+        - arch
+
+    - name: Install zsh and bash
+      package:
+        name:
+          - zsh
+          - bash
+        state: latest
+      tags:
+        - arch
+
+    - name: Install zsh and bash
+      package:
+        name:
+          - zsh
+          - bash
+        state: latest
+      tags:
+        - arch
+
+    - name: Install Golang stuff
+      package:
+        name:
+          - golang
+        state: latest
+      tags:
+        - arch
+
+    - name: Install Rust stuff
+      package:
+        name:
+          - rust
+        state: latest
+      tags:
+        - arch
+
+    - name: Install pandoc stuff
+      package:
+        name:
+          - pandoc
+          - ffmpeg
+        state: latest
+      tags:
+        - arch
+
+    - name: Install basic packages
+      apt:
+        pkg:
+          - nginx
+          - gcc
+          - dictd
+      tags:
+        - arch
+
