@@ -99,20 +99,25 @@
       tags:
         - arch
 
-    - name: Install pandoc stuff
+    - name: Install pandoc
       package:
         name:
           - pandoc
+        state: latest
+      tags:
+        - arch
+
+    - name: Install ffmpeg
+      package:
+        name:
           - ffmpeg
         state: latest
       tags:
         - arch
 
-    - name: Install basic packages
-      apt:
-        pkg:
-          - nginx
-          - gcc
+    - name: Install dictd
+      package:
+        name:
           - dictd
       tags:
         - arch
