@@ -4,6 +4,7 @@ if [ $(uname) = "Darwin" ]; then
 else
     export BASEDIR=$HOME
 fi
+[ -z $SHELL ] && export SHELL='bash'
 export DOTFILEDIR=$BASEDIR/dotfiles
 export XDG_CONFIG_HOME=$HOME/.config
 source $XDG_CONFIG_HOME/env/env.sh
