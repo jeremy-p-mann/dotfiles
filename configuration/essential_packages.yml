@@ -3,6 +3,14 @@
   hosts: localhost
   become_user: true
   tasks:
+    - name: Install Python
+      package:
+        name:
+          - python-pip
+          - python
+        state: latest
+      tags:
+        - arch
 
     - name: Install core gnu stuff
       package:
@@ -41,15 +49,6 @@
       tags:
         - arch
 
-    - name: Install Python
-      package:
-        name:
-          - python-pip
-          - python
-        state: latest
-      tags:
-        - arch
-
     - name: Install tmux
       package:
         name:
@@ -71,15 +70,6 @@
         name:
           - nodejs
           - npm
-        state: latest
-      tags:
-        - arch
-
-    - name: Install zsh and bash
-      package:
-        name:
-          - zsh
-          - bash
         state: latest
       tags:
         - arch
@@ -126,4 +116,3 @@
           - dictd
       tags:
         - arch
-
