@@ -2,7 +2,7 @@
 - name: Install zsh plugins
   hosts: localhost
   vars:
-    - config_home: "{{ lookup('env','HOME') + '/config' }}"
+    - config_home: "{{ lookup('env','HOME') + '/.config' }}"
     - zdotdir: "{{ config_home + '/zsh' }}"
     - zsh_plugin_folder: "{{ zdotdir + '/plugin' }}"
     - fzf_folder: "{{ config_home + '/fzf/fzf'}}"
