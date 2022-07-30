@@ -86,7 +86,7 @@
     - name: Install Golang stuff
       package:
         name:
-          - golang
+          - go
         state: latest
       tags:
         - arch
