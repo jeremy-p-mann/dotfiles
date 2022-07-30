@@ -5,10 +5,10 @@ else
     export BASEDIR=$HOME
 fi
 export DOTFILEDIR=$BASEDIR/dotfiles
-export XDG_CONFIG_HOME=$DOTFILEDIR/.config
+export XDG_CONFIG_HOME=$HOME/.config
 source $XDG_CONFIG_HOME/env/env.sh
 
 # source bashrc if shell is bash and interactive
-[[ $SHELL == *'bash' ]] && [[ $- == *i* ]] && source $XDG_HOME_CONFIG/bash/.bashrc
+[[ $SHELL == *'bash' ]] && [[ $- == *i* ]] && source $XDG_CONFIG_HOME/bash/.bashrc
 
 export PATH="$HOME/.poetry/bin:$PATH"
