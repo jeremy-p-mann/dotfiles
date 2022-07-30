@@ -2,9 +2,10 @@
 - name: Install zsh plugins
   hosts: localhost
   vars:
-    - zdotdir: "{{ lookup('env','ZDOTDIR') }}"
+    - config_home: "{{ lookup('env','HOME') + '/config' }}"
+    - zdotdir: "{{ config_home + '/zsh' }}"
     - zsh_plugin_folder: "{{ zdotdir + '/plugin' }}"
-    - fzf_folder: "{{ lookup('env','XDG_CONFIG_HOME') + '/fzf/fzf'}}"
+    - fzf_folder: "{{ config_home + '/fzf/fzf'}}"
   tasks:
 
     - name: Clone autosuggestions
