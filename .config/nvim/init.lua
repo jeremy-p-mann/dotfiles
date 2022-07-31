@@ -1,4 +1,4 @@
-require('jer.plugins')
+require('plugins')
 local nremap = require('jer.keymaps').nremap
 
 vim.g.mapleader = " "
