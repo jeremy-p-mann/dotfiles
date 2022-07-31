@@ -30,14 +30,14 @@ return require("packer").startup(function(use)
   use "nvim-lua/popup.nvim"
   use "jmann277/tarot.nvim"
 
-  use {"vim-test/vim-test", commit='dfbf93d'}
+  use { "vim-test/vim-test", commit = "dfbf93d" }
 
   use "lewis6991/gitsigns.nvim"
 
   use "ThePrimeagen/harpoon"
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
-  use 'jmann277/telescope-send-to-harpoon.nvim'
+  use "jmann277/telescope-send-to-harpoon.nvim"
 
   use "Pocco81/TrueZen.nvim"
   use "norcalli/nvim-colorizer.lua"
@@ -68,7 +68,9 @@ return require("packer").startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim"
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    run = function()
+      require("nvim-treesitter.install").update { with_sync = true }
+    end,
   }
   use "hashivim/vim-terraform"
 
