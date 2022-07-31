@@ -1,0 +1,35 @@
+---
+- name: Install Stuff
+  hosts: localhost
+  become_user: true
+  tasks:
+    - name: Install Silly Stuff
+      package:
+        name:
+          - asciiquarium
+        state: latest
+      tags:
+        - arch
+
+    - name: Install pandoc
+      package:
+        name:
+          - pandoc
+        state: latest
+      tags:
+        - arch
+
+    - name: Install dictd
+      package:
+        name:
+          - dictd
+      tags:
+        - arch
+
+    - name: Install SQLite
+      package:
+        name:
+          - sqlite
+        state: latest
+      tags:
+        - arch
