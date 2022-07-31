@@ -14,9 +14,6 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
-  if packer_bootstrap then
-    require("packer").sync()
-  end
   use "nvim-lua/plenary.nvim"
 
   use "wbthomason/packer.nvim"
@@ -79,4 +76,7 @@ return require("packer").startup(function(use)
   use "mfussenegger/nvim-dap-python"
 
   use "AckslD/nvim-neoclip.lua"
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
