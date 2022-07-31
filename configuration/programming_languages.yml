@@ -1,0 +1,67 @@
+---
+- name: Install Language specific stuff
+  hosts: localhost
+  become_user: true
+  tasks:
+
+    - name: Install Node Stuff
+      package:
+        name:
+          - nodejs
+          - npm
+        state: latest
+      tags:
+        - arch
+        - javascript
+
+    - name: Install Golang stuff
+      package:
+        name:
+          - go
+        state: latest
+      tags:
+        - arch
+        - go
+
+    - name: Install Rust stuff
+      package:
+        name:
+          - rust
+        state: latest
+      tags:
+        - arch
+        - rust
+
+    - name: Install terraform
+      package:
+        name:
+          - terraform
+      tags:
+        - arch
+        - rust
+
+    - name: Install ruby
+      package:
+        name:
+          - ruby
+      tags:
+        - arch
+        - ruby
+
+    - name: Install perl
+      package:
+        name:
+          - perl
+      tags:
+        - arch
+        - perl
+
+    - name: Install Lua
+      package:
+        name:
+          - lua
+        state: latest
+      tags:
+        - arch
+        - lua
+

@@ -33,6 +33,15 @@
       tags:
         - arch
 
+    - name: Install zsh and bash
+      package:
+        name:
+          - zsh
+          - bash
+        state: latest
+      tags:
+        - arch
+
     - name: Install Version Control Stuff
       package:
         name:
@@ -49,7 +58,7 @@
       package:
         name:
           - neovim
-          - lazygit
+          - vim
         state: latest
       tags:
         - arch
@@ -62,111 +71,34 @@
       tags:
         - arch
 
-    - name: Install Silly Stuff
-      package:
-        name:
-          - asciiquarium
-        state: latest
-      tags:
-        - arch
+    # - name: Install Silly Stuff
+    #   package:
+    #     name:
+    #       - asciiquarium
+    #     state: latest
+    #   tags:
+    #     - arch
 
-    - name: Install Node Stuff
-      package:
-        name:
-          - nodejs
-          - npm
-        state: latest
-      tags:
-        - arch
+    # - name: Install pandoc
+    #   package:
+    #     name:
+    #       - pandoc
+    #     state: latest
+    #   tags:
+    #     - arch
 
-    - name: Install zsh and bash
-      package:
-        name:
-          - zsh
-          - bash
-        state: latest
-      tags:
-        - arch
+    # - name: Install dictd
+    #   package:
+    #     name:
+    #       - dictd
+    #   tags:
+    #     - arch
 
-    - name: Install Golang stuff
-      package:
-        name:
-          - go
-        state: latest
-      tags:
-        - arch
-
-    - name: Install Rust stuff
-      package:
-        name:
-          - rust
-        state: latest
-      tags:
-        - arch
-
-    - name: Install pandoc
-      package:
-        name:
-          - pandoc
-        state: latest
-      tags:
-        - arch
-
-    - name: Install dictd
-      package:
-        name:
-          - dictd
-      tags:
-        - arch
-
-    - name: Install packer
-      package:
-        name:
-          - packer
-      tags:
-        - arch
-
-    - name: Install terraform
-      package:
-        name:
-          - terraform
-      tags:
-        - arch
-
-    - name: Install ruby
-      package:
-        name:
-          - ruby
-      tags:
-        - arch
-
-    - name: Install dictd
-      package:
-        name:
-          - dictd
-      tags:
-        - arch
-
-    - name: Install perl
-      package:
-        name:
-          - perl
-      tags:
-        - arch
-
-    - name: Install Lua
-      package:
-        name:
-          - lua
-        state: latest
-      tags:
-        - arch
-
-    - name: Install SQLite
-      package:
-        name:
-          - sqlite
-        state: latest
-      tags:
-        - arch
+    # - name: Install SQLite
+    #   package:
+    #     name:
+    #       - sqlite
+    #     state: latest
+    #   tags:
+    #     - arch
 
