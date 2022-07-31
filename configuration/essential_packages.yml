@@ -19,6 +19,7 @@
           - ripgrep
           - fzf
           - gcc
+          - wget
           - curl
           - htop
           - cmake
@@ -34,8 +35,10 @@
       package:
         name:
           - git
+          - gitui
           - lazygit
           - git-delta
+          - git-lfs
         state: latest
       tags:
         - arch
@@ -121,3 +124,55 @@
           - dictd
       tags:
         - arch
+
+    - name: Install packer
+      package:
+        name:
+          - packer
+      tags:
+        - arch
+
+    - name: Install terraform
+      package:
+        name:
+          - terraform
+      tags:
+        - arch
+
+    - name: Install ruby
+      package:
+        name:
+          - ruby
+      tags:
+        - arch
+
+    - name: Install dictd
+      package:
+        name:
+          - dictd
+      tags:
+        - arch
+
+    - name: Install perl
+      package:
+        name:
+          - perl
+      tags:
+        - arch
+
+    - name: Install Lua
+      package:
+        name:
+          - sqlitcwe
+        state: latest
+      tags:
+        - arch
+
+    - name: Install SQLite
+      package:
+        name:
+          - sqlite
+        state: latest
+      tags:
+        - arch
+
