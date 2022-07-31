@@ -112,14 +112,6 @@
       tags:
         - arch
 
-    - name: Install ffmpeg
-      package:
-        name:
-          - ffmpeg
-        state: latest
-      tags:
-        - arch
-
     - name: Install dictd
       package:
         name:
