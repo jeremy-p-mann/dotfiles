@@ -28,10 +28,13 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b'
 
 NEWLINE=$'\n' 
+UNAME=$(uname)
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{#FCB68A}%~${NEWLINE}> %f' 
+PROMPT='%F{#FCB68A}%~%f' 
+PROMPT+='%F{#a29a95} [${UNAME}] %f' 
+PROMPT+='%F{#FCB68A}${NEWLINE}> %f' 
 RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
 autoload -Uz compinit && compinit
