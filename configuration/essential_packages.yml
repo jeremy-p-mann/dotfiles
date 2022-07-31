@@ -163,7 +163,7 @@
     - name: Install Lua
       package:
         name:
-          - sqlitcwe
+          - lua
         state: latest
       tags:
         - arch
