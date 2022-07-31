@@ -15,10 +15,12 @@
     - name: Install core gnu stuff
       package:
         name:
+          - sudo
           - htop
           - ripgrep
           - fzf
           - gcc
+          - tree
           - wget
           - curl
           - htop
