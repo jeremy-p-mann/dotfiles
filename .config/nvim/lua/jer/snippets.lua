@@ -4,12 +4,13 @@ local ls = require "luasnip"
 ls.config.set_config {
   history = true,
   updateevents = "TextChanged,TextChangedI",
-  enable_autosnippets = true,
+  enable_autosnippets = false,
 }
-ls.add_snippets("python", require('jer.snippets.python_snippets'))
-ls.add_snippets("javascript", require('jer.snippets.javascript_snippets'))
+ls.add_snippets("python", require "jer.snippets.python_snippets")
+ls.add_snippets("javascript", require "jer.snippets.javascript_snippets")
+ls.add_snippets("lua", require "jer.snippets.lua_snippets")
 
-require("luasnip.loaders.from_vscode").load { include = { "html", "css", "lua" } }
+require("luasnip.loaders.from_vscode").load { include = { "html", "css" } }
 require("luasnip").filetype_extend("javascript", { "javascriptreact" })
 require("luasnip").filetype_extend("javascript", { "html" })
 
@@ -26,5 +27,4 @@ end
 
 iremap("<c-l>", expand_jump_snippet, "Expand or Jump Snippet")
 iremap("<c-h>", previous_item_snippet, "Go to Previous Item in Snipppet")
-
 
