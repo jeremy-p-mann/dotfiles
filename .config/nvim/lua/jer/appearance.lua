@@ -16,6 +16,11 @@ local nremap = keymap.nremap
 local colorscheme = require("telescope.builtin").colorscheme
 local true_zen = require "true-zen"
 
+-- require('dressing').setup({
+-- })
+
+
+
 true_zen.setup {
   ui = {
     bottom = {
