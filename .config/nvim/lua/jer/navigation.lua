@@ -1,14 +1,14 @@
 local keymap = require "jer.keymaps"
 local nremap = keymap.nremap
 local telescope = require "telescope.builtin"
-local action_state = require("telescope.actions.state")
-local entry_display = require("telescope.pickers.entry_display")
-local finders = require("telescope.finders")
-local pickers = require("telescope.pickers")
-local builtin = require("telescope.builtin")
+local action_state = require "telescope.actions.state"
+local entry_display = require "telescope.pickers.entry_display"
+local finders = require "telescope.finders"
+local pickers = require "telescope.pickers"
+local builtin = require "telescope.builtin"
 local conf = require("telescope.config").values
-local harpoon = require("harpoon")
-local harpoon_mark = require("harpoon.mark")
+local harpoon = require "harpoon"
+local harpoon_mark = require "harpoon.mark"
 local actions = require "telescope.actions"
 
 function copy_path_to_clipboard(prompt_bufnr, map)
@@ -49,13 +49,13 @@ require("telescope").setup {
         ["<C-x>"] = false,
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-y>"] = copy_path_to_clipboard,
-        ["<C-h>"] = require'telescope'.extensions.send_to_harpoon.actions.send_selected_to_harpoon,
+        ["<C-h>"] = require("telescope").extensions.send_to_harpoon.actions.send_selected_to_harpoon,
         ["<C-c>"] = actions.close,
       },
       n = {
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-y>"] = copy_path_to_clipboard,
-        ["<C-h>"] = require'telescope'.extensions.send_to_harpoon.actions.send_selected_to_harpoon,
+        ["<C-h>"] = require("telescope").extensions.send_to_harpoon.actions.send_selected_to_harpoon,
         ["<C-c>"] = actions.close,
       },
     },
@@ -65,74 +65,79 @@ require("telescope").setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      },
+    },
   },
 }
 require("telescope").load_extension "fzy_native"
-require('telescope').load_extension('send_to_harpoon')
-
+require("telescope").load_extension "send_to_harpoon"
+require("telescope").load_extension "ui-select"
 
 -- Harpoon
 local function filter_empty_string(list)
-    local next = {}
-    for idx = 1, #list do
-        if list[idx].filename ~= "" then
-            table.insert(next, list[idx])
-        end
+  local next = {}
+  for idx = 1, #list do
+    if list[idx].filename ~= "" then
+      table.insert(next, list[idx])
     end
-    return next
+  end
+  return next
 end
 local generate_new_finder = function()
-    return finders.new_table({
-        results = filter_empty_string(harpoon.get_mark_config().marks),
-        entry_maker = function(entry)
-            local line = entry.filename .. ":" .. entry.row .. ":" .. entry.col
-            local displayer = entry_display.create({
-                separator = " - ",
-                items = {
-                    { width = 2 },
-                    { width = 50 },
-                    { remaining = true },
-                },
-            })
-            local make_display = function(entry)
-                return displayer({
-                    tostring(entry.index),
-                    line,
-                })
-            end
-            local line = entry.filename .. ":" .. entry.row .. ":" .. entry.col
-            return {
-                value = entry,
-                ordinal = line,
-                display = make_display,
-                lnum = entry.row,
-                col = entry.col,
-                filename = entry.filename,
-            }
-        end,
-    })
+  return finders.new_table {
+    results = filter_empty_string(harpoon.get_mark_config().marks),
+    entry_maker = function(entry)
+      local line = entry.filename .. ":" .. entry.row .. ":" .. entry.col
+      local displayer = entry_display.create {
+        separator = " - ",
+        items = {
+          { width = 2 },
+          { width = 50 },
+          { remaining = true },
+        },
+      }
+      local make_display = function(entry)
+        return displayer {
+          tostring(entry.index),
+          line,
+        }
+      end
+      local line = entry.filename .. ":" .. entry.row .. ":" .. entry.col
+      return {
+        value = entry,
+        ordinal = line,
+        display = make_display,
+        lnum = entry.row,
+        col = entry.col,
+        filename = entry.filename,
+      }
+    end,
+  }
 end
 
 local delete_harpoon_mark = function(prompt_bufnr)
-    local selection = action_state.get_selected_entry()
-    harpoon_mark.rm_file(selection.filename)
-    local current_picker = action_state.get_current_picker(prompt_bufnr)
-    current_picker:refresh(generate_new_finder(), { reset_prompt = true })
+  local selection = action_state.get_selected_entry()
+  harpoon_mark.rm_file(selection.filename)
+  local current_picker = action_state.get_current_picker(prompt_bufnr)
+  current_picker:refresh(generate_new_finder(), { reset_prompt = true })
 end
 
 local telescope_harpoon = function(opts)
-    opts = opts or {}
-    pickers.new(opts, {
-        prompt_title = "harpoon marks",
-        finder = generate_new_finder(),
-        sorter = conf.generic_sorter(opts),
-        previewer = conf.grep_previewer(opts),
-        attach_mappings = function(_, map)
-            map("i", "<c-d>", delete_harpoon_mark)
-            map("n", "<c-d>", delete_harpoon_mark)
-            return true
-        end,
-    }):find()
+  opts = opts or {}
+  pickers.new(opts, {
+    prompt_title = "harpoon marks",
+    finder = generate_new_finder(),
+    sorter = conf.generic_sorter(opts),
+    previewer = conf.grep_previewer(opts),
+    attach_mappings = function(_, map)
+      map("i", "<c-d>", delete_harpoon_mark)
+      map("n", "<c-d>", delete_harpoon_mark)
+      return true
+    end,
+  }):find()
 end
 
 local find_in_current_directory = function()
