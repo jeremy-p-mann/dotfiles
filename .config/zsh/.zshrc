@@ -29,11 +29,13 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 NEWLINE=$'\n' 
 UNAME=$(uname)
+TMUX_SESSION=$(tmux display-message -p '#S')
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
 PROMPT='%F{#FCB68A}%~%f' 
-PROMPT+='%F{#a29a95} [${UNAME}] %f' 
+PROMPT+='%F{#a29a95} [${TMUX_SESSION}]%f' 
+PROMPT+='%F{#a29a95} [${UNAME}]%f' 
 PROMPT+='%F{#FCB68A}${NEWLINE}> %f' 
 RPROMPT='%F{248}${vcs_info_msg_0_}%f'
 
