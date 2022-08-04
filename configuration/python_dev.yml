@@ -6,8 +6,6 @@
     - name: Install pytest
       pip:
         name: pytest
-      tags:
-        - plugin
 
     - name: Install requests
       pip:
@@ -20,8 +18,6 @@
     - name: Install mypy-extensions
       pip:
         name: mypy-extensions
-      tags:
-        - plugin
 
     - name: Install sphinx
       pip:
@@ -39,40 +35,29 @@
       pip:
         name: pipenv
  
+    - name: Install poetry
+      pip:
+        name: poetry
+ 
     - name: Install pytest-cov for test coverage reports
       pip:
         name: pytest-cov
-      tags:
-        - testing
-        - plugin
  
     - name: Install pytest-xdist for distributing tests
       pip:
         name: pytest-xdist
-      tags:
-        - testing
-        - plugin
  
     - name: Install pytest-benchmark for benchmarking code
       pip:
         name: pytest-benchmark
-      tags:
-        - testing
-        - plugin
  
     - name: Install pytest-clarity for better output of tests
       pip:
         name: pytest-clarity
-      tags:
-        - testing
-        - plugin
  
     - name: Install pytest-rich for better output of tests
       pip:
         name: pytest-rich
-      tags:
-        - testing
-        - plugin
  
     - name: Install black
       pip:

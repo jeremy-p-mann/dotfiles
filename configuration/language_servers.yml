@@ -31,12 +31,12 @@
       tags:
         - javascript
 
-    - name: Install basic packages
-      apt:
-        pkg:
-          - jdtls
-      tags:
-        - java
+    # - name: Install basic packages
+    #   apt:
+    #     pkg:
+    #       - jdtls
+    #   tags:
+    #     - java
 
     - name: Install typescripts/javascript language server globally.
       community.general.npm:
@@ -79,14 +79,6 @@
         state: latest
       tags:
         - bash
-
-    - name: Install ansible yaml language server globally.
-      community.general.npm:
-        name: ansible-language-server
-        global: yes
-        state: latest
-      tags:
-        - ansible
 
     - name: Install ansible yaml language server globally.
       community.general.npm:

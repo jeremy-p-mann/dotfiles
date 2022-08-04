@@ -1,0 +1,83 @@
+---
+python:
+  Debian: python3
+  Archlinux: python
+pip:
+  Debian: python3-pip
+  Archlinux: python-pip
+
+sudo:
+  Debian: sudo
+  Archlinux: sudo
+htop:
+  Debian: htop
+  Archlinux: htop
+ripgrep:
+  Debian: ripgrep
+  Archlinux: ripgrep
+fzf:
+  Debian: fzf
+  Archlinux: fzf
+gcc:
+  Debian: gcc
+  Archlinux: gcc
+tree:
+  Debian: tree
+  Archlinux: tree
+wget:
+  Debian: wget
+  Archlinux: wget
+curl:
+  Debian: curl
+  Archlinux: curl
+cmake:
+  Debian: cmake
+  Archlinux: cmake
+the_silver_searcher:
+  Debian: silversearcher-ag
+  Archlinux: the_silver_searcher
+pkg:
+  Debian: pkg-config
+  Archlinux: pkg
+fd:
+  Debian: fd-find
+  Archlinux: fd
+bat:
+  Debian: bat
+  Archlinux: bat
+zsh:
+  Debian: zsh
+  Archlinux: zsh
+bash:
+  Debian: bash
+  Archlinux: bash
+git:
+  Debian: git
+  Archlinux: git
+lazygit:
+  Debian: lazygit
+  Archlinux: lazygit
+gitdelta:
+  Debian: git-delta
+  Archlinux: git-delta
+gitlfs:
+  Debian: git-lfs
+  Archlinux: git-lfs
+neovim:
+  Debian: neovim
+  Archlinux: neovim
+vim:
+  Debian: vim
+  Archlinux: vim
+tmux:
+  Debian: tmux
+  Archlinux: tmux
+go:
+  Debian: golang-go
+  Archlinux: go
+rust:
+  Debian: golang-go
+  Archlinux: rust
+lua:
+  Debian: lua5.3
+  Archlinux: lua

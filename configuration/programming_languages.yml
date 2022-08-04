@@ -2,66 +2,66 @@
 - name: Install Language specific stuff
   hosts: localhost
   become_user: true
+  vars_files:
+    - packages.yml
   tasks:
 
     - name: Install Node Stuff
+      become_user: true
       package:
         name:
           - nodejs
           - npm
         state: latest
       tags:
-        - arch
         - javascript
 
     - name: Install Golang stuff
+      become_user: true
       package:
         name:
-          - go
+          - "{{ go[ansible_os_family] }}"
         state: latest
       tags:
-        - arch
         - go
 
-    - name: Install Rust stuff
-      package:
-        name:
-          - rust
-        state: latest
-      tags:
-        - arch
-        - rust
-
     - name: Install terraform
-      package:
-        name:
-          - terraform
+      become_user: true
+      shell: | 
+        wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.2.5_linux_amd64.zip
+        apt install zip -y
+        unzip terraform_1.2.5_linux_amd64.zip
+        mv terraform /usr/local/bin/
       tags:
-        - arch
-        - rust
+        - terraform
 
     - name: Install ruby
+      become_user: true
       package:
         name:
           - ruby
       tags:
-        - arch
         - ruby
 
     - name: Install perl
+      become_user: true
       package:
         name:
           - perl
       tags:
-        - arch
         - perl
 
     - name: Install Lua
+      become_user: true
       package:
         name:
-          - lua
+          - "{{ lua[ansible_os_family] }}"
         state: latest
       tags:
-        - arch
         - lua
+
+    - name: Install Rust
+      shell: curl https://sh.rustup.rs -sSf | bash -s -- -y
+      tags:
+        - rust
 

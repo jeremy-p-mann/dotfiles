@@ -47,7 +47,7 @@
       pip:
         name: sqlalchemy
 
-    - name: Install PyTorck
+    - name: Install PyTorch
       pip:
         name: torch
 

@@ -1,0 +1,81 @@
+---
+- name: Install Packages
+  hosts: localhost
+  become_user: true
+  vars_files:
+    - packages.yml
+
+  tasks:
+    - name: Install Python
+      package:
+        name:
+          - "{{ python[ansible_os_family] }}"
+          - "{{ pip[ansible_os_family] }}"
+        state: latest
+      tags: python
+
+    - name: Install Ansible
+      pip:
+        name:
+          - ansible
+        state: latest
+    #TODO this has to come after python installation
+
+    - name: Install tmux
+      package:
+        name:
+          - "{{ tmux[ansible_os_family] }}"
+        state: latest
+
+    - name: Install core gnu stuff
+      package:
+        name:
+          - "{{ sudo[ansible_os_family] }}"
+          - "{{ htop[ansible_os_family] }}"
+          - "{{ ripgrep[ansible_os_family] }}"
+          - "{{ fzf[ansible_os_family] }}"
+          - "{{ gcc[ansible_os_family] }}"
+          - "{{ tree[ansible_os_family] }}"
+          - "{{ wget[ansible_os_family] }}"
+          - "{{ curl[ansible_os_family] }}"
+          - "{{ htop[ansible_os_family] }}"
+          - "{{ cmake[ansible_os_family] }}"
+          - "{{ the_silver_searcher[ansible_os_family] }}"
+          - "{{ pkg[ansible_os_family] }}"
+          - "{{ fd[ansible_os_family] }}"
+          - "{{ bat[ansible_os_family] }}"
+        state: latest
+
+    - name: Install zsh and bash
+      package:
+        name:
+          - "{{ zsh[ansible_os_family] }}"
+          - "{{ bash[ansible_os_family] }}"
+        state: latest
+
+    - name: Install Version Control Stuff
+      package:
+        name:
+          - "{{ git[ansible_os_family] }}"
+          # - "{{ lazygit[ansible_os_family] }}"
+          # - "{{ gitdelta[ansible_os_family] }}"
+          # - "{{ gitui[ansible_os_family] }}"
+          - "{{ gitlfs[ansible_os_family] }}"
+        state: latest
+      tags:
+        - git
+
+    - name: Install (Neo)Vim
+      package:
+        name:
+          - "{{ neovim[ansible_os_family] }}"
+          - "{{ vim[ansible_os_family] }}"
+        state: latest
+
+    - name: Install packer
+      ansible.builtin.git:
+        repo: https://github.com/wbthomason/packer.nvim
+        dest: "{{ lookup('env','HOME') + '/.local/share/nvim/site/pack/packer/start/packer.nvim' }}"
+        update: no
+        depth: 1
+
