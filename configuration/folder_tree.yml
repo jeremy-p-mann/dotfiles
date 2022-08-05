@@ -1,0 +1,7 @@
+---
+username: jeremypmann
+home: /home
+user_home:  "{{ home + '/' + username}}"
+project_folder:  "{{ user_home + '/code' }}"
+learning_folder:  "{{ user_home + '/learning' }}"
+scratch_folder:  "{{ user_home + '/temp' }}"

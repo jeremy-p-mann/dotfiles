@@ -1,0 +1,36 @@
+---
+- name: Create Jeremy User
+  hosts: localhost
+  vars:
+  vars_files:
+    - folder_tree.yml
+  tasks:
+    - name: Add the user 'jeremypmann'
+      ansible.builtin.user:
+        name: "{{ username }}"
+        shell: /bin/zsh
+        create_home: no
+
+    - name: Create Home folder
+      ansible.builtin.file:
+        path:  "{{ user_home }}"
+        owner:  "{{ username}}"
+        state: directory
+
+    - name: Create Project folder
+      ansible.builtin.file:
+        path: "{{ project_folder }}"
+        owner:  "{{ username}}"
+        state: directory
+
+    - name: Create Learning folder
+      ansible.builtin.file:
+        path: "{{ learning_folder }}"
+        owner:  "{{ username}}"
+        state: directory
+
+    - name: Create Scratch folder
+      ansible.builtin.file:
+        path: "{{ scratch_folder }}"
+        owner:  "{{ username}}"
+        state: directory
