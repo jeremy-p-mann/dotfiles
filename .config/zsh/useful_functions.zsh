@@ -114,3 +114,8 @@ def () {
 grs () {
     git reset --soft HEAD~$1
 }
+
+gq () {
+    git reset --soft HEAD~$1
+    git commit
+}
