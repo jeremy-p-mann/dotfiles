@@ -18,3 +18,4 @@ sample_dotfiles/
 .config/gatsby
 .config/glab-cli
 .config/lazygit/state.yml
+packer
