@@ -110,3 +110,7 @@ cf () {
 def () {
     dict $1 | bat
 }
+
+grs () {
+    git reset --soft HEAD~$1
+}
