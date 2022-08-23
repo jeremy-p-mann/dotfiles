@@ -11,7 +11,7 @@ local harpoon = require "harpoon"
 local harpoon_mark = require "harpoon.mark"
 local actions = require "telescope.actions"
 
-function copy_path_to_clipboard(prompt_bufnr, map)
+local function copy_path_to_clipboard(prompt_bufnr, map)
   local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
   vim.fn.system("echo " .. content.value .. " | pbcopy")
   require("telescope.actions").close(prompt_bufnr)
@@ -22,7 +22,7 @@ require("telescope").setup {
   defaults = {
     file_sorter = require("telescope.sorters").get_fzy_sorter,
     prompt_prefix = "> ",
-    layout_strategy = "vertical",
+    layout_strategy = "horizontal",
     color_devicons = true,
     path_display = { shorten = 2 },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -183,3 +183,5 @@ nremap("<leader>3", function()
   require("harpoon.ui").nav_file(3)
 end, "Third Mark")
 nremap("<leader>mf", telescope_harpoon, "Find Mark")
+
+
