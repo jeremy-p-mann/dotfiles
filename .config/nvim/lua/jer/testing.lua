@@ -1,17 +1,22 @@
+local make_entry = require "telescope.make_entry"
 local nremap = require("jer.keymaps").nremap
+local pickers = require "telescope.pickers"
+local finders = require "telescope.finders"
+local conf = require("telescope.config").values
+
 local save_files = function()
   vim.cmd [[wa]]
 end
 -- Testing --
 
-local is_lua_test_file = function()
-  local ans = string.find(vim.api.nvim_buf_get_name(0), "_spec.lua")
+local is_lua = function()
+  local ans = string.find(vim.api.nvim_buf_get_name(0), "lua")
   return ans ~= nil
 end
 
 local test_nearest = function()
   save_files()
-  if is_lua_test_file() then
+  if is_lua() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
     vim.cmd [[TestNearest]]
@@ -20,8 +25,8 @@ end
 
 local test_debug = function()
   save_files()
-  if is_lua_test_file() then
-    require("plenary.test_harness").test_directory(vim.fn.expand "%")
+  if is_lua() then
+    require("plenary.test_harness").test_directory('tests/')
   else
     vim.cmd [[TestNearest --pdb]]
   end
@@ -29,7 +34,7 @@ end
 
 local test_file = function()
   save_files()
-  if is_lua_test_file() then
+  if is_lua() then
     require("plenary.test_harness").test_directory(vim.fn.expand "%")
   else
     vim.cmd [[TestFile]]
@@ -38,8 +43,8 @@ end
 
 local test_suite = function()
   save_files()
-  if is_lua_test_file() then
-    require("plenary.test_harness").test_directory(vim.fn.expand "%")
+  if is_lua() then
+    require("plenary.test_harness").test_directory('tests/')
   else
     return vim.cmd [[TestSuite]]
   end
@@ -47,8 +52,8 @@ end
 
 local test_last = function()
   save_files()
-  if is_lua_test_file() then
-    require("plenary.test_harness").test_directory(vim.fn.expand "%")
+  if is_lua() then
+    require("plenary.test_harness").test_directory('tests/')
   else
     return vim.cmd [[TestLast]]
   end
