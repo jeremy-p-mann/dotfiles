@@ -1,4 +1,4 @@
-local keymap = require("jer.keymaps")
+local keymap = require "jer.keymaps"
 local nremap = keymap.nremap
 
 local pickers = require "telescope.pickers"
@@ -15,7 +15,7 @@ local _get_current_tmux_session = function()
   return vim.fn.systemlist("tmux display-message -p '#S'")[1]
 end
 
-local _switch_tmux_sessions = function(session_name)
+local switch_tmux_sessions = function(session_name)
   vim.fn.system("tmux switch -t " .. session_name)
 end
 
@@ -40,7 +40,7 @@ end
 local _switch_tmux_sessions_action = function(prompt_bufnr)
   local session_name = action_state.get_selected_entry().value
   action.close(prompt_bufnr)
-  _switch_tmux_sessions(session_name)
+  switch_tmux_sessions(session_name)
   return true
 end
 
@@ -62,13 +62,20 @@ local tmux_sessions = function(opts)
     attach_mappings = function(_, map)
       map("i", "<CR>", _switch_tmux_sessions_action)
       map("n", "<CR>", _switch_tmux_sessions_action)
+      map("n", "<C-x>", kill_tmux_session)
+      map("i", "<C-x>", kill_tmux_session)
       return true
     end,
   }):find()
 end
 
-local tmux_session_dropdown = function ()
-    tmux_sessions(require('telescope.themes').get_dropdown({}))
+local tmux_session_dropdown = function()
+  tmux_sessions(require("telescope.themes").get_dropdown {})
 end
 
 nremap("<leader>fp", tmux_session_dropdown, "Navigate to new tmux session")
+nremap(
+  "<leader><leader>cp",
+  tmux_session_dropdown,
+  "Navigate to new tmux session"
+)
