@@ -12,7 +12,9 @@ local harpoon_mark = require "harpoon.mark"
 local actions = require "telescope.actions"
 
 local function copy_path_to_clipboard(prompt_bufnr, map)
-  local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+  local content = require("telescope.actions.state").get_selected_entry(
+    prompt_bufnr
+  )
   vim.fn.system("echo " .. content.value .. " | pbcopy")
   require("telescope.actions").close(prompt_bufnr)
   return true
@@ -57,6 +59,7 @@ require("telescope").setup {
         ["<C-y>"] = copy_path_to_clipboard,
         ["<C-h>"] = require("telescope").extensions.send_to_harpoon.actions.send_selected_to_harpoon,
         ["<C-c>"] = actions.close,
+        ["<C-n>"] = actions.move_selection_next,
       },
     },
   },
@@ -183,5 +186,3 @@ nremap("<leader>3", function()
   require("harpoon.ui").nav_file(3)
 end, "Third Mark")
 nremap("<leader>mf", telescope_harpoon, "Find Mark")
-
-
