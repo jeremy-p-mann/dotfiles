@@ -12,23 +12,35 @@ vim.g.slime_dont_ask_default = 1
 local execute_code = function()
   local current_file = vim.fn.expand "%"
   local filetype = vim.bo.filetype
-  vim.cmd("wa")
+  -- vim.cmd "wa"
   if filetype == "python" then
     local files_in_current_directory = vim.fn.system "ls"
-    package_manager_command = ''
-    if string.find(files_in_current_directory, 'Pipfile.lock') then 
-        package_manager_command = 'pipenv run '
+    local package_manager_command = ""
+    if string.find(files_in_current_directory, "Pipfile.lock") then
+      package_manager_command = "pipenv run "
     end
-    if string.find(files_in_current_directory, 'poetry.lock') then 
-        package_manager_command = 'poetry run '
+    if string.find(files_in_current_directory, "poetry.lock") then
+      package_manager_command = "poetry run "
     end
-    shell_command = package_manager_command .. 'python3 ' .. current_file
+    local shell_command = package_manager_command .. "python3 " .. current_file
     local command = 'VimuxRunCommand("' .. shell_command .. '")'
     vim.cmd(command)
   elseif filetype == "lua" then
     vim.cmd "luafile %"
   end
 end
+
+local command_prompt = function()
+  local on_confirm = function(input)
+    if input then
+      local output = vim.fn.system(input)
+      require "notify"(output, "> ", { title = input })
+    end
+  end
+  vim.ui.input({ prompt = "Command" }, on_confirm)
+end
+
+nremap("<leader><leader>x", command_prompt, "command")
 
 nremap("<leader>ex", execute_code, "Execute Code in Floating Window")
 nremap("<leader>vp", [[<CMD>VimuxPromptCommand<CR>]], "Run Command From Prompt in Tmux")
