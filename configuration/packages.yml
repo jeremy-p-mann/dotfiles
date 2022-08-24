@@ -38,7 +38,7 @@ the_silver_searcher:
   Archlinux: the_silver_searcher
 pkg:
   Debian: pkg-config
-  Archlinux: pkg
+  Archlinux: pkgconfig
 fd:
   Debian: fd-find
   Archlinux: fd
@@ -81,3 +81,6 @@ rust:
 lua:
   Debian: lua5.3
   Archlinux: lua
+unzip:
+  Debian: unzip
+  Archlinux: unzip
