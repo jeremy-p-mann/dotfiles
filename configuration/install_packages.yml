@@ -44,6 +44,7 @@
           - "{{ pkg[ansible_os_family] }}"
           - "{{ fd[ansible_os_family] }}"
           - "{{ bat[ansible_os_family] }}"
+          - "{{ unzip[ansible_os_family] }}"
         state: latest
 
     - name: Install zsh and bash
