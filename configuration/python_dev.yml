@@ -2,10 +2,13 @@
 - name: Core Packages for Python Projects
   hosts: localhost
   tasks:
-
     - name: Install pytest
       pip:
         name: pytest
+
+    - name: Install black
+      pip:
+        name: black
 
     - name: Install requests
       pip:
@@ -34,32 +37,26 @@
     - name: Install pipenv
       pip:
         name: pipenv
- 
-    - name: Install poetry
-      pip:
-        name: poetry
- 
-    - name: Install pytest-cov for test coverage reports
-      pip:
-        name: pytest-cov
- 
+
     - name: Install pytest-xdist for distributing tests
       pip:
         name: pytest-xdist
- 
+
     - name: Install pytest-benchmark for benchmarking code
       pip:
         name: pytest-benchmark
- 
+
     - name: Install pytest-clarity for better output of tests
       pip:
         name: pytest-clarity
- 
+
     - name: Install pytest-rich for better output of tests
       pip:
         name: pytest-rich
- 
-    - name: Install black
-      pip:
-        name: black
 
+    - name: Install pytest-cov for test coverage reports
+      pip:
+        name: pytest-cov
+
+    - name: Install poetry
+      shell: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
