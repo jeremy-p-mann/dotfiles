@@ -1,3 +1,5 @@
+local local_plugins = require("jer.local").plugins
+
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -81,6 +83,9 @@ return require("packer").startup(function(use)
 
   use "stevearc/dressing.nvim"
 
+  for _, plugin_name in ipairs(local_plugins) do
+    use(plugin_name)
+  end
 
   if packer_bootstrap then
     require("packer").sync()
