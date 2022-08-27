@@ -12,7 +12,7 @@ vim.g.slime_dont_ask_default = 1
 local execute_code = function()
   local current_file = vim.fn.expand "%"
   local filetype = vim.bo.filetype
-  -- vim.cmd "wa"
+  vim.cmd "wa"
   if filetype == "python" then
     local files_in_current_directory = vim.fn.system "ls"
     local package_manager_command = ""
