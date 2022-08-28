@@ -19,3 +19,4 @@ sample_dotfiles/
 .config/glab-cli
 .config/lazygit/state.yml
 packer
+.config/nvim/lua/jer/_local.lua
