@@ -17,4 +17,4 @@ require "jer.syntax"
 require "jer.python"
 require "jer.tmux"
 require "jer.miscellaneous"
-require "jer.local"
+require "jer.local".do_stuff()
