@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 nremap(" ", "")
 
 vim.g.do_filetype_lua = 1
+vim.g.loaded_netrwPlugin = 0
 
 local opt = vim.opt
 

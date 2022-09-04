@@ -22,7 +22,7 @@ end
   ps(
     "for_loop_items",
     [[
-for ${1:key},${2:value} in pairs(${3:table}) do
+for $1,$2 in pairs($3) do
   $4
 end
 ]]

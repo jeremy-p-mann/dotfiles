@@ -14,7 +14,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-
 return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
 
@@ -37,8 +36,7 @@ return require("packer").startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
   use "jmann277/telescope-send-to-harpoon.nvim"
-  use 'nvim-telescope/telescope-ui-select.nvim'
-
+  use "nvim-telescope/telescope-ui-select.nvim"
 
   use "Pocco81/TrueZen.nvim"
   use "norcalli/nvim-colorizer.lua"
@@ -80,6 +78,7 @@ return require("packer").startup(function(use)
   use "mfussenegger/nvim-dap-python"
 
   use "AckslD/nvim-neoclip.lua"
+  use "nvim-telescope/telescope-symbols.nvim"
 
   use "stevearc/dressing.nvim"
 
