@@ -34,6 +34,12 @@ opt.splitright = true
 opt.background = 'dark'
 opt.termguicolors = true
 opt.colorcolumn = '80'
+-- status line
+opt.laststatus = 0
+opt.showmode=false
+opt.ruler=false
+opt.laststatus=nil
+opt.showcmd=false
 
 
 require('jer')
