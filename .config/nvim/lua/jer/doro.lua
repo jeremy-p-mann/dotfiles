@@ -7,52 +7,51 @@ local get_current_time = function()
   return vim.fn.systemlist("date +%Y-%m-%dT%H:%M:%S%Z")[1]
 end
 
+local get_status_bar = function(doro)
+  local progress = doro.remaining / doro.duration
+  local ans = "["
+  for i = 1, 10 do
+    local value = i / 10
+    if value <= progress then
+      ans = ans .. "="
+    else
+      ans = ans .. "-"
+    end
+  end
+  ans = ans .. "]"
+  return ans
+end
+
 local fields = {
   "name",
   "duration",
   "remaining",
   "unit",
   "outcome",
+  "datetime",
 }
 
 local _csv_filepath = string.format("%s/doros.csv", vim.fn.stdpath "data")
 
-local _persist_doro_to_csv = function(doro)
-  local row_string
-  for index, field in ipairs(fields) do
-    local value = doro[field]
-    if field == "outcome" then
-      value = value.name
-    end
-    if index == 1 then
-      row_string = value
-    else
-      row_string = row_string .. "," .. value
-    end
-  end
-  local cmd = 'echo "' .. row_string .. '" >> ' .. _csv_filepath
-  vim.fn.system(cmd)
-end
-
-local _get_all_records = function()
-  local ans = {}
-  local raw_results = vim.fn.systemlist("cat " .. _csv_filepath)
-  for i, cs_string in pairs(raw_results) do
-    if i > 1 then
-      local split_string = vim.split(cs_string, ",")
-      local record = {}
-      for index, field_to_record in pairs(fields) do
-        record[field_to_record] = split_string[index]
-      end
-      table.insert(ans, record)
-    end
-  end
-  return ans
-end
 -- timer
 
-local all_doros = {}
+local format_time = function(time)
+  local seconds_in_a_minute = 60
+  local seconds = math.fmod(time, seconds_in_a_minute)
+  local minutes = (time - seconds) / seconds_in_a_minute
+  local minutes_str = string.format("%s", minutes)
+  local seconds_str = string.format("%s", seconds)
+  if seconds < 10 then
+    seconds_str = "0" .. seconds
+  end
+  if minutes < 10 then
+    minutes_str = "0" .. minutes
+  end
+  return minutes_str .. ":" .. seconds_str
+end
 
+-- local text = string.format("bool is %s", mod)
+-- text = string.format(text .. "bool is %s", minutes)
 local range = function(start, stop, step)
   local ans = {}
   local value = start
@@ -86,6 +85,7 @@ local time = {
   start_timer = start_timer,
   length_ops = timer_length_opts,
   one_second = 1000,
+  format_time = format_time,
 }
 
 -- doros
@@ -97,16 +97,19 @@ local default_doro = {
   unit = "seconds",
   outcome = { name = "TBD", icon = "⏲️" },
   notification_window = nil,
+  datetime = nil,
 }
 
 local describe_doro = function(doro)
   local info = doro.name
-    .. " "
+    .. " | "
     .. doro.duration
-    .. " seconds "
+    .. " seconds | "
     .. doro.outcome.icon
-    .. " "
+    .. " | "
     .. doro.outcome.name
+    .. " | "
+    .. doro.datetime
   return info
 end
 
@@ -115,6 +118,14 @@ local outcomes = {
   { name = "tomato", icon = "🍅" },
   { name = "clown", icon = "🤡" },
 }
+
+local get_outcome_from_name = function(name)
+  for _, outcome in ipairs(outcomes) do
+    if outcome.name == name then
+      return outcome
+    end
+  end
+end
 
 local get_stage = function(doro)
   if doro.remaining >= doro.duration then
@@ -129,12 +140,11 @@ end
 local get_notification_content = function(doro)
   local msg = {
     start = "Timer set for " .. doro.duration .. " " .. doro.unit,
-    ongoing = doro.remaining
-      .. "/"
-      .. doro.duration
+    ongoing = get_status_bar(doro)
       .. " "
-      .. doro.unit
-      .. " left",
+      .. time.format_time(doro.remaining),
+      -- .. " "
+      -- .. doro.unit,
     finish = "Congrats, " .. doro.duration .. " second timer complete",
   }
   local titles = {
@@ -167,13 +177,14 @@ local update_doro_notification = function(doro)
     timeout = false,
     icon = cont.icon,
     replace = doro.notification_window,
+        max_width = 15,
   }
   doro.notification_window = notify(cont.msg, cont.status, opts)
   return doro
 end
 
 local _set_doro_value = function(doro, property, value)
-  local new_values = value or doro[property]
+  local new_values = value
   doro[property] = new_values
   doro = update_doro_notification(doro)
   return doro
@@ -225,6 +236,46 @@ local change_doro_outcome = function(doro, callback)
   end
   local outcome = vim.ui.select(outcomes, opts, select_callback)
   return outcome
+end
+
+local _persist_doro_to_csv = function(doro)
+  local row_string
+  for index, field in ipairs(fields) do
+    local value = doro[field]
+    if field == "outcome" then
+      value = value.name
+    end
+    if field == "datetime" then
+      value = get_current_time()
+    end
+    if index == 1 then
+      row_string = value
+    else
+      row_string = row_string .. "," .. value
+    end
+  end
+  local cmd = 'echo "' .. row_string .. '" >> ' .. _csv_filepath
+  vim.fn.system(cmd)
+end
+
+local _get_all_doros = function()
+  local ans = {}
+  local raw_results = vim.fn.systemlist("cat " .. _csv_filepath)
+  for i, cs_string in pairs(raw_results) do
+    if i > 1 then
+      local split_string = vim.split(cs_string, ",")
+      local record = {}
+      for index, field_to_record in pairs(fields) do
+        local value = split_string[index]
+        if field_to_record == "outcome" then
+          value = get_outcome_from_name(value)
+        end
+        record[field_to_record] = value
+      end
+      table.insert(ans, record)
+    end
+  end
+  return ans
 end
 
 local record_doro = function(doro, callback)
@@ -289,6 +340,7 @@ end
 
 local show_doros = function()
   local names = {}
+  local all_doros = _get_all_doros()
   for _, doro in ipairs(all_doros) do
     local info = describe_doro(doro)
     table.insert(names, info)
@@ -297,8 +349,11 @@ local show_doros = function()
   vim.ui.select(names, opts, function(choice) end)
 end
 
-
--- nremap("<leader>ee", function() end, "Pick a question")
 nremap("<leader>dd", do_doro, "Do a doro")
 nremap("<leader>dr", show_doros, "Do a doro")
--- nremap("<leader>dd", cc, "Do a doro")
+
+
+notify.notify([[
+aksdjf
+ksajfd
+]])
