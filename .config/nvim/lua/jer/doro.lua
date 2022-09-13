@@ -98,6 +98,7 @@ local default_doro = {
   outcome = { name = "TBD", icon = "⏲️" },
   notification_window = nil,
   datetime = nil,
+  window = nil,
 }
 
 local describe_doro = function(doro)
@@ -139,12 +140,10 @@ end
 
 local get_notification_content = function(doro)
   local msg = {
-    start = "Timer set for " .. doro.duration .. " " .. doro.unit,
+    start = "Timer set for \n" .. doro.duration .. " " .. doro.unit,
     ongoing = get_status_bar(doro)
-      .. " "
+      .. " \n"
       .. time.format_time(doro.remaining),
-      -- .. " "
-      -- .. doro.unit,
     finish = "Congrats, " .. doro.duration .. " second timer complete",
   }
   local titles = {
@@ -177,7 +176,6 @@ local update_doro_notification = function(doro)
     timeout = false,
     icon = cont.icon,
     replace = doro.notification_window,
-        max_width = 15,
   }
   doro.notification_window = notify(cont.msg, cont.status, opts)
   return doro
@@ -351,9 +349,3 @@ end
 
 nremap("<leader>dd", do_doro, "Do a doro")
 nremap("<leader>dr", show_doros, "Do a doro")
-
-
-notify.notify([[
-aksdjf
-ksajfd
-]])
