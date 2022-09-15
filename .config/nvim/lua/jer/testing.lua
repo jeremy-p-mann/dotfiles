@@ -4,6 +4,12 @@ local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
 
+vim.api.nvim_exec(
+[[
+let test#strategy = 'vimux'
+]],
+false)
+
 local save_files = function()
   vim.cmd [[wa]]
 end
