@@ -1,25 +1,29 @@
 vim.api.nvim_exec(
-[[
+  [[
 syntax enable
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme duskfox
-let test#strategy = 'vimux'
+colorscheme carbonfox
 ]],
-false)
+  false
+)
 
-local keymap = require("jer.keymaps")
+local keymap = require "jer.keymaps"
 local nremap = keymap.nremap
 local colorscheme = require("telescope.builtin").colorscheme
 local true_zen = require "true-zen"
 
--- require('dressing').setup({
--- })
-
-
+require("dressing").setup {
+  input = {
+    relative = "editor",
+    override = function(conf)
+      return conf
+    end,
+  },
+}
 
 true_zen.setup {
   ui = {
