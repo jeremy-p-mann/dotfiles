@@ -17,7 +17,7 @@ local colorscheme = require("telescope.builtin").colorscheme
 local true_zen = require "true-zen"
 
 require("dressing").setup {
-  input = { relative = "editor" },
+  input = { relative = "editor", min_width = {10, .9}},
 }
 
 true_zen.setup {
