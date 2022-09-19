@@ -1,11 +1,18 @@
 local ls = require "luasnip"
 local ps = ls.parser.parse_snippet
 
+
 local snippets = {
+  ps(
+    "v",
+    [[
+local $1 = $2
+]]
+  ),
   ps(
     "function",
     [[
-$1 = function ($2)
+local $1 = function ($2)
   $3
 end
 $4
