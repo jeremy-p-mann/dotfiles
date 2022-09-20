@@ -3,9 +3,15 @@ local nremap = keymap.nremap
 
 local notify = require("notify").notify
 
+IS_HIDDEN = false
+
 local get_current_time = function()
   return vim.fn.systemlist("date +%Y-%m-%dT%H:%M:%S%Z")[1]
 end
+
+vim.cmd [[
+    hi default SOMETHING guifg=#4F6752
+  ]]
 
 local get_status_bar = function(doro)
   local progress = doro.remaining / doro.duration
@@ -31,14 +37,16 @@ local fields = {
   "datetime",
 }
 
-local _csv_filepath = string.format("%s/doros.csv", vim.fn.stdpath "data")
+local get_config = function()
+  return { csv_filepath = string.format("%s/doros.csv", vim.fn.stdpath "data") }
+end
 
 -- timer
 
-local format_time = function(time)
+local format_time = function(time_seconds)
   local seconds_in_a_minute = 60
-  local seconds = math.fmod(time, seconds_in_a_minute)
-  local minutes = (time - seconds) / seconds_in_a_minute
+  local seconds = math.fmod(time_seconds, seconds_in_a_minute)
+  local minutes = (time_seconds - seconds) / seconds_in_a_minute
   local minutes_str = string.format("%s", minutes)
   local seconds_str = string.format("%s", seconds)
   if seconds < 10 then
@@ -50,8 +58,6 @@ local format_time = function(time)
   return minutes_str .. ":" .. seconds_str
 end
 
--- local text = string.format("bool is %s", mod)
--- text = string.format(text .. "bool is %s", minutes)
 local range = function(start, stop, step)
   local ans = {}
   local value = start
@@ -64,7 +70,13 @@ local range = function(start, stop, step)
   return ans
 end
 
-local timer_length_opts = range(0, 600, 1)
+local timer_length_opts = {}
+for _, second in pairs(range(0, 600, 1)) do
+  table.insert(
+    timer_length_opts,
+    { value = second, text = format_time(second) }
+  )
+end
 
 local start_timer = function(callback, interval)
   local timer = vim.loop.new_timer()
@@ -88,14 +100,66 @@ local time = {
   format_time = format_time,
 }
 
+local create_window = function(content)
+  local ui = vim.api.nvim_list_uis()[1]
+  local buf = vim.api.nvim_create_buf(false, true)
+  local ref_width = ui.width
+  local ref_height = ui.height
+  local rel_width = 0.2
+  local rel_height = 0.2
+  local width = math.floor(ref_width * rel_width)
+  local height = math.floor(ref_height * rel_height)
+  local col = ui.width - (width / 2)
+  local row = ui.height - (height / 2)
+  local opts = {
+    relative = "editor",
+    width = width,
+    height = 4,
+    col = col,
+    row = row,
+    style = "minimal",
+    -- border = "rounded",
+  }
+  vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, content)
+  local window = vim.api.nvim_open_win(buf, false, opts)
+  vim.api.nvim_win_set_option(
+    window,
+    "winhl",
+    "Normal:SOMETHING,FloatBorder:SOMETHING"
+  )
+  return window
+end
+
+local set_content = function(lines, window)
+  local buf = vim.api.nvim_win_get_buf(window)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
+  return window
+end
+
+local set_doro_window_content = function(content, doro)
+  if IS_HIDDEN then
+    if doro.window ~= nil then
+      vim.api.nvim_win_close(doro.window, true)
+      doro.window = nil
+    end
+  else
+    if doro.window == nil then
+      doro.window = create_window(content)
+    else
+      doro.window = set_content(content, doro.window)
+    end
+  end
+  return doro
+end
 -- doros
 
 local default_doro = {
   name = "doro",
-  duration = 10,
-  remaining = 10,
+  duration = 5,
+  remaining = 5,
   unit = "seconds",
-  outcome = { name = "TBD", icon = "⏲️" },
+  outcome = { name = "TBD", icon = "⏲️ " },
   notification_window = nil,
   datetime = nil,
   window = nil,
@@ -139,17 +203,20 @@ local get_stage = function(doro)
 end
 
 local get_notification_content = function(doro)
+  local f_duration = time.format_time(doro.duration)
   local msg = {
-    start = "Timer set for \n" .. doro.duration .. " " .. doro.unit,
+    start = f_duration,
     ongoing = get_status_bar(doro)
       .. " \n"
-      .. time.format_time(doro.remaining),
-    finish = "Congrats, " .. doro.duration .. " second timer complete",
+      .. time.format_time(doro.remaining)
+      .. " of "
+      .. f_duration,
+    finish = f_duration .. " complete",
   }
   local titles = {
-    start = "Doro " .. doro.name,
-    ongoing = "Doro " .. doro.name,
-    finish = doro.name .. " Complete",
+    start = doro.name,
+    ongoing = doro.name,
+    finish = doro.name,
   }
   local status = {
     start = "info",
@@ -177,7 +244,13 @@ local update_doro_notification = function(doro)
     icon = cont.icon,
     replace = doro.notification_window,
   }
-  doro.notification_window = notify(cont.msg, cont.status, opts)
+  local content = { opts.icon .. " " .. opts.title }
+  local body = vim.split(cont.msg, "\n")
+  table.insert(content, "")
+  for _, line in pairs(body) do
+    table.insert(content, line)
+  end
+  doro = set_doro_window_content(content, doro)
   return doro
 end
 
@@ -210,20 +283,22 @@ local change_doro_name = function(doro, callback)
 end
 
 local change_doro_duration = function(doro, callback)
-  vim.ui.select(
-    time.length_ops,
-    { prompt = "Doro Duration: " },
-    function(duration)
-      doro = _set_doro_value(doro, "duration", duration)
-      doro = _set_doro_value(doro, "remaining", duration)
-      callback(doro)
-    end
-  )
+  vim.ui.select(time.length_ops, {
+    prompt = "Doro Duration: ",
+    format_item = function(duration)
+      return duration.text
+    end,
+  }, function(duration)
+    local duration_seconds = duration.value
+    doro = _set_doro_value(doro, "duration", duration_seconds)
+    doro = _set_doro_value(doro, "remaining", duration_seconds)
+    callback(doro)
+  end)
 end
 
 local change_doro_outcome = function(doro, callback)
   local opts = {
-    prompt = "Rate experience of " .. doro.name,
+    prompt = "Complete! Rate experience of " .. doro.name,
     format_item = function(outcome)
       return outcome.icon
     end,
@@ -238,6 +313,7 @@ end
 
 local _persist_doro_to_csv = function(doro)
   local row_string
+  local csv_filepath = get_config().csv_filepath
   for index, field in ipairs(fields) do
     local value = doro[field]
     if field == "outcome" then
@@ -252,13 +328,14 @@ local _persist_doro_to_csv = function(doro)
       row_string = row_string .. "," .. value
     end
   end
-  local cmd = 'echo "' .. row_string .. '" >> ' .. _csv_filepath
+  local cmd = 'echo "' .. row_string .. '" >> ' .. csv_filepath
   vim.fn.system(cmd)
 end
 
 local _get_all_doros = function()
+  local csv_filepath = get_config().csv_filepath
   local ans = {}
-  local raw_results = vim.fn.systemlist("cat " .. _csv_filepath)
+  local raw_results = vim.fn.systemlist("cat " .. csv_filepath)
   for i, cs_string in pairs(raw_results) do
     if i > 1 then
       local split_string = vim.split(cs_string, ",")
@@ -347,5 +424,10 @@ local show_doros = function()
   vim.ui.select(names, opts, function(choice) end)
 end
 
+local toggle_doro = function()
+  IS_HIDDEN = not IS_HIDDEN
+end
+
 nremap("<leader>dd", do_doro, "Do a doro")
 nremap("<leader>dr", show_doros, "Do a doro")
+nremap("<leader>dh", toggle_doro, "Hide a doro")
