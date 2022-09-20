@@ -416,8 +416,8 @@ end
 local show_doros = function()
   local names = {}
   local all_doros = _get_all_doros()
-  for _, doro in ipairs(all_doros) do
-    local info = describe_doro(doro)
+  for index, _ in ipairs(all_doros) do
+    local info = describe_doro(all_doros[#all_doros - index + 1])
     table.insert(names, info)
   end
   local opts = { prompt = "Past Doros" }
