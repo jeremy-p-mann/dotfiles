@@ -9,6 +9,12 @@ def test_$1($2):
     $3
 ]]
   ),
+  ps(
+    "shebang",
+    [[
+#!/usr/bin/env python3
+]]
+  ),
 ps(
   "pytest_fixture",
   [[
