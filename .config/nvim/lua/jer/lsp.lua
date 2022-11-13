@@ -39,6 +39,8 @@ require'lspconfig'.dockerls.setup(opts)
 
 require'lspconfig'.texlab.setup(opts)
 
+require'lspconfig'.gopls.setup(opts)
+
 require'lspconfig'.terraformls.setup{
   capabilities = capabilities,
     on_attach = on_attach,
