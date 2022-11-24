@@ -144,7 +144,7 @@ fig.savefig('${1:figure_name}.png')
 ps(
   "bp",
   [[
-import pdb; pdb.set_trace()
+breakpoint()
 ]]
 ),
 ps(
