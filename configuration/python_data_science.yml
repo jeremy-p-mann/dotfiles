@@ -19,9 +19,9 @@
       pip:
         name: seaborn
 
-    - name: Install sklearn
+    - name: Install scikit-learn
       pip:
-        name: sklearn
+        name: scikit-learn
 
     - name: Install jupyter
       pip:
