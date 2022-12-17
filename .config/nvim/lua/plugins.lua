@@ -17,6 +17,8 @@ end
 return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
 
+  use "lewis6991/impatient.nvim"
+
   use "wbthomason/packer.nvim"
   use "tpope/vim-commentary"
 
@@ -81,6 +83,7 @@ return require("packer").startup(function(use)
 
   use "stevearc/dressing.nvim"
 
+  use "kkharji/sqlite.lua"
   for _, plugin_name in ipairs(local_plugins) do
     use(plugin_name)
   end
