@@ -2,7 +2,15 @@ local notify = require "notify"
 local nremap = require("jer.keymaps").nremap
 local telescope = require "telescope.builtin"
 
-require("gitsigns").setup()
+require("gitsigns").setup {
+  signs = {
+    add = { text = "+" },
+    change = { text = "~" },
+    delete = { text = "_" },
+    topdelete = { text = "‾" },
+    changedelete = { text = "~" },
+  },
+}
 
 local gs = package.loaded.gitsigns
 local blame_line = function()
@@ -41,7 +49,3 @@ nremap(
 --   vim.fn.system(cmd)
 -- end)
 -- vim.wait(1000, function() require'notify'('hi') end)
-
-
-
-
