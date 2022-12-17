@@ -38,7 +38,6 @@ return require("packer").startup(function(use)
   use "jmann277/telescope-send-to-harpoon.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
 
-  use "Pocco81/TrueZen.nvim"
   use "norcalli/nvim-colorizer.lua"
   use "gruvbox-community/gruvbox"
   use "EdenEast/nightfox.nvim"
