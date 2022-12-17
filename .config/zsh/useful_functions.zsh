@@ -19,6 +19,12 @@ e() {
         nvim . -c "lua require('telescope.builtin').find_files()"
     fi
 }
+ed() {
+    nvim . -c ":lua require('edc').pick_question_keymap()"
+}
+es() {
+    nvim . -c ":lua require('telescope.builtin').git_status()"
+}
 fdr() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -95,7 +101,7 @@ ts () {
 }
 
 
-tp () {
+fp () {
   IFS=$'\n' files=($(ls $CODEDIR| fzf-tmux --multi --select-1 --exit-0))
   [[ -n "$files" ]] &&  folder="${files[@]}"
   directory=$CODEDIR/$folder
