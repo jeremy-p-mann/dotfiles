@@ -25,6 +25,10 @@ local execute_code = function()
     local shell_command = package_manager_command .. "python3 " .. current_file
     local command = 'VimuxRunCommand("' .. shell_command .. '")'
     vim.cmd(command)
+  elseif filetype == 'go' then
+    local shell_command = "go run " .. current_file
+    local command = 'VimuxRunCommand("' .. shell_command .. '")'
+    vim.cmd(command)
   elseif filetype == "lua" then
     vim.cmd "luafile %"
   end
