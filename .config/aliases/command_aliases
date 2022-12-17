@@ -23,7 +23,7 @@ alias gfa="git fetch --all"
 alias lg="lazygit"
 
 # Tree
-alias tree="tree -I \"build|*egg*|dist|*cache*|.git|*checkpoint*|.DS*\""
+alias tree="tree -I \"build|*egg*|dist|*cache*|.git|*checkpoint*|.DS*|node_modules\""
 alias t1="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
@@ -42,6 +42,7 @@ alias python='python3'
 alias pip='pip3'
 alias jl="jupyter lab"
 alias pr='pipenv run'
+alias prp='poetry run pytest'
 
 alias lam="lookatme"
 
