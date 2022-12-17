@@ -9,6 +9,8 @@ vim.api.nvim_exec(
 let test#strategy = 'vimux'
 ]],
 false)
+-- let test#strategy = 'neovim'
+-- let g:test#neovim#start_normal = 1
 
 local save_files = function()
   vim.cmd [[wa]]
