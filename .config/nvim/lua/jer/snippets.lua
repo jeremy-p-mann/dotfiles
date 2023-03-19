@@ -11,6 +11,7 @@ ls.add_snippets("python", require "jer.snippets.python_snippets")
 ls.add_snippets("javascript", require "jer.snippets.javascript_snippets")
 ls.add_snippets("lua", require "jer.snippets.lua_snippets")
 ls.add_snippets("go", require "jer.snippets.go_snippets")
+ls.add_snippets("rust", require "jer.snippets.rust_snippets")
 
 require("luasnip.loaders.from_vscode").load { include = { "html", "css" } }
 require("luasnip").filetype_extend("javascript", { "javascriptreact" })
