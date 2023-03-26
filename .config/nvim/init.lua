@@ -44,6 +44,9 @@ opt.laststatus=nil
 opt.showcmd=false
 
 
+vim.o.ch = 0
+vim.o.ls = 0
+
 require('jer')
 
 
