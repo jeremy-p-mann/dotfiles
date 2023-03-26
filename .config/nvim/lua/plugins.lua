@@ -18,6 +18,8 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
 
   use "lewis6991/impatient.nvim"
+  use "eandrju/cellular-automaton.nvim"
+  use "nvim-treesitter/playground"
 
   use "wbthomason/packer.nvim"
   use "tpope/vim-commentary"
@@ -39,12 +41,14 @@ return require("packer").startup(function(use)
   use "nvim-telescope/telescope-fzy-native.nvim"
   use "jmann277/telescope-send-to-harpoon.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
+  use { "nvim-telescope/telescope-file-browser.nvim" }
 
   use "norcalli/nvim-colorizer.lua"
   use "gruvbox-community/gruvbox"
   use "EdenEast/nightfox.nvim"
   use "rose-pine/neovim"
   use "aditya-azad/candle-grey"
+  use "olimorris/onedarkpro.nvim"
 
   use "neovim/nvim-lspconfig"
 
