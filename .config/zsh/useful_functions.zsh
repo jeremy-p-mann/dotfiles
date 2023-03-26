@@ -25,6 +25,9 @@ ed() {
 es() {
     nvim . -c ":lua require('telescope.builtin').git_status()"
 }
+ep() {
+    nvim . -c ":lua require('edc').preview_data()"
+}
 fdr() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
