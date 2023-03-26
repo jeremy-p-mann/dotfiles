@@ -10,11 +10,11 @@ local conf = require("telescope.config").values
 local harpoon = require "harpoon"
 local harpoon_mark = require "harpoon.mark"
 local actions = require "telescope.actions"
+local fb_actions = require "telescope".extensions.file_browser.actions
 
 local function copy_path_to_clipboard(prompt_bufnr, map)
-  local content = require("telescope.actions.state").get_selected_entry(
-    prompt_bufnr
-  )
+  local content =
+    require("telescope.actions.state").get_selected_entry(prompt_bufnr)
   vim.fn.system("echo " .. content.value .. " | pbcopy")
   require("telescope.actions").close(prompt_bufnr)
   return true
@@ -73,11 +73,25 @@ require("telescope").setup {
         -- even more opts
       },
     },
+    file_browser = {
+      -- theme = "ivy",
+      -- disables netrw and use telescope-file-browser in its place
+          ["<C-a>"] = fb_actions.create,
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          ["<C-a>"] = fb_actions.create,
+          -- ||
+        },
+        ["n"] = {},
+      },
+    },
   },
 }
 require("telescope").load_extension "fzy_native"
 require("telescope").load_extension "send_to_harpoon"
 require("telescope").load_extension "ui-select"
+require("telescope").load_extension "file_browser"
 
 -- Harpoon
 local function filter_empty_string(list)
@@ -130,17 +144,19 @@ end
 
 local telescope_harpoon = function(opts)
   opts = opts or {}
-  pickers.new(opts, {
-    prompt_title = "harpoon marks",
-    finder = generate_new_finder(),
-    sorter = conf.generic_sorter(opts),
-    previewer = conf.grep_previewer(opts),
-    attach_mappings = function(_, map)
-      map("i", "<c-d>", delete_harpoon_mark)
-      map("n", "<c-d>", delete_harpoon_mark)
-      return true
-    end,
-  }):find()
+  pickers
+    .new(opts, {
+      prompt_title = "harpoon marks",
+      finder = generate_new_finder(),
+      sorter = conf.generic_sorter(opts),
+      previewer = conf.grep_previewer(opts),
+      attach_mappings = function(_, map)
+        map("i", "<c-d>", delete_harpoon_mark)
+        map("n", "<c-d>", delete_harpoon_mark)
+        return true
+      end,
+    })
+    :find()
 end
 
 local find_in_current_directory = function()
@@ -164,6 +180,7 @@ nremap("<C-j>", [[<CMD>cnext<CR>]], "Quickfix Next")
 nremap("<C-k>", [[<CMD>cprev<CR>]], "Quickfix Previous")
 nremap("<leader>tt", builtin.builtin, "Telescope Telescope")
 -- General Finding
+nremap("<leader>F", require 'telescope'.extensions.file_browser.file_browser, "File Browser")
 nremap("<leader>fd", search_dotfiles, "Telescope Dotfiles")
 nremap("<leader>fF", telescope.find_files, "Telescope all Files")
 nremap("<C-p>", telescope.git_files, "Telescope Git Files")
