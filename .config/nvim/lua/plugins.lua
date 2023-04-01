@@ -1,98 +1,80 @@
-local local_plugins = require("jer.local").get_plugins()
-
-local fn = vim.fn
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system {
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   }
-  vim.cmd [[packadd packer.nvim]]
 end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(function(use)
-  use "nvim-lua/plenary.nvim"
+local lazy = require "lazy"
+local local_plugins = require("jer.local").get_plugins()
 
-  use "lewis6991/impatient.nvim"
-  use "eandrju/cellular-automaton.nvim"
-  use "nvim-treesitter/playground"
-
-  use "wbthomason/packer.nvim"
-  use "tpope/vim-commentary"
-
-  use "benmills/vimux"
-  use "voldikss/vim-floaterm"
-  use "jpalardy/vim-slime"
-
-  use "tpope/vim-capslock"
-  use "nvim-lua/popup.nvim"
-  use "jmann277/tarot.nvim"
-
-  use { "vim-test/vim-test", commit = "dfbf93d" }
-
-  use "lewis6991/gitsigns.nvim"
-
-  use "ThePrimeagen/harpoon"
-  use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-fzy-native.nvim"
-  use "jmann277/telescope-send-to-harpoon.nvim"
-  use "nvim-telescope/telescope-ui-select.nvim"
-  use { "nvim-telescope/telescope-file-browser.nvim" }
-
-  use "norcalli/nvim-colorizer.lua"
-  use "gruvbox-community/gruvbox"
-  use "EdenEast/nightfox.nvim"
-  use "rose-pine/neovim"
-  use "aditya-azad/candle-grey"
-  use "olimorris/onedarkpro.nvim"
-
-  use "neovim/nvim-lspconfig"
-
-  use "tpope/vim-surround"
-  use "nvim-treesitter/nvim-treesitter-textobjects"
-
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/cmp-nvim-lua"
-  use "onsails/lspkind-nvim"
-
-  use "L3MON4D3/LuaSnip"
-  use "saadparwaiz1/cmp_luasnip"
-  use "rafamadriz/friendly-snippets"
-
-  use "rcarriga/nvim-notify"
-
-  use "jose-elias-alvarez/null-ls.nvim"
-  use {
+local plugins = {
+  "nvim-lua/plenary.nvim",
+  "lewis6991/impatient.nvim",
+  "eandrju/cellular-automaton.nvim",
+  "nvim-treesitter/playground",
+  "tpope/vim-commentary",
+  "benmills/vimux",
+  "voldikss/vim-floaterm",
+  "jpalardy/vim-slime",
+  "tpope/vim-capslock",
+  "nvim-lua/popup.nvim",
+  "jmann277/tarot.nvim",
+  "vim-test/vim-test",
+  "lewis6991/gitsigns.nvim",
+  "ThePrimeagen/harpoon",
+  "nvim-telescope/telescope.nvim",
+  "nvim-telescope/telescope-fzy-native.nvim",
+  "jmann277/telescope-send-to-harpoon.nvim",
+  "nvim-telescope/telescope-ui-select.nvim",
+  "nvim-telescope/telescope-file-browser.nvim",
+  "norcalli/nvim-colorizer.lua",
+  "gruvbox-community/gruvbox",
+  "EdenEast/nightfox.nvim",
+  "rose-pine/neovim",
+  "aditya-azad/candle-grey",
+  "olimorris/onedarkpro.nvim",
+  "neovim/nvim-lspconfig",
+  "tpope/vim-surround",
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  "nvim-treesitter/nvim-treesitter-context",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-cmdline",
+  "hrsh7th/cmp-nvim-lua",
+  "onsails/lspkind-nvim",
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
+  "rafamadriz/friendly-snippets",
+  "rcarriga/nvim-notify",
+  "jose-elias-alvarez/null-ls.nvim",
+  "hashivim/vim-terraform",
+  "rcarriga/nvim-dap-ui",
+  "mfussenegger/nvim-dap",
+  "mfussenegger/nvim-dap-python",
+  "AckslD/nvim-neoclip.lua",
+  "nvim-telescope/telescope-symbols.nvim",
+  "camgraff/telescope-tmux.nvim",
+  "benfowler/telescope-luasnip.nvim",
+  "stevearc/dressing.nvim",
+  "kkharji/sqlite.lua",
+  {
     "nvim-treesitter/nvim-treesitter",
-    run = function()
+    build = function()
       require("nvim-treesitter.install").update { with_sync = true }
     end,
-  }
-  use "hashivim/vim-terraform"
+  },
+}
 
-  use "rcarriga/nvim-dap-ui"
-  use "mfussenegger/nvim-dap"
-  use "mfussenegger/nvim-dap-python"
-
-  use "AckslD/nvim-neoclip.lua"
-  use "nvim-telescope/telescope-symbols.nvim"
-
-  use "stevearc/dressing.nvim"
-
-  use "kkharji/sqlite.lua"
-  for _, plugin_name in ipairs(local_plugins) do
-    use(plugin_name)
-  end
-
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
+for _, plugin in ipairs(local_plugins) do
+  table.insert(plugins, plugin)
+end
+lazy.setup(plugins)
