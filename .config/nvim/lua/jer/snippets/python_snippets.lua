@@ -18,7 +18,7 @@ def test_$1($2):
 ps(
   "pytest_fixture",
   [[
-@pytest.fixture($1)
+@pytest.fixture(scope='${1:module}')
 def $2($3):
     $4
 ]]
