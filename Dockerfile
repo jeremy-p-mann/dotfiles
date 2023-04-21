@@ -26,5 +26,4 @@ RUN ansible-playbook /dotfiles/configuration/zsh_plugins.yml
 
 WORKDIR /home/jeremypmann
 
-# ENTRYPOINT ["/bin/zsh", "--login"]
-
+ENTRYPOINT ["/bin/zsh", "--login"]

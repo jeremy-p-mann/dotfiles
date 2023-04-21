@@ -1,1 +1,1 @@
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless +"lua require('lazy').restore({wait=true})" +qa

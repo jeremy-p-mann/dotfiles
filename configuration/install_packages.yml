@@ -73,10 +73,5 @@
           - "{{ vim[ansible_os_family] }}"
         state: latest
 
-    - name: Install packer
-      ansible.builtin.git:
-        repo: https://github.com/wbthomason/packer.nvim
-        dest: "{{ lookup('env','HOME') + '/.local/share/nvim/site/pack/packer/start/packer.nvim' }}"
-        update: no
-        depth: 1
-
+    - name: Install NeoVim Plugins
+      ansible.builtin.shell: nvim --headless +"lua require('lazy').restore({wait=true})" +qa
