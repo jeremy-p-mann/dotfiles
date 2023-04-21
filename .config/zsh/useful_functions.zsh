@@ -25,6 +25,9 @@ ed() {
 es() {
     nvim . -c ":lua require('telescope.builtin').git_status()"
 }
+ef() {
+    nvim . -c ":lua require('telescope.builtin').live_grep()"
+}
 ep() {
     nvim . -c ":lua require('edc').preview_data()"
 }
@@ -33,6 +36,11 @@ fdr() {
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
+}
+
+sgd() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
 
 fbr() {
