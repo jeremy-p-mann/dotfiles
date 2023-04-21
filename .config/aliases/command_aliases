@@ -41,7 +41,7 @@ alias ld="ls -d */"
 alias python='python3'
 alias pip='pip3'
 alias jl="jupyter lab"
-alias pr='pipenv run'
+alias pr='poetry run'
 alias prp='poetry run pytest'
 
 alias lam="lookatme"
