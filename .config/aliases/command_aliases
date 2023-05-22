@@ -43,6 +43,7 @@ alias pip='pip3'
 alias jl="jupyter lab"
 alias pr='poetry run'
 alias prp='poetry run pytest'
+alias prs='poetry run streamlit run'
 
 alias lam="lookatme"
 
