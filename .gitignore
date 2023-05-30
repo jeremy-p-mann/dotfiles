@@ -20,3 +20,7 @@ sample_dotfiles/
 .config/lazygit/state.yml
 packer
 .config/nvim/lua/jer/_local.lua
+./.config/github-copilot/hosts.json
+.config/github-copilot/hosts.json
+.config/zsh/.zsh_sessions/*
+.config/zsh/.zsh_history
