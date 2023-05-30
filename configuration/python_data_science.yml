@@ -51,3 +51,15 @@
       pip:
         name: torch
 
+    - name: Install Langchain
+      pip:
+        name: langchain
+
+    - name: Install OpenAI
+      pip:
+        name: openai
+
+    - name: Install LangChain
+      pip:
+        name: langchain
+
