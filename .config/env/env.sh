@@ -15,3 +15,4 @@ export DOTFILES=$BASEDIR/dotfiles
 export WRITING=$BASEDIR/writing
 export LG_CONFIG_FILE=$XDG_CONFIG_HOME/lazygit/config.yml
 export SCRATCH_FILE=$BASEDIR/scratch
+export AUDIO_DATA_DIR=$BASEDIR/audio
