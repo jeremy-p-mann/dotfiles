@@ -14,11 +14,6 @@
         state: latest
       tags: python
 
-    - name: Install Ansible
-      pip:
-        name:
-          - ansible
-        state: latest
     #TODO this has to come after python installation
 
     - name: Install tmux

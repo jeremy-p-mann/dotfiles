@@ -62,5 +62,9 @@
       pip:
         name: sqlalchemy
 
+    - name: Install ruff
+      pip:
+        name: ruff
+
     - name: Install poetry
       shell: curl -sSL https://install.python-poetry.org | python3 -
