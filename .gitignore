@@ -24,3 +24,4 @@ packer
 .config/github-copilot/hosts.json
 .config/zsh/.zsh_sessions/*
 .config/zsh/.zsh_history
+__pycache__
