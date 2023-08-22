@@ -10,7 +10,7 @@ local conf = require("telescope.config").values
 local harpoon = require "harpoon"
 local harpoon_mark = require "harpoon.mark"
 local actions = require "telescope.actions"
-local fb_actions = require "telescope".extensions.file_browser.actions
+local fb_actions = require("telescope").extensions.file_browser.actions
 
 local function copy_path_to_clipboard(prompt_bufnr, map)
   local content =
@@ -19,6 +19,23 @@ local function copy_path_to_clipboard(prompt_bufnr, map)
   require("telescope.actions").close(prompt_bufnr)
   return true
 end
+
+require("oil").setup {
+  skip_confirm_for_simple_edits = true,
+  default_file_explorer = false,
+}
+
+
+require('aerial').setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', {buffer = bufnr})
+    vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', {buffer = bufnr})
+  end
+})
+-- You probably also want to set a keymap to toggle aerial
+
 
 require("telescope").setup {
   defaults = {
@@ -76,7 +93,7 @@ require("telescope").setup {
     file_browser = {
       -- theme = "ivy",
       -- disables netrw and use telescope-file-browser in its place
-          ["<C-a>"] = fb_actions.create,
+      ["<C-a>"] = fb_actions.create,
       hijack_netrw = true,
       mappings = {
         ["i"] = {
@@ -92,6 +109,9 @@ require("telescope").load_extension "fzy_native"
 require("telescope").load_extension "send_to_harpoon"
 require("telescope").load_extension "ui-select"
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension "luasnip"
+require("telescope").load_extension "tmux"
+require("telescope").load_extension "undo"
 
 -- Harpoon
 local function filter_empty_string(list)
@@ -180,7 +200,11 @@ nremap("<C-j>", [[<CMD>cnext<CR>]], "Quickfix Next")
 nremap("<C-k>", [[<CMD>cprev<CR>]], "Quickfix Previous")
 nremap("<leader>tt", builtin.builtin, "Telescope Telescope")
 -- General Finding
-nremap("<leader>F", require 'telescope'.extensions.file_browser.file_browser, "File Browser")
+nremap(
+  "<leader>F",
+  require("telescope").extensions.file_browser.file_browser,
+  "File Browser"
+)
 nremap("<leader>fd", search_dotfiles, "Telescope Dotfiles")
 nremap("<leader>fF", telescope.find_files, "Telescope all Files")
 nremap("<C-p>", telescope.git_files, "Telescope Git Files")
@@ -189,6 +213,21 @@ nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
 nremap("<leader>ff", find_in_current_directory, "Telescope Current Directory")
+nremap(
+  "<leader>fn",
+  "<cmd>Telescope luasnip<cr>",
+  "Telescope Current Directory"
+)
+nremap(
+  "<leader>fw",
+  "<cmd>Telescope tmux windows<cr>",
+  "Telescope Current Directory"
+)
+nremap(
+  "<leader>un",
+  require("telescope").extensions.undo.undo,
+  "Telescope Undos"
+)
 -- Marks
 nremap("<leader>mt", require("harpoon.mark").add_file, "Add a Mark")
 nremap("<leader>mj", require("harpoon.ui").nav_next, "Next Mark")
@@ -204,3 +243,6 @@ nremap("<leader>3", function()
 end, "Third Mark")
 nremap("<leader>mf", telescope_harpoon, "Find Mark")
 nremap("<leader>ef", "<cmd>echo expand('%')<CR>", "print current file")
+nremap("<leader>ef", "<cmd>echo expand('%')<CR>", "print current file")
+nremap("-", require("oil").open, "Open parent directory")
+nremap('<leader>a', '<cmd>AerialToggle!<CR>', 'Aerial Preview')

@@ -16,12 +16,13 @@ local local_plugins = require("jer.local").get_plugins()
 
 local plugins = {
   "nvim-lua/plenary.nvim",
+  "MunifTanjim/nui.nvim",
   "lewis6991/impatient.nvim",
   "eandrju/cellular-automaton.nvim",
   "nvim-treesitter/playground",
   "tpope/vim-commentary",
   "benmills/vimux",
-  "voldikss/vim-floaterm",
+  -- "voldikss/vim-floaterm",
   "jpalardy/vim-slime",
   "tpope/vim-capslock",
   "nvim-lua/popup.nvim",
@@ -31,6 +32,7 @@ local plugins = {
   "ThePrimeagen/harpoon",
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-fzy-native.nvim",
+  "debugloop/telescope-undo.nvim",
   "jmann277/telescope-send-to-harpoon.nvim",
   "nvim-telescope/telescope-ui-select.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
@@ -38,6 +40,7 @@ local plugins = {
   "gruvbox-community/gruvbox",
   "EdenEast/nightfox.nvim",
   "rose-pine/neovim",
+  "stevearc/aerial.nvim",
   "aditya-azad/candle-grey",
   "olimorris/onedarkpro.nvim",
   "neovim/nvim-lspconfig",
@@ -62,15 +65,29 @@ local plugins = {
   "mfussenegger/nvim-dap-python",
   "AckslD/nvim-neoclip.lua",
   "nvim-telescope/telescope-symbols.nvim",
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+  },
   "camgraff/telescope-tmux.nvim",
   "benfowler/telescope-luasnip.nvim",
   "stevearc/dressing.nvim",
   "kkharji/sqlite.lua",
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = function()
       require("nvim-treesitter.install").update { with_sync = true }
     end,
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
   },
 }
 
