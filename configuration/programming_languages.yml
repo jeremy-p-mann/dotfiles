@@ -25,30 +25,6 @@
       tags:
         - go
 
-    - name: Install terraform
-      become_user: true
-      package:
-        name:
-          - terraform
-      tags:
-        - terraform
-
-    - name: Install ruby
-      become_user: true
-      package:
-        name:
-          - ruby
-      tags:
-        - ruby
-
-    - name: Install perl
-      become_user: true
-      package:
-        name:
-          - perl
-      tags:
-        - perl
-
     - name: Install Lua
       become_user: true
       package:

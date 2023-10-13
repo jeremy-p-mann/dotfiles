@@ -68,5 +68,5 @@
           - "{{ vim[ansible_os_family] }}"
         state: latest
 
-    - name: Install NeoVim Plugins
-      ansible.builtin.shell: nvim --headless +"lua require('lazy').restore({wait=true})" +qa
+#     - name: Install NeoVim Plugins
+#       ansible.builtin.shell: nvim --headless +"lua require('lazy').restore({wait=true})" +qa

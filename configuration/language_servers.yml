@@ -6,13 +6,16 @@
       pip:
         name: python-lsp-server
         state: latest
+      extra_args: --user
       tags:
         - python
+
 
     - name: Install mypy python language server plugin
       pip:
         name: pylsp-mypy
         state: latest
+      extra_args: --user
       tags:
         - python
 
@@ -20,6 +23,7 @@
       pip:
         name: pyls-black
         state: latest
+      extra_args: --user
       tags:
         - python
 
