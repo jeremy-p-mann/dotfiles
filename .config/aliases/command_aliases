@@ -93,3 +93,9 @@ alias wha="which -a"
 alias commit="./scripts/commit"
 alias ansp="ansible-playbook"
 alias ans="ansible"
+
+alias sq="sqlite3 --header"
+alias ud="$CODEDIR/jer_health/scripts/update_workout_data; chrome-cli reload"
+alias conda="/Users/jeremymann/miniconda3/bin/conda"
+#
+alias z=zellij
