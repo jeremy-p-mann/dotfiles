@@ -11,5 +11,8 @@ end
 M.vremap = function(rhs, lhs, desc)
   keymap("v", rhs, lhs, { noremap = true, silent = true, desc = desc })
 end
+M.tremap = function(rhs, lhs, desc)
+  keymap("t", rhs, lhs, { noremap = true, silent = true, desc = desc })
+end
 
 return M
