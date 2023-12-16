@@ -1,6 +1,9 @@
 local nremap = require("jer.keymaps").nremap
+local tremap = require("jer.keymaps").tremap
+local async = require "plenary.async"
+local notify = require("notify").async
 
-vim.g.floaterm_keymap_toggle = "<C-f>"
+-- vim.g.floaterm_keymap_toggle = "<C-f>"
 vim.g.slime_default_config = {
   ["socket_name"] = "default",
   ["target_pane"] = "1",
@@ -25,14 +28,16 @@ local execute_code = function()
     local shell_command = package_manager_command .. "python3 " .. current_file
     local command = 'VimuxRunCommand("' .. shell_command .. '")'
     vim.cmd(command)
-  elseif filetype == 'go' then
+  elseif filetype == "go" then
     local shell_command = "go run " .. current_file
     local command = 'VimuxRunCommand("' .. shell_command .. '")'
     vim.cmd(command)
-
-  elseif filetype == 'rust' then
+  elseif filetype == "rust" then
     local shell_command = "cargo run " .. current_file
     local command = 'VimuxRunCommand("' .. shell_command .. '")'
+    vim.cmd(command)
+  elseif filetype == "sql" then
+    local command = 'ExecuteSQL'
     vim.cmd(command)
   elseif filetype == "lua" then
     vim.cmd "luafile %"
@@ -49,13 +54,57 @@ local command_prompt = function()
   vim.ui.input({ prompt = "Command" }, on_confirm)
 end
 
+local function _get_week_day()
+  local day_number = os.date("*t").wday
+  local week_days = {
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  }
+  return week_days[day_number]
+end
+
+local get_cal = function(n_months)
+  n_months = n_months or 0
+  local cmd = "cal -h"
+  if n_months >= 1 then
+    cmd = cmd .. " -A" .. n_months
+  end
+
+  async.run(function()
+    local joke = vim.fn.system(cmd)
+    notify(joke, "", { title = _get_week_day() .. " " .. os.date "%d" })
+  end)
+end
+
 nremap("<leader><leader>x", command_prompt, "command")
+nremap("<leader><leader>c", function()
+  get_cal(nil)
+end, "Get this month")
+nremap("<leader>c1", function()
+  get_cal(1)
+end, "Get this month")
+nremap("<leader>c2", function()
+  get_cal(2)
+end, "Get this month")
 
 nremap("<leader>ex", execute_code, "Execute Code in Floating Window")
-nremap("<leader>vp", [[<CMD>VimuxPromptCommand<CR>]], "Run Command From Prompt in Tmux")
-nremap("<leader>vl", [[<CMD>VimuxRunLastCommand<CR>]], "Run Last command in Tmux")
+nremap(
+  "<leader>vp",
+  [[<CMD>VimuxPromptCommand<CR>]],
+  "Run Command From Prompt in Tmux"
+)
+nremap(
+  "<leader>vl",
+  [[<CMD>VimuxRunLastCommand<CR>]],
+  "Run Last command in Tmux"
+)
 nremap("<leader>vv", [[<CMD>VimuxCloseRunner<CR>]], "Close Tmux window")
 nremap("<leader>vc", [[<CMD>VimuxClearTerminalScreen<CR>]], "Clear Tmux Screen")
 nremap("<leader>sl", [[<CMD>SlimeSendCurrentLine<CR>]], "Send Current Line")
 nremap("<leader>sf", [[<CMD>%SlimeSend<CR>]], "Send The File")
-nremap("<leader>sp", "<Plug>SlimeParagraphSend", "Send the Paragraph")
+tremap("<ESC>", [[<C-\><C-n>]], "Escape in terminal mode")
