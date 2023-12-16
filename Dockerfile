@@ -1,12 +1,9 @@
+FROM archlinux:latest
 
-FROM archlinux
-
-RUN pacman -Sy --noconfirm archlinux-keyring
-RUN pacman-key --init
-RUN pacman-key --populate
-RUN pacman-key --refresh-keys
 RUN pacman --noconfirm -Syu
+RUN pacman --noconfirm -Sy archlinux-keyring
 RUN pacman --noconfirm -S python python-pip python-setuptools git ansible
+RUN pacman --noconfirm -S neovim
 
 RUN git clone https://github.com/jmann277/dotfiles --depth=1
 RUN ansible-playbook /dotfiles/configuration/jeremy.yml
@@ -20,6 +17,8 @@ USER jeremypmann
 
 RUN ansible-playbook /dotfiles/configuration/install_dotfiles.yml
 RUN ansible-playbook /dotfiles/configuration/zsh_plugins.yml
+
+RUN nvim --headless "+Lazy! sync" +qa
 
 # RUN git config --global user.name "Full Name"
 # RUN git config --global user.email "email@address.com"
