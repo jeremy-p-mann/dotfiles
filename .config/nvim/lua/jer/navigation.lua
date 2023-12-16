@@ -23,19 +23,35 @@ end
 require("oil").setup {
   skip_confirm_for_simple_edits = true,
   default_file_explorer = false,
+  keymaps = {
+    ["g?"] = "actions.show_help",
+    ["<CR>"] = "actions.select",
+    ["<C-s>"] = "actions.select_vsplit",
+    ["<C-h>"] = "actions.select_split",
+    ["<C-t>"] = "actions.select_tab",
+    ["<C-l>"] = "actions.preview",
+    ["<C-c>"] = "actions.close",
+    ["-"] = "actions.parent",
+    ["_"] = "actions.open_cwd",
+    ["`"] = "actions.cd",
+    ["~"] = "actions.tcd",
+    ["gs"] = "actions.change_sort",
+    ["gx"] = "actions.open_external",
+    ["g."] = "actions.toggle_hidden",
+    ["g\\"] = "actions.toggle_trash",
+  },
+  use_default_keymaps = false,
 }
 
-
-require('aerial').setup({
+require("aerial").setup {
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
   on_attach = function(bufnr)
     -- Jump forwards/backwards with '{' and '}'
-    vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', {buffer = bufnr})
-    vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', {buffer = bufnr})
-  end
-})
+    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+  end,
+}
 -- You probably also want to set a keymap to toggle aerial
-
 
 require("telescope").setup {
   defaults = {
@@ -86,9 +102,9 @@ require("telescope").setup {
       override_file_sorter = true,
     },
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        -- even more opts
-      },
+      -- require("telescope.themes").get_cursor {
+      --   -- even more opts
+      -- },
     },
     file_browser = {
       -- theme = "ivy",
@@ -183,6 +199,7 @@ local find_in_current_directory = function()
   require("telescope.builtin").find_files {
     prompt_title = "Files",
     cwd = vim.fn.expand("%"):match ".*/",
+    find_command = { "rg", "--files", "--sort", "path" },
   }
 end
 local search_dotfiles = function()
@@ -245,4 +262,4 @@ nremap("<leader>mf", telescope_harpoon, "Find Mark")
 nremap("<leader>ef", "<cmd>echo expand('%')<CR>", "print current file")
 nremap("<leader>ef", "<cmd>echo expand('%')<CR>", "print current file")
 nremap("-", require("oil").open, "Open parent directory")
-nremap('<leader>a', '<cmd>AerialToggle!<CR>', 'Aerial Preview')
+nremap("<leader>a", "<cmd>AerialToggle!<CR>", "Aerial Preview")
