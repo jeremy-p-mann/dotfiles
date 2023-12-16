@@ -136,3 +136,11 @@ gq () {
     git reset --soft HEAD~$1
     git commit
 }
+
+
+db () {
+    tmux new-session -d -s mysession -n win1 -c $CODEDIR/jer_health
+    tmux new-window -n win2 -t mysession:1 -c $CODEDIR/jer_health
+    tmux send-keys -t mysession:0 'streamlit run dashboards/__main__.py' C-m
+    tmux send-keys -t mysession:1 'streamlit run dashboards/meso.py' C-m
+}
