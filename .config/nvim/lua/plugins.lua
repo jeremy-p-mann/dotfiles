@@ -22,7 +22,7 @@ local plugins = {
   "nvim-treesitter/playground",
   "tpope/vim-commentary",
   "benmills/vimux",
-  -- "voldikss/vim-floaterm",
+  "folke/neodev.nvim",
   "jpalardy/vim-slime",
   "tpope/vim-capslock",
   "nvim-lua/popup.nvim",
@@ -65,30 +65,12 @@ local plugins = {
   "mfussenegger/nvim-dap-python",
   "AckslD/nvim-neoclip.lua",
   "nvim-telescope/telescope-symbols.nvim",
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    -- Optional dependencies
-  },
+  "stevearc/oil.nvim",
   "camgraff/telescope-tmux.nvim",
   "benfowler/telescope-luasnip.nvim",
   "stevearc/dressing.nvim",
   "kkharji/sqlite.lua",
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = function()
-      require("nvim-treesitter.install").update { with_sync = true }
-    end,
-  },
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-  },
+  "nvim-treesitter/nvim-treesitter",
 }
 
 for _, plugin in ipairs(local_plugins) do

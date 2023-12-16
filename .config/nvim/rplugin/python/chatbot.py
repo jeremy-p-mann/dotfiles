@@ -1,8 +1,10 @@
 from typing import Dict, List
 
-import openai
 import pynvim  # type: ignore
+from openai import OpenAI
 from pynvim.api import Nvim  # type: ignore
+
+client = OpenAI()
 
 
 def parse_chat(buffer: List[str]):
@@ -19,6 +21,7 @@ def parse_chat(buffer: List[str]):
     ]
     return ans
 
+
 def get_response_from_model(chat: List[Dict[str, str]]):
     first_term = chat[0]
     if first_term['role'] == 'model':
@@ -26,7 +29,7 @@ def get_response_from_model(chat: List[Dict[str, str]]):
         chat = chat[1:]
     else:
         model = "gpt-3.5-turbo"
-    chat_completion = openai.ChatCompletion.create(
+    chat_completion = client.chat.completions.create(
         model=model, messages=chat
     )
     ans = dict(chat_completion.choices[0].message)
@@ -70,6 +73,9 @@ def format_response(resp):
 #     {'role': 'user', 'content': '\n'.join(BUFFER[14:])},
 # ]
 # assert ans['model'] == 'gpt-3.5-turbo'
+
+# resp = get_response_from_model(ans)
+# import pdb; pdb.set_trace()
 
 
 @pynvim.plugin

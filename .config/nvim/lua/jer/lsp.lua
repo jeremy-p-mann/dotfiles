@@ -1,5 +1,8 @@
 --- LSP Related Stuff ---
 
+-- This has to before lsp setups
+require("neodev").setup {}
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local on_attach = function()
   vim.keymap.set(
@@ -13,12 +16,6 @@ local on_attach = function()
     "gd",
     "<CMD>Telescope lsp_definitions<CR>",
     { buffer = 0, desc = "Telescope Definitions" }
-  )
-  vim.keymap.set(
-    "n",
-    "gi",
-    "<CMD>Telescope lsp_implementations<CR>",
-    { buffer = 0, desc = "Telescope Implementations" }
   )
   vim.keymap.set(
     "n",
@@ -63,6 +60,7 @@ require("null-ls").setup {
     },
   },
 }
+
 require("lspconfig").pylsp.setup(opts)
 
 require("lspconfig").ansiblels.setup {
@@ -146,6 +144,9 @@ require("lspconfig").lua_ls.setup {
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
+      },
+      completion = {
+        callSnippet = "Replace",
       },
     },
   },
