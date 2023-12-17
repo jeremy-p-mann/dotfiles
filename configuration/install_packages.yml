@@ -28,7 +28,6 @@
           - "{{ sudo[ansible_os_family] }}"
           - "{{ htop[ansible_os_family] }}"
           - "{{ ripgrep[ansible_os_family] }}"
-          - "{{ fzf[ansible_os_family] }}"
           - "{{ gcc[ansible_os_family] }}"
           - "{{ tree[ansible_os_family] }}"
           - "{{ wget[ansible_os_family] }}"
