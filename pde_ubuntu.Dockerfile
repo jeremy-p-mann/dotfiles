@@ -18,6 +18,7 @@ RUN apt-get install -y fd-find
 RUN git clone https://github.com/jmann277/dotfiles --depth=1
 RUN ansible-playbook /dotfiles/configuration/install_packages.yml
 RUN ansible-playbook /dotfiles/configuration/jeremy.yml
+RUN ansible-playbook /dotfiles/configuration/programming_languages.yml
 
 USER jeremypmann
 
@@ -27,7 +28,9 @@ RUN ln -s $(which fdfind) ~/.local/bin/fd
 RUN ansible-playbook /dotfiles/configuration/install_dotfiles.yml
 RUN ansible-playbook /dotfiles/configuration/zsh_plugins.yml
 
-# RUN ansible-playbook /dotfiles/configuration/programming_languages.yml
+
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+
 # RUN ansible-playbook /dotfiles/configuration/language_servers.yml
 
 RUN ansible-playbook /dotfiles/configuration/python_dev.yml
