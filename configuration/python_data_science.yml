@@ -3,48 +3,38 @@
   hosts: localhost
   tasks:
 
-    - name: Install jupyter python package
-      pip:
-        name: jupyter
-        extra_args: --break-system-packages
-
     - name: Install altair
       pip:
         name: altair
-        extra_args: --break-system-packages
 
     - name: Install scikit-learn
       pip:
         name: scikit-learn
-        extra_args: --break-system-packages
 
     - name: Install jupyter
       pip:
         name: jupyter
-        extra_args: --break-system-packages
+
+    - name: Install scipy
+      pip:
+        name: scipy
 
     - name: Install pandas
       pip:
         name: pandas
-        extra_args: --break-system-packages
 
     - name: Install numpy
       pip:
         name: numpy
-        extra_args: --break-system-packages
 
     - name: Install Streamlit
       pip:
         name: streamlit
-        extra_args: --break-system-packages
 
     - name: Install SQLAlchemy
       pip:
         name: sqlalchemy
-        extra_args: --break-system-packages
 
     - name: Install OpenAI
       pip:
         name: openai
-        extra_args: --break-system-packages
-
