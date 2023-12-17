@@ -6,7 +6,7 @@
       pip:
         name: python-lsp-server
         state: latest
-      extra_args: --user
+        extra_args: --user
       tags:
         - python
 
@@ -15,7 +15,7 @@
       pip:
         name: pylsp-mypy
         state: latest
-      extra_args: --user
+        extra_args: --user
       tags:
         - python
 
@@ -23,7 +23,7 @@
       pip:
         name: pyls-black
         state: latest
-      extra_args: --user
+        extra_args: --user
       tags:
         - python
 
@@ -34,13 +34,6 @@
         state: latest
       tags:
         - javascript
-
-    # - name: Install basic packages
-    #   apt:
-    #     pkg:
-    #       - jdtls
-    #   tags:
-    #     - java
 
     - name: Install typescripts/javascript language server globally.
       community.general.npm:
