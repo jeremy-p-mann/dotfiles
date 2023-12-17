@@ -27,7 +27,7 @@ require("nvim-treesitter.configs").setup {
     "toml",
     "vim",
   },
-  auto_install = false,
+  auto_install = true,
 }
 require("nvim-treesitter.configs").setup {
   textobjects = {
