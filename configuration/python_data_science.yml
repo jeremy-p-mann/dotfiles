@@ -6,60 +6,45 @@
     - name: Install jupyter python package
       pip:
         name: jupyter
-
-    - name: Install matplotlib
-      pip:
-        name: matplotlib
+        extra_args: --break-system-packages
 
     - name: Install altair
       pip:
         name: altair
-
-    - name: Install seaborn
-      pip:
-        name: seaborn
+        extra_args: --break-system-packages
 
     - name: Install scikit-learn
       pip:
         name: scikit-learn
+        extra_args: --break-system-packages
 
     - name: Install jupyter
       pip:
         name: jupyter
-
-    - name: Install scipy
-      pip:
-        name: scipy
+        extra_args: --break-system-packages
 
     - name: Install pandas
       pip:
         name: pandas
+        extra_args: --break-system-packages
 
     - name: Install numpy
       pip:
         name: numpy
+        extra_args: --break-system-packages
 
     - name: Install Streamlit
       pip:
         name: streamlit
+        extra_args: --break-system-packages
 
     - name: Install SQLAlchemy
       pip:
         name: sqlalchemy
-
-    - name: Install PyTorch
-      pip:
-        name: torch
-
-    - name: Install Langchain
-      pip:
-        name: langchain
+        extra_args: --break-system-packages
 
     - name: Install OpenAI
       pip:
         name: openai
-
-    - name: Install LangChain
-      pip:
-        name: langchain
+        extra_args: --break-system-packages
 
