@@ -213,8 +213,8 @@ local grep_string = function()
 end
 
 -- Quickfix
-nremap("<C-j>", [[<CMD>cnext<CR>]], "Quickfix Next")
-nremap("<C-k>", [[<CMD>cprev<CR>]], "Quickfix Previous")
+nremap("<C-j>", [[<CMD>silent! cnext<CR>]], "Quickfix Next")
+nremap("<C-k>", [[<CMD>silent! cprev<CR>]], "Quickfix Previous")
 nremap("<leader>tt", builtin.builtin, "Telescope Telescope")
 -- General Finding
 nremap(
