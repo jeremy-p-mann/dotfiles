@@ -35,7 +35,8 @@ RUN ansible-playbook /dotfiles/configuration/language_servers.yml -t python
 RUN ansible-playbook /dotfiles/configuration/python_dev.yml
 RUN ansible-playbook /dotfiles/configuration/python_data_science.yml
 
-# RUN nvim --headless "+Lazy! sync" +qa
+RUN nvim --headless "+Lazy! sync" +qa
+RUN nvim --headless "+30sleep" +qa
 
 WORKDIR /home/jeremypmann
 
