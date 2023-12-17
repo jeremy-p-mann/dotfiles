@@ -13,3 +13,10 @@ RUN apt-get update -y && \
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
 RUN apt-get install -y python3-neovim
+
+RUN git clone https://github.com/jmann277/dotfiles --depth=1
+RUN ansible-playbook /dotfiles/configuration/jeremy.yml
+
+USER jeremypmann
+
+WORKDIR /home/jeremypmann
