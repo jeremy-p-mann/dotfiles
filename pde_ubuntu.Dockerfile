@@ -27,6 +27,14 @@ RUN ln -s $(which fdfind) ~/.local/bin/fd
 RUN ansible-playbook /dotfiles/configuration/install_dotfiles.yml
 RUN ansible-playbook /dotfiles/configuration/zsh_plugins.yml
 
+# RUN ansible-playbook /dotfiles/configuration/programming_languages.yml
+# RUN ansible-playbook /dotfiles/configuration/language_servers.yml
+
+RUN ansible-playbook /dotfiles/configuration/python_dev.yml
+RUN ansible-playbook /dotfiles/configuration/python_data_science.yml
+
+# RUN nvim --headless "+Lazy! sync" +qa
+
 WORKDIR /home/jeremypmann
 
 ENTRYPOINT ["/bin/zsh", "--login"]
