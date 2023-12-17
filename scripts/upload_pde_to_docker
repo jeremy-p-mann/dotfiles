@@ -1,0 +1,18 @@
+#!/bin/bash
+# Script to tag and push a Docker image with a timestamp and update the latest tag
+
+# Get the current UTC time in the specified format
+timestamp=$(date -u +"%Y%m%d%H%M%S")
+
+# Tag the local image with the current timestamp
+docker tag pde jmann277/pde:${timestamp}
+
+# Also tag the same image as 'latest'
+docker tag pde jmann277/pde:latest
+
+# Push the timestamped tag to the repository
+docker push jmann277/pde:${timestamp}
+
+# Push the 'latest' tag to the repository
+docker push jmann277/pde:latest
+
