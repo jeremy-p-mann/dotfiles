@@ -85,6 +85,5 @@ bindkey "^e" autosuggest-execute
 bindkey "^p" fzf-cd-widget
 bindkey '^t' fzf-file-widget
 
-export PATH="$HOME/.poetry/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -13,3 +13,4 @@ source $XDG_CONFIG_HOME/env/env.sh
 [[ $SHELL == *'bash' ]] && [[ $- == *i* ]] && source $XDG_CONFIG_HOME/bash/.bashrc
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
