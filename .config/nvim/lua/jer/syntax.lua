@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup {
     "c_sharp",
     "toml",
     "vim",
+        "vimdoc",
   },
   auto_install = true,
 }
