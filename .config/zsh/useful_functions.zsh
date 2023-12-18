@@ -144,3 +144,22 @@ db () {
     tmux send-keys -t mysession:0 'streamlit run dashboards/__main__.py' C-m
     tmux send-keys -t mysession:1 'streamlit run dashboards/meso.py' C-m
 }
+
+snc () {
+    if [ "$(docker ps -a -q -f name=pde_dotfiles)" ]; then
+        if [ ! "$(docker ps -q -f name=pde_dotfiles -f status=running)" ]; then
+            docker start pde_dotfiles
+        else
+            echo "Container is already running."
+        fi
+    else
+        docker run -d --name pde_dotfiles -v $CODEDIR:/home/jeremypmann/code --entrypoint "/bin/sh" jmann277/pde -c 'tail -f /dev/null'
+    fi
+}
+
+anc () {
+    docker exec \
+        -it \
+        pde_dotfiles \
+        zsh --login
+}
