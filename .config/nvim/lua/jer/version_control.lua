@@ -21,7 +21,7 @@ end
 
 local _async_notify = function(message, level)
   vim.schedule(function()
-    vim.notify("Commit successful: " .. message, vim.log.levels.INFO)
+    vim.notify(message, vim.log.levels.INFO)
   end)
 end
 
@@ -80,5 +80,5 @@ nremap("<leader>hs", gs.stage_hunk, "Stage Git Hunk")
 nremap("<leader>hb", blame_line, "Toggle Full Git Blame Commit")
 nremap("<leader>hB", gs.toggle_current_line_blame, "Toggle Git Blame Line")
 nremap("<leader>hd", gs.diffthis, "View Git Diff of the File")
-nremap("[g", "<cmd>Gitsigns prev_hunk<CR>", "Go to previous Git Hunk")
-nremap("]g", "<cmd>Gitsigns next_hunk<CR>", "Go to Next Git Hunk")
+nremap("[g", "<cmd>silent! Gitsigns prev_hunk<CR>", "Go to previous Git Hunk")
+nremap("]g", "<cmd>silent! Gitsigns next_hunk<CR>", "Go to Next Git Hunk")
