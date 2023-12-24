@@ -55,17 +55,13 @@ end
 
 local Job = require'plenary.job'
 
-local function notify(message, level)
-  vim.notify(message, level)
-end
-
 local function git_push(branch)
   Job:new({
     command = "git",
     args = {"push", "origin", branch},
     on_exit = function(j, return_val)
       local msg = "Git push " .. (return_val == 0 and "successful: " or "failed: ") .. branch
-      notify(msg, return_val == 0 and vim.log.levels.INFO or vim.log.levels.ERROR)
+      _async_notify(msg, return_val == 0 and vim.log.levels.INFO or vim.log.levels.ERROR)
     end,
   }):start()
 end
@@ -78,11 +74,11 @@ local function get_current_git_branch_and_push()
       if branch and #branch > 0 then
         git_push(branch)
       else
-        notify("Failed to get current branch", vim.log.levels.ERROR)
+        _async_notify("Failed to get current branch", vim.log.levels.ERROR)
       end
     end,
     on_stderr = function(_, err)
-      notify("Error getting current branch: " .. err, vim.log.levels.ERROR)
+      _async_notify("Error getting current branch: " .. err, vim.log.levels.ERROR)
     end,
   }):start()
 end
