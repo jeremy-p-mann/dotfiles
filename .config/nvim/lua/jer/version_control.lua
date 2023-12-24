@@ -53,6 +53,40 @@ local function commitWithInput()
   end)
 end
 
+local Job = require'plenary.job'
+
+local function notify(message, level)
+  vim.notify(message, level)
+end
+
+local function git_push(branch)
+  Job:new({
+    command = "git",
+    args = {"push", "origin", branch},
+    on_exit = function(j, return_val)
+      local msg = "Git push " .. (return_val == 0 and "successful: " or "failed: ") .. branch
+      notify(msg, return_val == 0 and vim.log.levels.INFO or vim.log.levels.ERROR)
+    end,
+  }):start()
+end
+
+local function get_current_git_branch_and_push()
+  Job:new({
+    command = "git",
+    args = {"branch", "--show-current"},
+    on_stdout = function(_, branch)
+      if branch and #branch > 0 then
+        git_push(branch)
+      else
+        notify("Failed to get current branch", vim.log.levels.ERROR)
+      end
+    end,
+    on_stderr = function(_, err)
+      notify("Error getting current branch: " .. err, vim.log.levels.ERROR)
+    end,
+  }):start()
+end
+
 local function git_status()
   telescope.git_status {
     attach_mappings = function(_, map)
@@ -74,6 +108,8 @@ nremap("<leader>gbr", telescope.git_branches, "Telescope Branches")
 nremap("<leader>gc", telescope.git_commits, "Telescope Commits")
 nremap("<leader>gh", telescope.git_bcommits, "Telescope Branch Commits")
 nremap("<leader>gm", commitWithInput, "Commit with a Messages")
+nremap("<leader>gp", get_current_git_branch_and_push, "Push Current Branch")
+
 nremap("<leader>hp", gs.preview_hunk, "Preview Git Hunk")
 nremap("<leader>hr", gs.reset_hunk, "Reset Git Hunk")
 nremap("<leader>hs", gs.stage_hunk, "Stage Git Hunk")
