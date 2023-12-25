@@ -3,6 +3,7 @@ local Job = require "plenary.job"
 local notify = require "notify"
 local nremap = require("jer.keymaps").nremap
 local telescope = require "telescope.builtin"
+local action_set = require "telescope.actions.set"
 
 require("gitsigns").setup {
   signs = {
@@ -53,15 +54,18 @@ local function commitWithInput()
   end)
 end
 
-local Job = require'plenary.job'
-
 local function git_push(branch)
   Job:new({
     command = "git",
-    args = {"push", "origin", branch},
+    args = { "push", "origin", branch },
     on_exit = function(j, return_val)
-      local msg = "Git push " .. (return_val == 0 and "successful: " or "failed: ") .. branch
-      _async_notify(msg, return_val == 0 and vim.log.levels.INFO or vim.log.levels.ERROR)
+      local msg = "Git push "
+        .. (return_val == 0 and "successful: " or "failed: ")
+        .. branch
+      _async_notify(
+        msg,
+        return_val == 0 and vim.log.levels.INFO or vim.log.levels.ERROR
+      )
     end,
   }):start()
 end
@@ -69,7 +73,7 @@ end
 local function get_current_git_branch_and_push()
   Job:new({
     command = "git",
-    args = {"branch", "--show-current"},
+    args = { "branch", "--show-current" },
     on_stdout = function(_, branch)
       if branch and #branch > 0 then
         git_push(branch)
@@ -78,7 +82,10 @@ local function get_current_git_branch_and_push()
       end
     end,
     on_stderr = function(_, err)
-      _async_notify("Error getting current branch: " .. err, vim.log.levels.ERROR)
+      _async_notify(
+        "Error getting current branch: " .. err,
+        vim.log.levels.ERROR
+      )
     end,
   }):start()
 end
@@ -87,13 +94,11 @@ local function git_status()
   telescope.git_status {
     attach_mappings = function(_, map)
       map("i", "<c-s>", require("telescope.actions").git_staging_toggle)
-      map("i", "<c-m>", function(prompt_bufnr)
+      map("i", "<c-l>", function(prompt_bufnr)
         actions.close(prompt_bufnr)
-        -- defer else it doesn't enter in insert mode too lazy to figure out why.
-        vim.defer_fn(function()
-          commitWithInput()
-        end, 10)
+        vim.defer_fn(commitWithInput, 10)
       end)
+
       return true
     end,
   }
