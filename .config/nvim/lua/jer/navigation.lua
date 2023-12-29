@@ -22,7 +22,7 @@ end
 
 require("oil").setup {
   skip_confirm_for_simple_edits = true,
-  default_file_explorer = false,
+  default_file_explorer = true,
   keymaps = {
     ["g?"] = "actions.show_help",
     ["<CR>"] = "actions.select",
@@ -110,7 +110,7 @@ require("telescope").setup {
       -- theme = "ivy",
       -- disables netrw and use telescope-file-browser in its place
       ["<C-a>"] = fb_actions.create,
-      hijack_netrw = true,
+      hijack_netrw = false,
       mappings = {
         ["i"] = {
           ["<C-a>"] = fb_actions.create,
