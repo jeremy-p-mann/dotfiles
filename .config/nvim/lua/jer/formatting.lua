@@ -19,5 +19,5 @@ local format = function()
 end
 
 nremap("<leader>fm", format, "LSP formatting")
-nremap("<leader>af", [[gqk]], "Split long line into separate lines")
+-- nremap("<leader>af", [[gqk]], "Split long line into separate lines")
 nremap("<leader>ws", trim_whitespace, "Trim Whitespace")
