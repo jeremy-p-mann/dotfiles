@@ -11,6 +11,14 @@ type $1 struct {
 ]]
   ),
   ps(
+    "im",
+    [[
+import (
+	"$1"
+)
+]]
+  ),
+  ps(
     "if",
     [[
 if $1 {
