@@ -126,7 +126,6 @@ require("telescope").load_extension "aerial"
 require("telescope").load_extension "send_to_harpoon"
 require("telescope").load_extension "ui-select"
 require("telescope").load_extension "file_browser"
-require("telescope").load_extension "luasnip"
 require("telescope").load_extension "tmux"
 require("telescope").load_extension "undo"
 
@@ -231,11 +230,6 @@ nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
 nremap("<leader>ff", find_in_current_directory, "Telescope Current Directory")
-nremap(
-  "<leader>fn",
-  "<cmd>Telescope luasnip<cr>",
-  "Telescope Current Directory"
-)
 nremap(
   "<leader>fw",
   "<cmd>Telescope tmux windows<cr>",

@@ -67,7 +67,6 @@ local plugins = {
   "nvim-telescope/telescope-symbols.nvim",
   "stevearc/oil.nvim",
   "camgraff/telescope-tmux.nvim",
-  "benfowler/telescope-luasnip.nvim",
   "stevearc/dressing.nvim",
   "kkharji/sqlite.lua",
   "nvim-treesitter/nvim-treesitter",
