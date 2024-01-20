@@ -11,6 +11,7 @@
         name:
           - "{{ python[ansible_os_family] }}"
           - "{{ pip[ansible_os_family] }}"
+          - "{{ pipx[ansible_os_family] }}"
         state: latest
       tags: python
 

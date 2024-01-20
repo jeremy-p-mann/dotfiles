@@ -10,27 +10,37 @@
         name: "{{ username }}"
         shell: /bin/zsh
         create_home: no
+      tags:
+        - user
 
     - name: Create Home folder
       ansible.builtin.file:
         path:  "{{ user_home }}"
         owner:  "{{ username}}"
         state: directory
+      tags:
+        - user
 
     - name: Create Project folder
       ansible.builtin.file:
         path: "{{ project_folder }}"
         owner:  "{{ username}}"
         state: directory
+      tags:
+        - directory_structure
 
     - name: Create Learning folder
       ansible.builtin.file:
         path: "{{ learning_folder }}"
         owner:  "{{ username}}"
         state: directory
+      tags:
+        - directory_structure
 
     - name: Create Scratch folder
       ansible.builtin.file:
         path: "{{ scratch_folder }}"
         owner:  "{{ username}}"
         state: directory
+      tags:
+        - directory_structure

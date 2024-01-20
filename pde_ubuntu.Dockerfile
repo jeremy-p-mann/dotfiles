@@ -17,10 +17,12 @@ RUN apt-get install -y fd-find
 
 RUN git clone https://github.com/jmann277/dotfiles --depth=1
 RUN ansible-playbook /dotfiles/configuration/install_packages.yml
-RUN ansible-playbook /dotfiles/configuration/jeremy.yml
+RUN ansible-playbook /dotfiles/configuration/jeremy.yml -t user
 RUN ansible-playbook /dotfiles/configuration/programming_languages.yml
 
 USER jeremypmann
+
+RUN ansible-playbook /dotfiles/configuration/jeremy.yml -t directory_structure
 
 RUN mkdir -p /home/jeremypmann/.local/bin
 RUN ln -s $(which fdfind) ~/.local/bin/fd

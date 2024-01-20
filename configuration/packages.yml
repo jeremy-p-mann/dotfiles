@@ -5,6 +5,9 @@ python:
 pip:
   Debian: python3-pip
   Archlinux: python-pip
+pip:
+  Debian: pipx
+  Archlinux: python-pipx
 
 sudo:
   Debian: sudo
