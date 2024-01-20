@@ -3,24 +3,17 @@
   hosts: localhost
   tasks:
     - name: Install python language server
-      community.general.pipx:
-        name: python-lsp-server
-        state: latest
+      command: pipx install python-lsp-server
       tags:
         - python
 
-
     - name: Install mypy python language server plugin
-      community.general.pipx:
-        name: pylsp-mypy
-        state: latest
+      command: pipx install pylsp-mypy
       tags:
         - python
 
     - name: Install black python language server plugin
-      community.general.pipx:
-        name: pyls-black
-        state: latest
+      command: pipx install pyls-black
       tags:
         - python
 
