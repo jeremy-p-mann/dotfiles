@@ -3,17 +3,27 @@
   hosts: localhost
   tasks:
     - name: Install python language server
-      command: pipx install python-lsp-server
+      pip:
+        name: python-lsp-server
+        state: latest
+        extra_args: --user
       tags:
         - python
 
+
     - name: Install mypy python language server plugin
-      command: pipx install pylsp-mypy
+      pip:
+        name: pylsp-mypy
+        state: latest
+        extra_args: --user
       tags:
         - python
 
     - name: Install black python language server plugin
-      command: pipx install pyls-black
+      pip:
+        name: pyls-black
+        state: latest
+        extra_args: --user
       tags:
         - python
 
