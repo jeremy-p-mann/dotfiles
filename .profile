@@ -16,3 +16,8 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+if [ -f ~/local.sh ]; then
+   source ~/local.sh
+else
+   touch ~/local.sh && echo "Created empty local.sh"
+fi
