@@ -139,10 +139,12 @@ gq () {
 
 
 db () {
-    tmux new-session -d -s mysession -n win1 -c $CODEDIR/jer_health
-    tmux new-window -n win2 -t mysession:1 -c $CODEDIR/jer_health
-    tmux send-keys -t mysession:0 'streamlit run dashboards/__main__.py' C-m
-    tmux send-keys -t mysession:1 'streamlit run dashboards/meso.py' C-m
+    tmux new-session -d -s dashboards -n win1 -c $CODEDIR/jer_health
+    tmux new-window -n win2 -t dashboards:1 -c $CODEDIR/jer_health
+    tmux new-window -n win3 -t dashboards:2 -c $CODEDIR/jer_health
+    tmux send-keys -t dashboards:0 'streamlit run dashboards/__main__.py' C-m
+    tmux send-keys -t dashboards:1 'streamlit run dashboards/meso.py' C-m
+    tmux send-keys -t dashboards:2 'streamlit run dashboards/running.py' C-m
 }
 
 snc () {
