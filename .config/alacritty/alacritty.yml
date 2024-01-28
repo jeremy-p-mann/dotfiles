@@ -7,3 +7,6 @@ scrolling:
   history: 10000
 font:
   size: 24.0
+window:
+  decorations: None
+  startup_mode: Fullscreen
