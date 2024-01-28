@@ -235,4 +235,41 @@ local picker_factory = function(opts)
     :find()
 end
 
+-- AutoCommands
+local group = vim.api.nvim_create_augroup("GoAutoImport", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = group,
+  pattern = "*.go",
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local offset_encoding = "utf-16" -- Hardcoded for gopls
+    local params = vim.lsp.util.make_range_params()
+    params.context = { only = { "source.organizeImports" } }
+    local result =
+      vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 1000)
+    for _, res in pairs(result or {}) do
+      for _, action in pairs(res.result or {}) do
+        if action.edit then
+          vim.lsp.util.apply_workspace_edit(action.edit, offset_encoding)
+        end
+      end
+    end
+  end,
+})
+
+local group = vim.api.nvim_create_augroup("GoAutoFormat", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = group,
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format {
+      timeout_ms = 1000,
+      bufnr = vim.api.nvim_get_current_buf(),
+    }
+  end,
+})
+
+-- Keymaps
 vim.keymap.set("n", "<leader>ks", picker_factory)
