@@ -229,6 +229,7 @@ nremap("<leader>fs", grep_string, "Grep For String")
 nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
+nremap("<leader>fi", telescope.current_buffer_fuzzy_find, "Telescope In File")
 nremap("<leader>ff", find_in_current_directory, "Telescope Current Directory")
 nremap(
   "<leader>fw",
