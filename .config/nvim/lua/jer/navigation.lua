@@ -212,6 +212,24 @@ local grep_string = function()
   telescope.grep_string { search = vim.fn.input "Grep For > " }
 end
 
+local function search_current_file()
+  vim.ui.input("Search", function(search)
+    require("telescope.builtin").grep_string {
+      search_dirs = { vim.fn.expand "%" },
+      search = search,
+      -- word_match = "-w",
+      only_sort_text = true,
+      disable_coordinates = true,
+      layout_strategy = "vertical",
+      path_display = { "hidden" },
+      layout_config = {
+        width = 0.95,
+        height = 0.95,
+      },
+    }
+  end)
+end
+
 -- Quickfix
 nremap("<C-j>", [[<CMD>silent! cnext<CR>]], "Quickfix Next")
 nremap("<C-k>", [[<CMD>silent! cprev<CR>]], "Quickfix Previous")
@@ -229,7 +247,7 @@ nremap("<leader>fs", grep_string, "Grep For String")
 nremap("<leader>fg", telescope.live_grep, "Telescope Live Grep")
 nremap("<leader>fv", telescope.treesitter, "Treesitter Entities")
 nremap("<leader>fb", telescope.buffers, "Telescope Buffers")
-nremap("<leader>fi", telescope.current_buffer_fuzzy_find, "Telescope In File")
+nremap("<leader>fi", search_current_file, "Telescope In Current File")
 nremap("<leader>ff", find_in_current_directory, "Telescope Current Directory")
 nremap(
   "<leader>fw",
