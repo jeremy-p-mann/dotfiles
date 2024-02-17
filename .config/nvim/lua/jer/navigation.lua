@@ -230,10 +230,52 @@ local function search_current_file()
   end)
 end
 
+function go_to_next_file()
+  local current_file = vim.api.nvim_buf_get_name(0) -- Get the current file path
+  local current_dir = vim.fn.fnamemodify(current_file, ":h") -- Extract directory
+
+  local files = vim.fn.readdir(current_dir) -- List files in directory
+  table.sort(files) -- Sort files lexicographically
+
+  local current_filename = vim.fn.fnamemodify(current_file, ":t") -- Get current file name
+  for i, filename in ipairs(files) do
+    if filename == current_filename and i > 1 then
+      local previous_file = files[i - 1] -- Get the previous file in the list
+      local previous_file_path = current_dir .. "/" .. previous_file
+      vim.cmd("edit " .. previous_file_path) -- Open the previous file
+      return
+    end
+  end
+end
+
+function go_to_previous_file()
+  local current_file = vim.api.nvim_buf_get_name(0) -- Get the current file path
+  local current_dir = vim.fn.fnamemodify(current_file, ":h") -- Extract directory
+
+  local files = vim.fn.readdir(current_dir) -- List files in directory
+  table.sort(files) -- Sort files lexicographically
+
+  local current_filename = vim.fn.fnamemodify(current_file, ":t") -- Get current file name
+  for i, filename in ipairs(files) do
+    if filename == current_filename then
+      local next_file = files[i + 1] -- Get the next file in the list
+      if next_file then
+        local next_file_path = current_dir .. "/" .. next_file
+        vim.cmd("edit " .. next_file_path) -- Open the next file
+        return
+      end
+    end
+  end
+end
+
+
 -- Quickfix
 nremap("<C-j>", [[<CMD>silent! cnext<CR>]], "Quickfix Next")
 nremap("<C-k>", [[<CMD>silent! cprev<CR>]], "Quickfix Previous")
 nremap("<leader>tt", builtin.builtin, "Telescope Telescope")
+-- Moving Around
+nremap("]f", go_to_previous_file, "Go the Previous File (Lexigraphically)")
+nremap("[f", go_to_next_file, "Go the Next File (Lexigraphically)")
 -- General Finding
 nremap(
   "<leader>F",
