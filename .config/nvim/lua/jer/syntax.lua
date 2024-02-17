@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup {
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = true , disable = {"html"}},
   ensure_installed = {
     "c",
     "html",
@@ -12,7 +12,6 @@ require("nvim-treesitter.configs").setup {
     "bash",
     "sql",
     "bash",
-    "astro",
     "json",
     "yaml",
     "ruby",
@@ -26,7 +25,7 @@ require("nvim-treesitter.configs").setup {
     "c_sharp",
     "toml",
     "vim",
-        "vimdoc",
+    "vimdoc",
   },
   auto_install = true,
 }
