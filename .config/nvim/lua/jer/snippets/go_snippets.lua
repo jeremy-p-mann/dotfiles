@@ -50,6 +50,14 @@ func $1($2) $3 {
 }
 ]]
   ),
+  ps(
+    "handler",
+    [[
+func $1(w http.ResponseWriter, req *http.Request) {
+    $2
+}
+]]
+  ),
 ps(
     "main",
     [[
