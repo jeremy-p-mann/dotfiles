@@ -7,7 +7,6 @@ require("nvim-treesitter.configs").setup {
     "typescript",
     "python",
     "rust",
-    "scala",
     "lua",
     "bash",
     "sql",
