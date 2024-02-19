@@ -25,3 +25,4 @@ packer
 .config/zsh/.zsh_sessions/*
 .config/zsh/.zsh_history
 __pycache__
+.config/gcloud
