@@ -24,6 +24,7 @@ nremap(
 -- [[<cmd>w<CR><cmd>lua require('plenary.reload').reload_module('jer', true)<CR><cmd>luafile ~/.config/nvim/init.lua<CR><CMD>Lazy! sync<CR>]],
 nremap("<leader>wr", "<cmd>wa<cr>", "Save all files")
 nremap("<leader>ms", "<cmd>messages<cr>", "Save all files")
+nremap("<leader>mc", "<cmd>messages clear<cr>", "Save all files")
 nremap("<leader>rw", [[viwp]], "Replace Word")
 nremap("<leader>rW", [[viWp]], "Replace Entire Word")
 nremap("<leader>cw", [[g~iw]], "Capitalize Word")
