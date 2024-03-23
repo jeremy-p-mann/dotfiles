@@ -58,7 +58,16 @@ func $1(w http.ResponseWriter, req *http.Request) {
 }
 ]]
   ),
-ps(
+  ps(
+    "handlerhtml",
+    [[
+func $1(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+    $2
+}
+]]
+  ),
+  ps(
     "main",
     [[
 func main() {
@@ -100,6 +109,12 @@ for $1 := $2; $1 < $3; $1++ {
 for index, ${1:value} := range $2 {
 	$0
 }
+]]
+  ),
+  ps(
+    "p",
+    [[
+fmt.Println($1)$0
 ]]
   ),
 }
