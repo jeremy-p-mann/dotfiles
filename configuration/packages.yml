@@ -8,7 +8,9 @@ pip:
 pipx:
   Debian: pipx
   Archlinux: python-pipx
-
+cloc:
+  Debian: cloc
+  Archlinux: cloc
 sudo:
   Debian: sudo
   Archlinux: sudo
