@@ -1,6 +1,5 @@
 local iremap = require("jer.keymaps").iremap
 local ls = require "luasnip"
-local select_choice = require'luasnip.extras.select_choice'
 
 ls.config.set_config {
   history = true,
@@ -34,5 +33,3 @@ end
 
 iremap("<c-l>", expand_jump_snippet, "Expand or Jump Snippet")
 iremap("<c-h>", previous_item_snippet, "Go to Previous Item in Snipppet")
-iremap("<c-y>", select_choice, "Select Choice")
-
