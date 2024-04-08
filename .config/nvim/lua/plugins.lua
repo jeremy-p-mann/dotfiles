@@ -55,7 +55,7 @@ local plugins = {
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
   "rcarriga/nvim-notify",
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   "mfussenegger/nvim-dap",
   "mfussenegger/nvim-dap-python",
   "AckslD/nvim-neoclip.lua",
