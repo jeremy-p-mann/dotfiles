@@ -117,5 +117,21 @@ for index, ${1:value} := range $2 {
 fmt.Println($1)$0
 ]]
   ),
+  ps(
+    "test",
+    [[
+func Test${1:FunctionName}(t *testing.T) {
+    $2
+}
+]]
+  ),
+  ps(
+    "assert",
+    [[
+if ${1:actual} != ${2:expected} {
+    t.Errorf("Expected %v, got %v", ${2:expected}, ${1:actual})
+}
+]]
+  ),
 }
 return snippets
