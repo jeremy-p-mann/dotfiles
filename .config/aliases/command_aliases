@@ -95,7 +95,7 @@ alias ansp="ansible-playbook"
 alias ans="ansible"
 
 alias sq="sqlite3 --header"
-alias ud="$CODEDIR/jer_health/scripts/update_workout_data; chrome-cli reload"
+alias ud="$CODEDIR/jer_health/scripts/update_workout_data"
 alias comd="$CODEDIR/jer_health/scripts/commit_data"
 alias conda="/Users/jeremymann/miniconda3/bin/conda"
 #
