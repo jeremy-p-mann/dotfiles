@@ -81,7 +81,7 @@ require("lspconfig").terraformls.setup {
   filetypes = { "tf" },
 }
 
-require("lspconfig").tsserver.setup {
+require("lspconfig").ts_ls.setup {
   capabilities = opts.capabilities,
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
