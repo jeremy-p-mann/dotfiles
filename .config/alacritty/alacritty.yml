@@ -1,8 +1,3 @@
-window:
-  padding:
-    x: 6
-    y: 6
-  title: Alacritty
 scrolling:
   history: 10000
 font:
@@ -10,3 +5,7 @@ font:
 window:
   decorations: None
   startup_mode: Fullscreen
+  padding:
+    x: 6
+    y: 6
+  title: Alacritty

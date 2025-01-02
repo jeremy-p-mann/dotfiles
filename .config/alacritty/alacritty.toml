@@ -1,0 +1,14 @@
+[font]
+size = 24.0
+
+[scrolling]
+history = 10000
+
+[window]
+decorations = "None"
+startup_mode = "Fullscreen"
+title = "Alacritty"
+
+[window.padding]
+x = 6
+y = 6
