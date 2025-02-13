@@ -8,9 +8,6 @@ pip:
 pipx:
   Debian: pipx
   Archlinux: python-pipx
-cloc:
-  Debian: cloc
-  Archlinux: cloc
 sudo:
   Debian: sudo
   Archlinux: sudo
@@ -38,9 +35,6 @@ curl:
 cmake:
   Debian: cmake
   Archlinux: cmake
-the_silver_searcher:
-  Debian: silversearcher-ag
-  Archlinux: the_silver_searcher
 pkg:
   Debian: pkg-config
   Archlinux: pkgconfig
@@ -59,9 +53,6 @@ bash:
 git:
   Debian: git
   Archlinux: git
-lazygit:
-  Debian: lazygit
-  Archlinux: lazygit
 gitdelta:
   Debian: git-delta
   Archlinux: git-delta
