@@ -80,3 +80,9 @@ lua:
 unzip:
   Debian: unzip
   Archlinux: unzip
+# imagemagick:
+#   Debian: imagemagick
+#   Archlinux: imagemagick
+# ghostscript:
+#   Debian: imagemagick
+#   Archlinux: imagemagick

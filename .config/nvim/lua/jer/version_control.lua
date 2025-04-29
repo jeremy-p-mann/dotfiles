@@ -110,6 +110,7 @@ nremap("<leader>gc", telescope.git_commits, "Telescope Commits")
 nremap("<leader>gh", telescope.git_bcommits, "Telescope Branch Commits")
 nremap("<leader>gm", commitWithInput, "Commit with a Messages")
 nremap("<leader>gp", get_current_git_branch_and_push, "Push Current Branch")
+nremap("<leader>go", function() require'snacks'.gitbrowse() end, "Browse File in Github")
 
 nremap("<leader>hp", gs.preview_hunk, "Preview Git Hunk")
 nremap("<leader>hr", gs.reset_hunk, "Reset Git Hunk")

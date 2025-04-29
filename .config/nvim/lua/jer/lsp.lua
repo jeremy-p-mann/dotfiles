@@ -48,7 +48,7 @@ local opts = {
 local null_ls = require "null-ls"
 require("null-ls").setup {
   sources = {
-    null_ls.builtins.formatting.stylua,
+    -- null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
     -- null_ls.builtins.diagnostics.write_good,
@@ -59,7 +59,6 @@ require("null-ls").setup {
   },
 }
 
-local configs = require "lspconfig/configs"
 local util = require "lspconfig/util"
 
 local path = util.path

@@ -20,15 +20,11 @@ local plugins = {
     "eandrju/cellular-automaton.nvim",
     "tpope/vim-commentary",
     "benmills/vimux",
-    {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-    },
+    { "folke/neodev.nvim", opts = {} },
     "jpalardy/vim-slime",
-    "tpope/vim-capslock",
     {
         "vhyrro/luarocks.nvim",
-        priority = 1000,
+        event="VeryLazy",
         opts = {
             rocks = { "lyaml" },
         },
@@ -65,17 +61,38 @@ local plugins = {
     "rafamadriz/friendly-snippets",
     "rcarriga/nvim-notify",
     "nvimtools/none-ls.nvim",
-    "mfussenegger/nvim-dap",
-    "mfussenegger/nvim-dap-python",
     "AckslD/nvim-neoclip.lua",
     "nvim-telescope/telescope-symbols.nvim",
     "stevearc/oil.nvim",
     "camgraff/telescope-tmux.nvim",
-    "stevearc/dressing.nvim",
+    {
+        "stevearc/dressing.nvim",
+        event = 'VeryLazy'
+    },
     "kkharji/sqlite.lua",
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            indent = { enabled = true, animate = { enabled = false }, scope = { enabled = false } },
+            image = {
+                enabled = true,
+                doc = { float = false, inline = false },
+            },
+            gitbrowse = { enabled = true },
+            picker = { enabled = true },
+            quickfile = { enabled = true }
+
+        },
+    },
     {
         "olimorris/codecompanion.nvim",
         config = true,
+        event = 'VeryLazy'
     },
     "nvim-treesitter/nvim-treesitter",
 }

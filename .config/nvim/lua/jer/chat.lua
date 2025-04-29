@@ -1,6 +1,5 @@
 local keymap = require "jer.keymaps"
 local nremap = keymap.nremap
-local vremap = keymap.vremap
 
 local chat_folder = vim.env.BASEDIR .. "/chats"
 

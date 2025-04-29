@@ -28,7 +28,6 @@ cmp.setup {
     ["<C-x>"] = cmp.mapping.abort(),
   },
   sources = {
-    {name = "lazydev", group_index = 0},
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "path" },
