@@ -31,6 +31,12 @@ ef() {
 ep() {
     nvim . -c ":lua require('edc').preview_data()"
 }
+ey() {
+    nvim . -c ":lua require('edc').select_todays_diary()"
+}
+ew() {
+    nvim . -c "lua require('edc.exercise.browse_workouts').goto_todays_workout()"
+}
 fdr() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
