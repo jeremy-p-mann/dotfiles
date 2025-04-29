@@ -41,6 +41,9 @@ opt.showmode=false
 opt.ruler=false
 opt.laststatus=nil
 opt.showcmd=false
+vim.diagnostic.config({
+  virtual_text = true,
+})
 
 
 vim.o.ch = 0

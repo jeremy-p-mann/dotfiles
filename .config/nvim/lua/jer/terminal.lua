@@ -1,5 +1,6 @@
 local nremap = require("jer.keymaps").nremap
 local tremap = require("jer.keymaps").tremap
+local execute_sql = require("jer.sql").execute_sql_query_from_file
 local async = require "plenary.async"
 local notify = require("notify").async
 
@@ -37,8 +38,7 @@ local execute_code = function()
     local command = 'VimuxRunCommand("' .. shell_command .. '")'
     vim.cmd(command)
   elseif filetype == "sql" then
-    local command = 'ExecuteSQL'
-    vim.cmd(command)
+    execute_sql()
   elseif filetype == "lua" then
     vim.cmd "luafile %"
   end

@@ -1,7 +1,5 @@
 local nremap = require("jer.keymaps").nremap
 
-nremap("<leader>tar", require("tarot").telescope_tarots, "Tarot")
-
 -- update function
 local config = {
     fps = 35,

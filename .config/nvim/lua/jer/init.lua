@@ -17,6 +17,7 @@ require "jer.syntax"
 require "jer.python"
 require "jer.tmux"
 require "jer.miscellaneous"
+require "jer.llms"
 _, _ = pcall(require "jer.chat")
 _, _ = pcall(require "jer.go")
 require "jer.local".do_stuff()
