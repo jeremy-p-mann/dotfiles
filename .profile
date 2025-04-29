@@ -15,6 +15,7 @@ source $XDG_CONFIG_HOME/env/env.sh
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -f ~/local.sh ]; then
    source ~/local.sh
