@@ -24,7 +24,8 @@ local plugins = {
     "jpalardy/vim-slime",
     {
         "vhyrro/luarocks.nvim",
-        event="VeryLazy",
+        -- event="VeryLazy",
+        priority=1000,
         opts = {
             rocks = { "lyaml" },
         },

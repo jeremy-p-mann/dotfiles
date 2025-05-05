@@ -2,12 +2,16 @@
 
 ## To Do
 
+[ ] Pull lsp things from quickstart
+[ ] Migrate to lazydev.nvim using quickstart
+[ ] Use mason to install langauge servers
+     [ ] also install some by default
 [ ] Revamp completion module
     [ ] complete via particular souces, with `<C-x><C-{...}>`
         [ ] path
         [ ] lsp symbols
-        [ ] buffer 
-        [ ] snippets 
+        [ ] buffer
+        [ ] snippets
     [ ] migrate to blink.nvim
 
 ## Done
