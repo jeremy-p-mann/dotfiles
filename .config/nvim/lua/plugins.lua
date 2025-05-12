@@ -16,16 +16,13 @@ local local_plugins = require("jer.local").get_plugins()
 
 local plugins = {
     "nvim-lua/plenary.nvim",
-    "lewis6991/impatient.nvim",
     "eandrju/cellular-automaton.nvim",
-    "tpope/vim-commentary",
     "benmills/vimux",
-    { "folke/neodev.nvim", opts = {} },
     "jpalardy/vim-slime",
     {
         "vhyrro/luarocks.nvim",
         -- event="VeryLazy",
-        priority=1000,
+        priority = 1000,
         opts = {
             rocks = { "lyaml" },
         },
@@ -40,30 +37,18 @@ local plugins = {
     "nvim-telescope/telescope-ui-select.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "norcalli/nvim-colorizer.lua",
-    "gruvbox-community/gruvbox",
     "EdenEast/nightfox.nvim",
-    "rose-pine/neovim",
     "stevearc/aerial.nvim",
-    "aditya-azad/candle-grey",
-    "olimorris/onedarkpro.nvim",
-    "neovim/nvim-lspconfig",
-    "tpope/vim-surround",
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = { 'saghen/blink.cmp' }
+    },
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-nvim-lua",
-    "onsails/lspkind-nvim",
     "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets",
     "rcarriga/nvim-notify",
     "nvimtools/none-ls.nvim",
     "AckslD/nvim-neoclip.lua",
-    "nvim-telescope/telescope-symbols.nvim",
     "stevearc/oil.nvim",
     "camgraff/telescope-tmux.nvim",
     {
@@ -96,8 +81,44 @@ local plugins = {
         event = 'VeryLazy'
     },
     "nvim-treesitter/nvim-treesitter",
+    {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+            library = {
+                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+            },
+        },
+    },
+    {
+        'saghen/blink.cmp',
+        dependencies = { 'rafamadriz/friendly-snippets', { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
+        version = '1.*',
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            keymap = { preset = 'default' },
+            appearance = { nerd_font_variant = 'mono' },
+            completion = { documentation = { auto_show = true, auto_show_delay_ms = 500 } },
+            snippets = { preset = 'luasnip' },
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+                providers = {
+                    lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+                    path = {
+                        opts = {
+                            get_cwd = function(_)
+                                return vim.fn.getcwd()
+                            end,
+                        },
+                    },
+                },
+            },
+            fuzzy = { implementation = "prefer_rust_with_warning" }
+        },
+        opts_extend = { "sources.default" }
+    }
 }
-
 for _, plugin in ipairs(local_plugins) do
     table.insert(plugins, plugin)
 end

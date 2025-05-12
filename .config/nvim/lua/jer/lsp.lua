@@ -1,6 +1,7 @@
 --- LSP Related Stuff ---
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 local on_attach = function()
   vim.keymap.set(
     "n",
@@ -10,8 +11,8 @@ local on_attach = function()
   )
   vim.keymap.set(
     "n",
-    "gd",
-    "<CMD>Telescope lsp_definitions<CR>",
+    "grd",
+    require('telescope.builtin').lsp_definitions,
     { buffer = 0, desc = "Telescope Definitions" }
   )
   vim.keymap.set(
@@ -22,21 +23,27 @@ local on_attach = function()
   )
   vim.keymap.set(
     "n",
-    "<leader>rf",
+    "grr",
     require("telescope.builtin").lsp_references,
     { desc = "Telescope References" }
   )
   vim.keymap.set(
     "n",
-    "<leader>rn",
+    "grn",
     vim.lsp.buf.rename,
     { buffer = 0, desc = "LSP Rename" }
   )
   vim.keymap.set(
     "n",
-    "<leader>ca",
+    "gra",
     vim.lsp.buf.code_action,
     { buffer = 0, desc = "LSP Code Actions" }
+  )
+  vim.keymap.set(
+    "n",
+    "grt",
+    require('telescope.builtin').lsp_type_definitions,
+    { buffer = 0, desc = "Go to Type Definition" }
   )
 end
 
@@ -128,19 +135,6 @@ require("lspconfig").lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-        -- Setup your lua path
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,

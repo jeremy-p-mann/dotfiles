@@ -1,13 +1,8 @@
-vim.api.nvim_exec(
-  [[
-
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-let g:gruvbox_italicize_comments = 0
-let g:gruvbox_contrast_dark = 'hard'
+vim.api.nvim_exec2(
+  [[highlight ColorColumn ctermbg=0 guibg=lightgrey
 colorscheme carbonfox
 ]],
-  false
+{}
 )
 
 local keymap = require "jer.keymaps"

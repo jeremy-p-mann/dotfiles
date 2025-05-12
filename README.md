@@ -2,17 +2,11 @@
 
 ## To Do
 
-[ ] Pull lsp things from quickstart
-[ ] Migrate to lazydev.nvim using quickstart
+[ ] Deprecate null/none ls
+    [ ] Introduce linters with nvim-lint
+    [ ] Conform.nvim
 [ ] Use mason to install langauge servers
      [ ] also install some by default
-[ ] Revamp completion module
-    [ ] complete via particular souces, with `<C-x><C-{...}>`
-        [ ] path
-        [ ] lsp symbols
-        [ ] buffer
-        [ ] snippets
-    [ ] migrate to blink.nvim
 
 ## Done
 
@@ -25,3 +19,12 @@
 [x] View Rendered Documents
     [x] Create viewing keymap, `<leader>rd`
     [x] figure out how to view latex in the terminal
+[x] Pull lsp things from quickstart
+[x] Migrate to lazydev.nvim using quickstart
+[x] Revamp completion module
+    [x] migrate to blink.nvim
+    [x] complete via particular souces
+        [x] path
+        [x] lsp symbols
+        [x] buffer
+        [x] snippets
