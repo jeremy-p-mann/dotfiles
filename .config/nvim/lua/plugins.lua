@@ -19,14 +19,6 @@ local plugins = {
     "eandrju/cellular-automaton.nvim",
     "benmills/vimux",
     "jpalardy/vim-slime",
-    {
-        "vhyrro/luarocks.nvim",
-        -- event="VeryLazy",
-        priority = 1000,
-        opts = {
-            rocks = { "lyaml" },
-        },
-    },
     "vim-test/vim-test",
     "lewis6991/gitsigns.nvim",
     "ThePrimeagen/harpoon",
@@ -36,13 +28,13 @@ local plugins = {
     "jmann277/telescope-send-to-harpoon.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
-    "norcalli/nvim-colorizer.lua",
     "EdenEast/nightfox.nvim",
     "stevearc/aerial.nvim",
     {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' }
     },
+    "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
     "L3MON4D3/LuaSnip",
@@ -80,7 +72,6 @@ local plugins = {
         config = true,
         event = 'VeryLazy'
     },
-    "nvim-treesitter/nvim-treesitter",
     {
         'folke/lazydev.nvim',
         ft = 'lua',
