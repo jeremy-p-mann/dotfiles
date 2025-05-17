@@ -34,7 +34,73 @@ local plugins = {
         "neovim/nvim-lspconfig",
         dependencies = { 'saghen/blink.cmp' }
     },
-    "nvim-treesitter/nvim-treesitter",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ':TSUpdate',
+        main = 'nvim-treesitter.configs',
+        opts = {
+            highlight = { enable = true },
+            indent = { enable = true },
+            auto_install = true,
+            ensure_installed = {
+                "c",
+                "html",
+                "typescript",
+                "python",
+                "rust",
+                "lua",
+                "bash",
+                "sql",
+                "bash",
+                "json",
+                "yaml",
+                "ruby",
+                "rst",
+                "markdown",
+                "latex",
+                "javascript",
+                "go",
+                "dockerfile",
+                "cpp",
+                "c_sharp",
+                "toml",
+                "vim",
+                "vimdoc",
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true,
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = "@class.inner",
+                    },
+                },
+            },
+            move = {
+                enable = true,
+                set_jumps = true,
+                goto_next_start = {
+                    ["]m"] = "@function.outer",
+                    ["]]"] = "@class.outer",
+                },
+                goto_next_end = {
+                    ["]M"] = "@function.outer",
+                    ["]["] = "@class.outer",
+                },
+                goto_previous_start = {
+                    ["[m"] = "@function.outer",
+                    ["[["] = "@class.outer",
+                },
+                goto_previous_end = {
+                    ["[M"] = "@function.outer",
+                    ["[]"] = "@class.outer",
+                },
+            },
+        }
+    },
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
     "L3MON4D3/LuaSnip",
@@ -43,20 +109,14 @@ local plugins = {
     "AckslD/nvim-neoclip.lua",
     "stevearc/oil.nvim",
     "camgraff/telescope-tmux.nvim",
-    {
-        "stevearc/dressing.nvim",
-        event = 'VeryLazy'
-    },
     "kkharji/sqlite.lua",
     {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
         opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
             indent = { enabled = true, animate = { enabled = false }, scope = { enabled = false } },
+            input = { enabled = true },
             image = {
                 enabled = true,
                 doc = { float = false, inline = false },
@@ -64,8 +124,18 @@ local plugins = {
             gitbrowse = { enabled = true },
             picker = { enabled = true },
             quickfile = { enabled = true }
-
         },
+        styles = {
+            input = {
+                win_opts = {
+                    relative = "cursor",
+                    anchor = "SW",
+                    row = -1,
+                    col = 0,
+                },
+            },
+        },
+
     },
     {
         "olimorris/codecompanion.nvim",
@@ -108,7 +178,28 @@ local plugins = {
             fuzzy = { implementation = "prefer_rust_with_warning" }
         },
         opts_extend = { "sources.default" }
-    }
+    },
+    { -- Linting
+        'mfussenegger/nvim-lint',
+        event = { 'BufReadPre', 'BufNewFile' },
+        config = function()
+            local lint = require 'lint'
+            lint.linters_by_ft = {
+                python = { 'mypy' },
+            }
+
+            local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+            vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+                group = lint_augroup,
+                callback = function()
+                    if vim.bo.modifiable then
+                        lint.try_lint()
+                    end
+                end,
+            })
+        end,
+    },
+
 }
 for _, plugin in ipairs(local_plugins) do
     table.insert(plugins, plugin)
