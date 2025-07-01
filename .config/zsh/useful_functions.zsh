@@ -125,11 +125,6 @@ fp () {
   create_or_attach_work_session $folder $directory
 }
 
-cf () {
-    project=($(ls $CODEDIR | fzf-tmux))
-    cd $CODEDIR/$project
-}
-
 def () {
     dict $1 | bat
 }
@@ -170,4 +165,24 @@ anc () {
         -it \
         pde_dotfiles \
         zsh --login
+}
+
+
+cf() {
+   if [ "$#" -eq 0 ]; then
+    echo "Usage: copy_for_llm_markdown <file1> [file2 …]" >&2
+    return 1
+  fi
+
+  {
+    for file in "$@"; do
+      [ ! -f "$file" ] && continue
+      echo "\`\`\`$file"
+      cat "$file"
+      echo "\`\`\`"
+      echo
+    done
+  } | pbcopy
+
+  echo "Copied existing files as Markdown‐fenced blocks to clipboard."
 }
