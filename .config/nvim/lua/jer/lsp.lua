@@ -1,6 +1,6 @@
 --- LSP Related Stuff ---
 
-  local capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local on_attach = function()
   vim.keymap.set(
@@ -12,7 +12,7 @@ local on_attach = function()
   vim.keymap.set(
     "n",
     "grd",
-    require('telescope.builtin').lsp_definitions,
+    require("telescope.builtin").lsp_definitions,
     { buffer = 0, desc = "Telescope Definitions" }
   )
   vim.keymap.set(
@@ -42,7 +42,7 @@ local on_attach = function()
   vim.keymap.set(
     "n",
     "grt",
-    require('telescope.builtin').lsp_type_definitions,
+    require("telescope.builtin").lsp_type_definitions,
     { buffer = 0, desc = "Go to Type Definition" }
   )
 end
@@ -50,20 +50,6 @@ end
 local opts = {
   capabilities = capabilities,
   on_attach = on_attach,
-}
-
-local null_ls = require "null-ls"
-require("null-ls").setup {
-  sources = {
-    -- null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
-    -- null_ls.builtins.diagnostics.write_good,
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.pg_format.with {
-      extra_args = { "-w", "80" },
-    },
-  },
 }
 
 local util = require "lspconfig/util"
@@ -111,7 +97,6 @@ require("lspconfig").gopls.setup(opts)
 require("lspconfig").terraformls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "tf" },
 }
 
 require("lspconfig").ts_ls.setup {

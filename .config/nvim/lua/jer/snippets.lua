@@ -17,6 +17,9 @@ local snippet_ft_map = {
   markdown = "markdown_snippets",
 }
 
+-- Track loaded filetypes to prevent duplicates
+local loaded_filetypes = {}
+
 local group = vim.api.nvim_create_augroup("LazyLoadSnippets", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -25,8 +28,11 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local ft = args.match
     local modname = snippet_ft_map[ft]
-    if modname then
+
+    -- Only load if not already loaded
+    if modname and not loaded_filetypes[ft] then
       ls.add_snippets(ft, require("jer.snippets." .. modname))
+      loaded_filetypes[ft] = true
     end
   end,
 })
@@ -35,21 +41,16 @@ vim.api.nvim_create_autocmd("FileType", {
   group = group,
   pattern = { "html", "css" },
   callback = function(args)
-    require("luasnip.loaders.from_vscode").load { include = { args.match } }
+    local ft = args.match
+
+    -- Only load if not already loaded
+    if not loaded_filetypes[ft .. "_vscode"] then
+      require("luasnip.loaders.from_vscode").load { include = { ft } }
+      loaded_filetypes[ft .. "_vscode"] = true
+    end
   end,
 })
 
-
--- ls.add_snippets("python", require "jer.snippets.python_snippets")
--- ls.add_snippets("javascript", require "jer.snippets.javascript_snippets")
--- ls.add_snippets("lua", require "jer.snippets.lua_snippets")
--- ls.add_snippets("go", require "jer.snippets.go_snippets")
--- ls.add_snippets("rust", require "jer.snippets.rust_snippets")
--- ls.add_snippets("yaml", require "jer.snippets.yaml_snippets")
--- ls.add_snippets("markdown", require "jer.snippets.markdown_snippets")
-
-
--- require("luasnip.loaders.from_vscode").load { include = { "html", "css" } }
 require("luasnip").filetype_extend("javascript", { "javascriptreact" })
 require("luasnip").filetype_extend("javascript", { "html" })
 
@@ -58,6 +59,7 @@ local expand_jump_snippet = function()
     ls.expand_or_jump()
   end
 end
+
 local previous_item_snippet = function()
   if ls.jumpable(-1) then
     ls.jump(-1)
